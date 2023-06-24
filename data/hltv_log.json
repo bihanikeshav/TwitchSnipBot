@@ -1,0 +1,6611 @@
+[
+  { "RoundStart": {} },
+  {
+    "RoundEnd": {
+      "counterTerroristScore": 9,
+      "terroristScore": 15,
+      "winner": "TERRORIST",
+      "winType": "Terrorists_Win"
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "Snappi",
+      "killerNick": "Snappi",
+      "killerSide": "TERRORIST",
+      "victimNick": "KRIMZ",
+      "victimName": "KRIMZ",
+      "victimSide": "CT",
+      "weapon": "ak47",
+      "headShot": false,
+      "eventId": 1941806108
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "KRIMZ",
+      "killerNick": "KRIMZ",
+      "killerSide": "CT",
+      "victimNick": "ottoNd",
+      "victimName": "ottoNd",
+      "victimSide": "TERRORIST",
+      "weapon": "ak47",
+      "headShot": true,
+      "eventId": 1941805988
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "ottoNd",
+      "killerNick": "ottoNd",
+      "killerSide": "TERRORIST",
+      "victimNick": "JW",
+      "victimName": "JW",
+      "victimSide": "CT",
+      "weapon": "awp",
+      "headShot": true,
+      "eventId": 1941805691
+    }
+  },
+  {
+    "BombPlanted": {
+      "playerName": "ottoNd",
+      "playerNick": "ottoNd",
+      "ctPlayers": 2,
+      "tPlayers": 3
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "KRIMZ",
+      "killerNick": "KRIMZ",
+      "killerSide": "CT",
+      "victimNick": "EspiranTo",
+      "victimName": "EspiranTo",
+      "victimSide": "TERRORIST",
+      "weapon": "fiveseven",
+      "headShot": true,
+      "eventId": 1941805535
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "JW",
+      "killerNick": "JW",
+      "killerSide": "CT",
+      "victimNick": "rigoN",
+      "victimName": "rigoN",
+      "victimSide": "TERRORIST",
+      "weapon": "deagle",
+      "headShot": true,
+      "eventId": 1941805404
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "Snappi",
+      "killerNick": "Snappi",
+      "killerSide": "TERRORIST",
+      "victimNick": "flusha",
+      "victimName": "flusha",
+      "victimSide": "CT",
+      "weapon": "ak47",
+      "headShot": false,
+      "eventId": 1941805323
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "Spinx",
+      "killerNick": "Spinx",
+      "killerSide": "TERRORIST",
+      "victimNick": "Golden",
+      "victimName": "Golden",
+      "victimSide": "CT",
+      "weapon": "ak47",
+      "headShot": false,
+      "eventId": 1941805158,
+      "flasherNick": "ottoNd",
+      "flasherSide": "TERRORIST"
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "Spinx",
+      "killerNick": "Spinx",
+      "killerSide": "TERRORIST",
+      "victimNick": "Brollan",
+      "victimName": "Brollan",
+      "victimSide": "CT",
+      "weapon": "ak47",
+      "headShot": false,
+      "eventId": 1941804994
+    }
+  },
+  { "RoundStart": {} },
+  {
+    "RoundEnd": {
+      "counterTerroristScore": 9,
+      "terroristScore": 14,
+      "winner": "TERRORIST",
+      "winType": "Terrorists_Win"
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "Snappi",
+      "killerNick": "Snappi",
+      "killerSide": "TERRORIST",
+      "victimNick": "flusha",
+      "victimName": "flusha",
+      "victimSide": "CT",
+      "weapon": "glock",
+      "headShot": false,
+      "eventId": 1941803683
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "Snappi",
+      "killerNick": "Snappi",
+      "killerSide": "TERRORIST",
+      "victimNick": "JW",
+      "victimName": "JW",
+      "victimSide": "CT",
+      "weapon": "ak47",
+      "headShot": false,
+      "eventId": 1941803355
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "flusha",
+      "killerNick": "flusha",
+      "killerSide": "CT",
+      "victimNick": "ottoNd",
+      "victimName": "ottoNd",
+      "victimSide": "TERRORIST",
+      "weapon": "awp",
+      "headShot": false,
+      "eventId": 1941803054
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "ottoNd",
+      "killerNick": "ottoNd",
+      "killerSide": "TERRORIST",
+      "victimNick": "Brollan",
+      "victimName": "Brollan",
+      "victimSide": "CT",
+      "weapon": "awp",
+      "headShot": false,
+      "eventId": 1941802977
+    }
+  },
+  {
+    "BombPlanted": {
+      "playerName": "Snappi",
+      "playerNick": "Snappi",
+      "ctPlayers": 3,
+      "tPlayers": 3
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "ottoNd",
+      "killerNick": "ottoNd",
+      "killerSide": "TERRORIST",
+      "victimNick": "KRIMZ",
+      "victimName": "KRIMZ",
+      "victimSide": "CT",
+      "weapon": "awp",
+      "headShot": false,
+      "eventId": 1941801766
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "KRIMZ",
+      "killerNick": "KRIMZ",
+      "killerSide": "CT",
+      "victimNick": "EspiranTo",
+      "victimName": "EspiranTo",
+      "victimSide": "TERRORIST",
+      "weapon": "aug",
+      "headShot": false,
+      "eventId": 1941801641
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "EspiranTo",
+      "killerNick": "EspiranTo",
+      "killerSide": "TERRORIST",
+      "victimNick": "Golden",
+      "victimName": "Golden",
+      "victimSide": "CT",
+      "weapon": "ak47",
+      "headShot": true,
+      "eventId": 1941801422
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "Golden",
+      "killerNick": "Golden",
+      "killerSide": "CT",
+      "victimNick": "Spinx",
+      "victimName": "Spinx",
+      "victimSide": "TERRORIST",
+      "weapon": "m4a1",
+      "headShot": true,
+      "eventId": 1941801386
+    }
+  },
+  { "RoundStart": {} },
+  {
+    "RoundEnd": {
+      "counterTerroristScore": 9,
+      "terroristScore": 13,
+      "winner": "CT",
+      "winType": "CTs_Win"
+    }
+  },
+  {
+    "Assist": {
+      "assisterName": "Brollan",
+      "assisterNick": "Brollan",
+      "assisterSide": "CT",
+      "victimNick": "EspiranTo",
+      "victimName": "EspiranTo",
+      "victimSide": "TERRORIST",
+      "killEventId": 1941798151
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "KRIMZ",
+      "killerNick": "KRIMZ",
+      "killerSide": "CT",
+      "victimNick": "EspiranTo",
+      "victimName": "EspiranTo",
+      "victimSide": "TERRORIST",
+      "weapon": "aug",
+      "headShot": false,
+      "eventId": 1941798151
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "EspiranTo",
+      "killerNick": "EspiranTo",
+      "killerSide": "TERRORIST",
+      "victimNick": "Brollan",
+      "victimName": "Brollan",
+      "victimSide": "CT",
+      "weapon": "ak47",
+      "headShot": true,
+      "eventId": 1941797766
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "EspiranTo",
+      "killerNick": "EspiranTo",
+      "killerSide": "TERRORIST",
+      "victimNick": "flusha",
+      "victimName": "flusha",
+      "victimSide": "CT",
+      "weapon": "ak47",
+      "headShot": true,
+      "eventId": 1941797700
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "Brollan",
+      "killerNick": "Brollan",
+      "killerSide": "CT",
+      "victimNick": "Snappi",
+      "victimName": "Snappi",
+      "victimSide": "TERRORIST",
+      "weapon": "aug",
+      "headShot": false,
+      "eventId": 1941797605
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "Brollan",
+      "killerNick": "Brollan",
+      "killerSide": "CT",
+      "victimNick": "ottoNd",
+      "victimName": "ottoNd",
+      "victimSide": "TERRORIST",
+      "weapon": "aug",
+      "headShot": false,
+      "eventId": 1941797357
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "flusha",
+      "killerNick": "flusha",
+      "killerSide": "CT",
+      "victimNick": "Spinx",
+      "victimName": "Spinx",
+      "victimSide": "TERRORIST",
+      "weapon": "awp",
+      "headShot": false,
+      "eventId": 1941797217
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "JW",
+      "killerNick": "JW",
+      "killerSide": "CT",
+      "victimNick": "rigoN",
+      "victimName": "rigoN",
+      "victimSide": "TERRORIST",
+      "weapon": "awp",
+      "headShot": false,
+      "eventId": 1941796940
+    }
+  },
+  { "RoundStart": {} },
+  {
+    "RoundEnd": {
+      "counterTerroristScore": 8,
+      "terroristScore": 13,
+      "winner": "TERRORIST",
+      "winType": "Terrorists_Win"
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "Spinx",
+      "killerNick": "Spinx",
+      "killerSide": "TERRORIST",
+      "victimNick": "Brollan",
+      "victimName": "Brollan",
+      "victimSide": "CT",
+      "weapon": "ak47",
+      "headShot": false,
+      "eventId": 1941795019
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "EspiranTo",
+      "killerNick": "EspiranTo",
+      "killerSide": "TERRORIST",
+      "victimNick": "KRIMZ",
+      "victimName": "KRIMZ",
+      "victimSide": "CT",
+      "weapon": "ak47",
+      "headShot": true,
+      "eventId": 1941795009
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "ottoNd",
+      "killerNick": "ottoNd",
+      "killerSide": "TERRORIST",
+      "victimNick": "Golden",
+      "victimName": "Golden",
+      "victimSide": "CT",
+      "weapon": "awp",
+      "headShot": false,
+      "eventId": 1941794931
+    }
+  },
+  {
+    "Assist": {
+      "assisterName": "flusha",
+      "assisterNick": "flusha",
+      "assisterSide": "CT",
+      "victimNick": "rigoN",
+      "victimName": "rigoN",
+      "victimSide": "TERRORIST",
+      "killEventId": 1941794925
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "Golden",
+      "killerNick": "Golden",
+      "killerSide": "CT",
+      "victimNick": "rigoN",
+      "victimName": "rigoN",
+      "victimSide": "TERRORIST",
+      "weapon": "deagle",
+      "headShot": false,
+      "eventId": 1941794925
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "Golden",
+      "killerNick": "Golden",
+      "killerSide": "CT",
+      "victimNick": "Snappi",
+      "victimName": "Snappi",
+      "victimSide": "TERRORIST",
+      "weapon": "deagle",
+      "headShot": true,
+      "eventId": 1941794890
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "ottoNd",
+      "killerNick": "ottoNd",
+      "killerSide": "TERRORIST",
+      "victimNick": "flusha",
+      "victimName": "flusha",
+      "victimSide": "CT",
+      "weapon": "awp",
+      "headShot": false,
+      "eventId": 1941794798
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "Snappi",
+      "killerNick": "Snappi",
+      "killerSide": "TERRORIST",
+      "victimNick": "JW",
+      "victimName": "JW",
+      "victimSide": "CT",
+      "weapon": "aug",
+      "headShot": true,
+      "eventId": 1941794726
+    }
+  },
+  { "RoundStart": {} },
+  {
+    "RoundEnd": {
+      "counterTerroristScore": 8,
+      "terroristScore": 12,
+      "winner": "TERRORIST",
+      "winType": "Terrorists_Win"
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "Snappi",
+      "killerNick": "Snappi",
+      "killerSide": "TERRORIST",
+      "victimNick": "flusha",
+      "victimName": "flusha",
+      "victimSide": "CT",
+      "weapon": "aug",
+      "headShot": false,
+      "eventId": 1941792196
+    }
+  },
+  {
+    "BombPlanted": {
+      "playerName": "EspiranTo",
+      "playerNick": "EspiranTo",
+      "ctPlayers": 1,
+      "tPlayers": 3
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "Spinx",
+      "killerNick": "Spinx",
+      "killerSide": "TERRORIST",
+      "victimNick": "Brollan",
+      "victimName": "Brollan",
+      "victimSide": "CT",
+      "weapon": "ak47",
+      "headShot": false,
+      "eventId": 1941791048
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "Brollan",
+      "killerNick": "Brollan",
+      "killerSide": "CT",
+      "victimNick": "ottoNd",
+      "victimName": "ottoNd",
+      "victimSide": "TERRORIST",
+      "weapon": "aug",
+      "headShot": false,
+      "eventId": 1941790994
+    }
+  },
+  {
+    "Assist": {
+      "assisterName": "KRIMZ",
+      "assisterNick": "KRIMZ",
+      "assisterSide": "CT",
+      "victimNick": "rigoN",
+      "victimName": "rigoN",
+      "victimSide": "TERRORIST",
+      "killEventId": 1941790922
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "Brollan",
+      "killerNick": "Brollan",
+      "killerSide": "CT",
+      "victimNick": "rigoN",
+      "victimName": "rigoN",
+      "victimSide": "TERRORIST",
+      "weapon": "aug",
+      "headShot": true,
+      "eventId": 1941790922
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "rigoN",
+      "killerNick": "rigoN",
+      "killerSide": "TERRORIST",
+      "victimNick": "Golden",
+      "victimName": "Golden",
+      "victimSide": "CT",
+      "weapon": "ak47",
+      "headShot": true,
+      "eventId": 1941790785
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "rigoN",
+      "killerNick": "rigoN",
+      "killerSide": "TERRORIST",
+      "victimNick": "KRIMZ",
+      "victimName": "KRIMZ",
+      "victimSide": "CT",
+      "weapon": "ak47",
+      "headShot": true,
+      "eventId": 1941790670
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "EspiranTo",
+      "killerNick": "EspiranTo",
+      "killerSide": "TERRORIST",
+      "victimNick": "JW",
+      "victimName": "JW",
+      "victimSide": "CT",
+      "weapon": "ak47",
+      "headShot": true,
+      "eventId": 1941790314
+    }
+  },
+  { "RoundStart": {} },
+  {
+    "Kill": {
+      "killerName": "ottoNd",
+      "killerNick": "ottoNd",
+      "killerSide": "TERRORIST",
+      "victimNick": "Golden",
+      "victimName": "Golden",
+      "victimSide": "CT",
+      "weapon": "mac10",
+      "headShot": false,
+      "eventId": 1941789009
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "ottoNd",
+      "killerNick": "ottoNd",
+      "killerSide": "TERRORIST",
+      "victimNick": "KRIMZ",
+      "victimName": "KRIMZ",
+      "victimSide": "CT",
+      "weapon": "mac10",
+      "headShot": true,
+      "eventId": 1941788947
+    }
+  },
+  {
+    "RoundEnd": {
+      "counterTerroristScore": 8,
+      "terroristScore": 11,
+      "winner": "TERRORIST",
+      "winType": "Target_Bombed"
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "ottoNd",
+      "killerNick": "ottoNd",
+      "killerSide": "TERRORIST",
+      "victimNick": "JW",
+      "victimName": "JW",
+      "victimSide": "CT",
+      "weapon": "mac10",
+      "headShot": true,
+      "eventId": 1941788878
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "ottoNd",
+      "killerNick": "ottoNd",
+      "killerSide": "TERRORIST",
+      "victimNick": "flusha",
+      "victimName": "flusha",
+      "victimSide": "CT",
+      "weapon": "mac10",
+      "headShot": true,
+      "eventId": 1941788543
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "ottoNd",
+      "killerNick": "ottoNd",
+      "killerSide": "TERRORIST",
+      "victimNick": "Brollan",
+      "victimName": "Brollan",
+      "victimSide": "CT",
+      "weapon": "mac10",
+      "headShot": false,
+      "eventId": 1941788169
+    }
+  },
+  {
+    "BombPlanted": {
+      "playerName": "Spinx",
+      "playerNick": "Spinx",
+      "ctPlayers": 5,
+      "tPlayers": 5
+    }
+  },
+  { "RoundStart": {} },
+  {
+    "RoundEnd": {
+      "counterTerroristScore": 8,
+      "terroristScore": 10,
+      "winner": "TERRORIST",
+      "winType": "Terrorists_Win"
+    }
+  },
+  {
+    "Assist": {
+      "assisterName": "ottoNd",
+      "assisterNick": "ottoNd",
+      "assisterSide": "TERRORIST",
+      "victimNick": "flusha",
+      "victimName": "flusha",
+      "victimSide": "CT",
+      "killEventId": 1941786281
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "rigoN",
+      "killerNick": "rigoN",
+      "killerSide": "TERRORIST",
+      "victimNick": "flusha",
+      "victimName": "flusha",
+      "victimSide": "CT",
+      "weapon": "ak47",
+      "headShot": true,
+      "eventId": 1941786281
+    }
+  },
+  {
+    "Assist": {
+      "assisterName": "JW",
+      "assisterNick": "JW",
+      "assisterSide": "CT",
+      "victimNick": "ottoNd",
+      "victimName": "ottoNd",
+      "victimSide": "TERRORIST",
+      "killEventId": 1941785759
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "flusha",
+      "killerNick": "flusha",
+      "killerSide": "CT",
+      "victimNick": "ottoNd",
+      "victimName": "ottoNd",
+      "victimSide": "TERRORIST",
+      "weapon": "ssg08",
+      "headShot": true,
+      "eventId": 1941785759
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "EspiranTo",
+      "killerNick": "EspiranTo",
+      "killerSide": "TERRORIST",
+      "victimNick": "KRIMZ",
+      "victimName": "KRIMZ",
+      "victimSide": "CT",
+      "weapon": "ak47",
+      "headShot": false,
+      "eventId": 1941785622
+    }
+  },
+  {
+    "BombPlanted": {
+      "playerName": "ottoNd",
+      "playerNick": "ottoNd",
+      "ctPlayers": 2,
+      "tPlayers": 4
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "rigoN",
+      "killerNick": "rigoN",
+      "killerSide": "TERRORIST",
+      "victimNick": "Brollan",
+      "victimName": "Brollan",
+      "victimSide": "CT",
+      "weapon": "ak47",
+      "headShot": true,
+      "eventId": 1941785288
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "ottoNd",
+      "killerNick": "ottoNd",
+      "killerSide": "TERRORIST",
+      "victimNick": "JW",
+      "victimName": "JW",
+      "victimSide": "CT",
+      "weapon": "ak47",
+      "headShot": false,
+      "eventId": 1941785155
+    }
+  },
+  {
+    "Assist": {
+      "assisterName": "Golden",
+      "assisterNick": "Golden",
+      "assisterSide": "CT",
+      "victimNick": "Spinx",
+      "victimName": "Spinx",
+      "victimSide": "TERRORIST",
+      "killEventId": 1941785110
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "JW",
+      "killerNick": "JW",
+      "killerSide": "CT",
+      "victimNick": "Spinx",
+      "victimName": "Spinx",
+      "victimSide": "TERRORIST",
+      "weapon": "hegrenade",
+      "headShot": false,
+      "eventId": 1941785110
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "Spinx",
+      "killerNick": "Spinx",
+      "killerSide": "TERRORIST",
+      "victimNick": "Golden",
+      "victimName": "Golden",
+      "victimSide": "CT",
+      "weapon": "mp9",
+      "headShot": true,
+      "eventId": 1941785048
+    }
+  },
+  { "RoundStart": {} },
+  {
+    "RoundEnd": {
+      "counterTerroristScore": 8,
+      "terroristScore": 9,
+      "winner": "TERRORIST",
+      "winType": "Target_Bombed"
+    }
+  },
+  {
+    "BombPlanted": {
+      "playerName": "EspiranTo",
+      "playerNick": "EspiranTo",
+      "ctPlayers": 1,
+      "tPlayers": 3
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "flusha",
+      "killerNick": "flusha",
+      "killerSide": "CT",
+      "victimNick": "ottoNd",
+      "victimName": "ottoNd",
+      "victimSide": "TERRORIST",
+      "weapon": "ump45",
+      "headShot": false,
+      "eventId": 1941783367
+    }
+  },
+  {
+    "Assist": {
+      "assisterName": "Snappi",
+      "assisterNick": "Snappi",
+      "assisterSide": "TERRORIST",
+      "victimNick": "KRIMZ",
+      "victimName": "KRIMZ",
+      "victimSide": "CT",
+      "killEventId": 1941783246
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "EspiranTo",
+      "killerNick": "EspiranTo",
+      "killerSide": "TERRORIST",
+      "victimNick": "KRIMZ",
+      "victimName": "KRIMZ",
+      "victimSide": "CT",
+      "weapon": "deagle",
+      "headShot": false,
+      "eventId": 1941783246
+    }
+  },
+  {
+    "Assist": {
+      "assisterName": "rigoN",
+      "assisterNick": "rigoN",
+      "assisterSide": "TERRORIST",
+      "victimNick": "Golden",
+      "victimName": "Golden",
+      "victimSide": "CT",
+      "killEventId": 1941783109
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "ottoNd",
+      "killerNick": "ottoNd",
+      "killerSide": "TERRORIST",
+      "victimNick": "Golden",
+      "victimName": "Golden",
+      "victimSide": "CT",
+      "weapon": "deagle",
+      "headShot": false,
+      "eventId": 1941783109
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "KRIMZ",
+      "killerNick": "KRIMZ",
+      "killerSide": "CT",
+      "victimNick": "Spinx",
+      "victimName": "Spinx",
+      "victimSide": "TERRORIST",
+      "weapon": "aug",
+      "headShot": false,
+      "eventId": 1941782965
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "ottoNd",
+      "killerNick": "ottoNd",
+      "killerSide": "TERRORIST",
+      "victimNick": "JW",
+      "victimName": "JW",
+      "victimSide": "CT",
+      "weapon": "deagle",
+      "headShot": true,
+      "eventId": 1941782363
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "EspiranTo",
+      "killerNick": "EspiranTo",
+      "killerSide": "TERRORIST",
+      "victimNick": "Brollan",
+      "victimName": "Brollan",
+      "victimSide": "CT",
+      "weapon": "deagle",
+      "headShot": true,
+      "eventId": 1941781993
+    }
+  },
+  { "RoundStart": {} },
+  {
+    "RoundEnd": {
+      "counterTerroristScore": 8,
+      "terroristScore": 8,
+      "winner": "CT",
+      "winType": "CTs_Win"
+    }
+  },
+  {
+    "Assist": {
+      "assisterName": "flusha",
+      "assisterNick": "flusha",
+      "assisterSide": "CT",
+      "victimNick": "Snappi",
+      "victimName": "Snappi",
+      "victimSide": "TERRORIST",
+      "killEventId": 1941781124
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "KRIMZ",
+      "killerNick": "KRIMZ",
+      "killerSide": "CT",
+      "victimNick": "Snappi",
+      "victimName": "Snappi",
+      "victimSide": "TERRORIST",
+      "weapon": "usp_silencer",
+      "headShot": false,
+      "eventId": 1941781124
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "Golden",
+      "killerNick": "Golden",
+      "killerSide": "CT",
+      "victimNick": "rigoN",
+      "victimName": "rigoN",
+      "victimSide": "TERRORIST",
+      "weapon": "usp_silencer",
+      "headShot": true,
+      "eventId": 1941781059
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "KRIMZ",
+      "killerNick": "KRIMZ",
+      "killerSide": "CT",
+      "victimNick": "ottoNd",
+      "victimName": "ottoNd",
+      "victimSide": "TERRORIST",
+      "weapon": "usp_silencer",
+      "headShot": true,
+      "eventId": 1941781052
+    }
+  },
+  {
+    "Assist": {
+      "assisterName": "EspiranTo",
+      "assisterNick": "EspiranTo",
+      "assisterSide": "TERRORIST",
+      "victimNick": "flusha",
+      "victimName": "flusha",
+      "victimSide": "CT",
+      "killEventId": 1941780966
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "Snappi",
+      "killerNick": "Snappi",
+      "killerSide": "TERRORIST",
+      "victimNick": "flusha",
+      "victimName": "flusha",
+      "victimSide": "CT",
+      "weapon": "glock",
+      "headShot": true,
+      "eventId": 1941780966
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "flusha",
+      "killerNick": "flusha",
+      "killerSide": "CT",
+      "victimNick": "EspiranTo",
+      "victimName": "EspiranTo",
+      "victimSide": "TERRORIST",
+      "weapon": "hkp2000",
+      "headShot": true,
+      "eventId": 1941780796
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "flusha",
+      "killerNick": "flusha",
+      "killerSide": "CT",
+      "victimNick": "Spinx",
+      "victimName": "Spinx",
+      "victimSide": "TERRORIST",
+      "weapon": "hkp2000",
+      "headShot": true,
+      "eventId": 1941780640,
+      "flasherNick": "JW",
+      "flasherSide": "CT"
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "Spinx",
+      "killerNick": "Spinx",
+      "killerSide": "TERRORIST",
+      "victimNick": "Brollan",
+      "victimName": "Brollan",
+      "victimSide": "CT",
+      "weapon": "glock",
+      "headShot": false,
+      "eventId": 1941780633
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "EspiranTo",
+      "killerNick": "EspiranTo",
+      "killerSide": "TERRORIST",
+      "victimNick": "JW",
+      "victimName": "JW",
+      "victimSide": "CT",
+      "weapon": "glock",
+      "headShot": true,
+      "eventId": 1941780420
+    }
+  },
+  { "RoundStart": {} },
+  {
+    "RoundEnd": {
+      "counterTerroristScore": 8,
+      "terroristScore": 7,
+      "winner": "TERRORIST",
+      "winType": "Terrorists_Win"
+    }
+  },
+  {
+    "Assist": {
+      "assisterName": "Brollan",
+      "assisterNick": "Brollan",
+      "assisterSide": "TERRORIST",
+      "victimNick": "Spinx",
+      "victimName": "Spinx",
+      "victimSide": "CT",
+      "killEventId": 1941777206
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "JW",
+      "killerNick": "JW",
+      "killerSide": "TERRORIST",
+      "victimNick": "Spinx",
+      "victimName": "Spinx",
+      "victimSide": "CT",
+      "weapon": "knife_m9_bayonet",
+      "headShot": false,
+      "eventId": 1941777206
+    }
+  },
+  {
+    "BombPlanted": {
+      "playerName": "KRIMZ",
+      "playerNick": "KRIMZ",
+      "ctPlayers": 1,
+      "tPlayers": 4
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "Brollan",
+      "killerNick": "Brollan",
+      "killerSide": "TERRORIST",
+      "victimNick": "Snappi",
+      "victimName": "Snappi",
+      "victimSide": "CT",
+      "weapon": "ak47",
+      "headShot": true,
+      "eventId": 1941776113
+    }
+  },
+  {
+    "Assist": {
+      "assisterName": "Golden",
+      "assisterNick": "Golden",
+      "assisterSide": "TERRORIST",
+      "victimNick": "ottoNd",
+      "victimName": "ottoNd",
+      "victimSide": "CT",
+      "killEventId": 1941776039
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "Brollan",
+      "killerNick": "Brollan",
+      "killerSide": "TERRORIST",
+      "victimNick": "ottoNd",
+      "victimName": "ottoNd",
+      "victimSide": "CT",
+      "weapon": "ak47",
+      "headShot": false,
+      "eventId": 1941776039
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "ottoNd",
+      "killerNick": "ottoNd",
+      "killerSide": "CT",
+      "victimNick": "flusha",
+      "victimName": "flusha",
+      "victimSide": "TERRORIST",
+      "weapon": "famas",
+      "headShot": false,
+      "eventId": 1941776025
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "flusha",
+      "killerNick": "flusha",
+      "killerSide": "TERRORIST",
+      "victimNick": "rigoN",
+      "victimName": "rigoN",
+      "victimSide": "CT",
+      "weapon": "ak47",
+      "headShot": true,
+      "eventId": 1941775997,
+      "flasherNick": "KRIMZ",
+      "flasherSide": "TERRORIST"
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "Brollan",
+      "killerNick": "Brollan",
+      "killerSide": "TERRORIST",
+      "victimNick": "EspiranTo",
+      "victimName": "EspiranTo",
+      "victimSide": "CT",
+      "weapon": "ak47",
+      "headShot": true,
+      "eventId": 1941775976
+    }
+  },
+  { "RoundStart": {} },
+  {
+    "RoundEnd": {
+      "counterTerroristScore": 8,
+      "terroristScore": 6,
+      "winner": "TERRORIST",
+      "winType": "Terrorists_Win"
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "flusha",
+      "killerNick": "flusha",
+      "killerSide": "TERRORIST",
+      "victimNick": "Spinx",
+      "victimName": "Spinx",
+      "victimSide": "CT",
+      "weapon": "ak47",
+      "headShot": false,
+      "eventId": 1941775383
+    }
+  },
+  {
+    "Assist": {
+      "assisterName": "rigoN",
+      "assisterNick": "rigoN",
+      "assisterSide": "CT",
+      "victimNick": "KRIMZ",
+      "victimName": "KRIMZ",
+      "victimSide": "TERRORIST",
+      "killEventId": 1941775230
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "Spinx",
+      "killerNick": "Spinx",
+      "killerSide": "CT",
+      "victimNick": "KRIMZ",
+      "victimName": "KRIMZ",
+      "victimSide": "TERRORIST",
+      "weapon": "awp",
+      "headShot": false,
+      "eventId": 1941775230
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "KRIMZ",
+      "killerNick": "KRIMZ",
+      "killerSide": "TERRORIST",
+      "victimNick": "EspiranTo",
+      "victimName": "EspiranTo",
+      "victimSide": "CT",
+      "weapon": "ak47",
+      "headShot": false,
+      "eventId": 1941775138
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "flusha",
+      "killerNick": "flusha",
+      "killerSide": "TERRORIST",
+      "victimNick": "ottoNd",
+      "victimName": "ottoNd",
+      "victimSide": "CT",
+      "weapon": "ak47",
+      "headShot": false,
+      "eventId": 1941775027
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "flusha",
+      "killerNick": "flusha",
+      "killerSide": "TERRORIST",
+      "victimNick": "Snappi",
+      "victimName": "Snappi",
+      "victimSide": "CT",
+      "weapon": "ak47",
+      "headShot": true,
+      "eventId": 1941774912
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "KRIMZ",
+      "killerNick": "KRIMZ",
+      "killerSide": "TERRORIST",
+      "victimNick": "rigoN",
+      "victimName": "rigoN",
+      "victimSide": "CT",
+      "weapon": "ak47",
+      "headShot": false,
+      "eventId": 1941774881,
+      "flasherNick": "JW",
+      "flasherSide": "TERRORIST"
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "ottoNd",
+      "killerNick": "ottoNd",
+      "killerSide": "CT",
+      "victimNick": "Brollan",
+      "victimName": "Brollan",
+      "victimSide": "TERRORIST",
+      "weapon": "deagle",
+      "headShot": true,
+      "eventId": 1941774780
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "Snappi",
+      "killerNick": "Snappi",
+      "killerSide": "CT",
+      "victimNick": "Golden",
+      "victimName": "Golden",
+      "victimSide": "TERRORIST",
+      "weapon": "deagle",
+      "headShot": true,
+      "eventId": 1941774752
+    }
+  },
+  { "RoundStart": {} },
+  {
+    "RoundEnd": {
+      "counterTerroristScore": 8,
+      "terroristScore": 5,
+      "winner": "TERRORIST",
+      "winType": "Target_Bombed"
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "Brollan",
+      "killerNick": "Brollan",
+      "killerSide": "TERRORIST",
+      "victimNick": "Snappi",
+      "victimName": "Snappi",
+      "victimSide": "CT",
+      "weapon": "ak47",
+      "headShot": false,
+      "eventId": 1941773798
+    }
+  },
+  {
+    "BombPlanted": {
+      "playerName": "KRIMZ",
+      "playerNick": "KRIMZ",
+      "ctPlayers": 2,
+      "tPlayers": 3
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "Brollan",
+      "killerNick": "Brollan",
+      "killerSide": "TERRORIST",
+      "victimNick": "ottoNd",
+      "victimName": "ottoNd",
+      "victimSide": "CT",
+      "weapon": "ak47",
+      "headShot": false,
+      "eventId": 1941773704
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "Snappi",
+      "killerNick": "Snappi",
+      "killerSide": "CT",
+      "victimNick": "Golden",
+      "victimName": "Golden",
+      "victimSide": "TERRORIST",
+      "weapon": "deagle",
+      "headShot": false,
+      "eventId": 1941773690
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "ottoNd",
+      "killerNick": "ottoNd",
+      "killerSide": "CT",
+      "victimNick": "flusha",
+      "victimName": "flusha",
+      "victimSide": "TERRORIST",
+      "weapon": "aug",
+      "headShot": false,
+      "eventId": 1941773678
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "flusha",
+      "killerNick": "flusha",
+      "killerSide": "TERRORIST",
+      "victimNick": "EspiranTo",
+      "victimName": "EspiranTo",
+      "victimSide": "CT",
+      "weapon": "ak47",
+      "headShot": true,
+      "eventId": 1941773668
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "flusha",
+      "killerNick": "flusha",
+      "killerSide": "TERRORIST",
+      "victimNick": "rigoN",
+      "victimName": "rigoN",
+      "victimSide": "CT",
+      "weapon": "ak47",
+      "headShot": true,
+      "eventId": 1941773643,
+      "flasherNick": "KRIMZ",
+      "flasherSide": "TERRORIST"
+    }
+  },
+  { "RoundStart": {} },
+  {
+    "RoundEnd": {
+      "counterTerroristScore": 8,
+      "terroristScore": 4,
+      "winner": "TERRORIST",
+      "winType": "Terrorists_Win"
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "Golden",
+      "killerNick": "Golden",
+      "killerSide": "TERRORIST",
+      "victimNick": "Spinx",
+      "victimName": "Spinx",
+      "victimSide": "CT",
+      "weapon": "ak47",
+      "headShot": true,
+      "eventId": 1941773289
+    }
+  },
+  {
+    "Assist": {
+      "assisterName": "JW",
+      "assisterNick": "JW",
+      "assisterSide": "TERRORIST",
+      "victimNick": "ottoNd",
+      "victimName": "ottoNd",
+      "victimSide": "CT",
+      "killEventId": 1941773241
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "Golden",
+      "killerNick": "Golden",
+      "killerSide": "TERRORIST",
+      "victimNick": "ottoNd",
+      "victimName": "ottoNd",
+      "victimSide": "CT",
+      "weapon": "ak47",
+      "headShot": true,
+      "eventId": 1941773241
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "Golden",
+      "killerNick": "Golden",
+      "killerSide": "TERRORIST",
+      "victimNick": "EspiranTo",
+      "victimName": "EspiranTo",
+      "victimSide": "CT",
+      "weapon": "ak47",
+      "headShot": true,
+      "eventId": 1941773230
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "KRIMZ",
+      "killerNick": "KRIMZ",
+      "killerSide": "TERRORIST",
+      "victimNick": "rigoN",
+      "victimName": "rigoN",
+      "victimSide": "CT",
+      "weapon": "ak47",
+      "headShot": false,
+      "eventId": 1941773187
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "rigoN",
+      "killerNick": "rigoN",
+      "killerSide": "CT",
+      "victimNick": "flusha",
+      "victimName": "flusha",
+      "victimSide": "TERRORIST",
+      "weapon": "ak47",
+      "headShot": true,
+      "eventId": 1941773169
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "rigoN",
+      "killerNick": "rigoN",
+      "killerSide": "CT",
+      "victimNick": "Brollan",
+      "victimName": "Brollan",
+      "victimSide": "TERRORIST",
+      "weapon": "ak47",
+      "headShot": false,
+      "eventId": 1941773059
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "JW",
+      "killerNick": "JW",
+      "killerSide": "TERRORIST",
+      "victimNick": "Snappi",
+      "victimName": "Snappi",
+      "victimSide": "CT",
+      "weapon": "awp",
+      "headShot": false,
+      "eventId": 1941772711
+    }
+  },
+  { "RoundStart": {} },
+  {
+    "RoundEnd": {
+      "counterTerroristScore": 8,
+      "terroristScore": 3,
+      "winner": "CT",
+      "winType": "CTs_Win"
+    }
+  },
+  {
+    "Assist": {
+      "assisterName": "Snappi",
+      "assisterNick": "Snappi",
+      "assisterSide": "CT",
+      "victimNick": "KRIMZ",
+      "victimName": "KRIMZ",
+      "victimSide": "TERRORIST",
+      "killEventId": 1941772253
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "rigoN",
+      "killerNick": "rigoN",
+      "killerSide": "CT",
+      "victimNick": "KRIMZ",
+      "victimName": "KRIMZ",
+      "victimSide": "TERRORIST",
+      "weapon": "m4a1",
+      "headShot": false,
+      "eventId": 1941772253
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "ottoNd",
+      "killerNick": "ottoNd",
+      "killerSide": "CT",
+      "victimNick": "flusha",
+      "victimName": "flusha",
+      "victimSide": "TERRORIST",
+      "weapon": "hegrenade",
+      "headShot": false,
+      "eventId": 1941772237
+    }
+  },
+  {
+    "Assist": {
+      "assisterName": "JW",
+      "assisterNick": "JW",
+      "assisterSide": "TERRORIST",
+      "victimNick": "EspiranTo",
+      "victimName": "EspiranTo",
+      "victimSide": "CT",
+      "killEventId": 1941772204
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "flusha",
+      "killerNick": "flusha",
+      "killerSide": "TERRORIST",
+      "victimNick": "EspiranTo",
+      "victimName": "EspiranTo",
+      "victimSide": "CT",
+      "weapon": "deagle",
+      "headShot": false,
+      "eventId": 1941772204
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "EspiranTo",
+      "killerNick": "EspiranTo",
+      "killerSide": "CT",
+      "victimNick": "JW",
+      "victimName": "JW",
+      "victimSide": "TERRORIST",
+      "weapon": "ak47",
+      "headShot": true,
+      "eventId": 1941772184
+    }
+  },
+  {
+    "Assist": {
+      "assisterName": "EspiranTo",
+      "assisterNick": "EspiranTo",
+      "assisterSide": "CT",
+      "victimNick": "Golden",
+      "victimName": "Golden",
+      "victimSide": "TERRORIST",
+      "killEventId": 1941772158
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "Snappi",
+      "killerNick": "Snappi",
+      "killerSide": "CT",
+      "victimNick": "Golden",
+      "victimName": "Golden",
+      "victimSide": "TERRORIST",
+      "weapon": "m4a1",
+      "headShot": true,
+      "eventId": 1941772158
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "EspiranTo",
+      "killerNick": "EspiranTo",
+      "killerSide": "CT",
+      "victimNick": "Brollan",
+      "victimName": "Brollan",
+      "victimSide": "TERRORIST",
+      "weapon": "ak47",
+      "headShot": true,
+      "eventId": 1941772108
+    }
+  },
+  { "RoundStart": {} },
+  {
+    "RoundEnd": {
+      "counterTerroristScore": 7,
+      "terroristScore": 3,
+      "winner": "CT",
+      "winType": "CTs_Win"
+    }
+  },
+  {
+    "Assist": {
+      "assisterName": "ottoNd",
+      "assisterNick": "ottoNd",
+      "assisterSide": "CT",
+      "victimNick": "KRIMZ",
+      "victimName": "KRIMZ",
+      "victimSide": "TERRORIST",
+      "killEventId": 1941771559
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "Snappi",
+      "killerNick": "Snappi",
+      "killerSide": "CT",
+      "victimNick": "KRIMZ",
+      "victimName": "KRIMZ",
+      "victimSide": "TERRORIST",
+      "weapon": "m4a1",
+      "headShot": false,
+      "eventId": 1941771559
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "KRIMZ",
+      "killerNick": "KRIMZ",
+      "killerSide": "TERRORIST",
+      "victimNick": "ottoNd",
+      "victimName": "ottoNd",
+      "victimSide": "CT",
+      "weapon": "ak47",
+      "headShot": true,
+      "eventId": 1941771550
+    }
+  },
+  {
+    "Assist": {
+      "assisterName": "rigoN",
+      "assisterNick": "rigoN",
+      "assisterSide": "CT",
+      "victimNick": "flusha",
+      "victimName": "flusha",
+      "victimSide": "TERRORIST",
+      "killEventId": 1941771539
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "ottoNd",
+      "killerNick": "ottoNd",
+      "killerSide": "CT",
+      "victimNick": "flusha",
+      "victimName": "flusha",
+      "victimSide": "TERRORIST",
+      "weapon": "awp",
+      "headShot": true,
+      "eventId": 1941771539
+    }
+  },
+  {
+    "Assist": {
+      "assisterName": "flusha",
+      "assisterNick": "flusha",
+      "assisterSide": "TERRORIST",
+      "victimNick": "rigoN",
+      "victimName": "rigoN",
+      "victimSide": "CT",
+      "killEventId": 1941771394
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "KRIMZ",
+      "killerNick": "KRIMZ",
+      "killerSide": "TERRORIST",
+      "victimNick": "rigoN",
+      "victimName": "rigoN",
+      "victimSide": "CT",
+      "weapon": "ak47",
+      "headShot": false,
+      "eventId": 1941771394
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "rigoN",
+      "killerNick": "rigoN",
+      "killerSide": "CT",
+      "victimNick": "JW",
+      "victimName": "JW",
+      "victimSide": "TERRORIST",
+      "weapon": "m4a1",
+      "headShot": true,
+      "eventId": 1941771371
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "rigoN",
+      "killerNick": "rigoN",
+      "killerSide": "CT",
+      "victimNick": "Golden",
+      "victimName": "Golden",
+      "victimSide": "TERRORIST",
+      "weapon": "m4a1",
+      "headShot": true,
+      "eventId": 1941771356
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "rigoN",
+      "killerNick": "rigoN",
+      "killerSide": "CT",
+      "victimNick": "Brollan",
+      "victimName": "Brollan",
+      "victimSide": "TERRORIST",
+      "weapon": "m4a1",
+      "headShot": false,
+      "eventId": 1941771224
+    }
+  },
+  { "RoundStart": {} },
+  {
+    "RoundEnd": {
+      "counterTerroristScore": 6,
+      "terroristScore": 3,
+      "winner": "TERRORIST",
+      "winType": "Terrorists_Win"
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "JW",
+      "killerNick": "JW",
+      "killerSide": "TERRORIST",
+      "victimNick": "Spinx",
+      "victimName": "Spinx",
+      "victimSide": "CT",
+      "weapon": "awp",
+      "headShot": false,
+      "eventId": 1941770480
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "Spinx",
+      "killerNick": "Spinx",
+      "killerSide": "CT",
+      "victimNick": "KRIMZ",
+      "victimName": "KRIMZ",
+      "victimSide": "TERRORIST",
+      "weapon": "ak47",
+      "headShot": true,
+      "eventId": 1941770427
+    }
+  },
+  {
+    "Assist": {
+      "assisterName": "flusha",
+      "assisterNick": "flusha",
+      "assisterSide": "TERRORIST",
+      "victimNick": "ottoNd",
+      "victimName": "ottoNd",
+      "victimSide": "CT",
+      "killEventId": 1941770380
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "KRIMZ",
+      "killerNick": "KRIMZ",
+      "killerSide": "TERRORIST",
+      "victimNick": "ottoNd",
+      "victimName": "ottoNd",
+      "victimSide": "CT",
+      "weapon": "ak47",
+      "headShot": false,
+      "eventId": 1941770380
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "ottoNd",
+      "killerNick": "ottoNd",
+      "killerSide": "CT",
+      "victimNick": "flusha",
+      "victimName": "flusha",
+      "victimSide": "TERRORIST",
+      "weapon": "awp",
+      "headShot": false,
+      "eventId": 1941770371
+    }
+  },
+  {
+    "Assist": {
+      "assisterName": "EspiranTo",
+      "assisterNick": "EspiranTo",
+      "assisterSide": "CT",
+      "victimNick": "Brollan",
+      "victimName": "Brollan",
+      "victimSide": "TERRORIST",
+      "killEventId": 1941770353
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "ottoNd",
+      "killerNick": "ottoNd",
+      "killerSide": "CT",
+      "victimNick": "Brollan",
+      "victimName": "Brollan",
+      "victimSide": "TERRORIST",
+      "weapon": "awp",
+      "headShot": false,
+      "eventId": 1941770353
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "Brollan",
+      "killerNick": "Brollan",
+      "killerSide": "TERRORIST",
+      "victimNick": "EspiranTo",
+      "victimName": "EspiranTo",
+      "victimSide": "CT",
+      "weapon": "ak47",
+      "headShot": true,
+      "eventId": 1941770345
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "ottoNd",
+      "killerNick": "ottoNd",
+      "killerSide": "CT",
+      "victimNick": "Golden",
+      "victimName": "Golden",
+      "victimSide": "TERRORIST",
+      "weapon": "awp",
+      "headShot": false,
+      "eventId": 1941770331
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "Brollan",
+      "killerNick": "Brollan",
+      "killerSide": "TERRORIST",
+      "victimNick": "Snappi",
+      "victimName": "Snappi",
+      "victimSide": "CT",
+      "weapon": "ak47",
+      "headShot": true,
+      "eventId": 1941770315
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "Golden",
+      "killerNick": "Golden",
+      "killerSide": "TERRORIST",
+      "victimNick": "rigoN",
+      "victimName": "rigoN",
+      "victimSide": "CT",
+      "weapon": "ak47",
+      "headShot": true,
+      "eventId": 1941770296
+    }
+  },
+  { "RoundStart": {} },
+  {
+    "RoundEnd": {
+      "counterTerroristScore": 6,
+      "terroristScore": 2,
+      "winner": "CT",
+      "winType": "Target_Saved"
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "JW",
+      "killerNick": "JW",
+      "killerSide": "TERRORIST",
+      "victimNick": "EspiranTo",
+      "victimName": "EspiranTo",
+      "victimSide": "CT",
+      "weapon": "inferno",
+      "headShot": false,
+      "eventId": 1941769870
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "EspiranTo",
+      "killerNick": "EspiranTo",
+      "killerSide": "CT",
+      "victimNick": "KRIMZ",
+      "victimName": "KRIMZ",
+      "victimSide": "TERRORIST",
+      "weapon": "ak47",
+      "headShot": true,
+      "eventId": 1941769861
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "EspiranTo",
+      "killerNick": "EspiranTo",
+      "killerSide": "CT",
+      "victimNick": "Golden",
+      "victimName": "Golden",
+      "victimSide": "TERRORIST",
+      "weapon": "ak47",
+      "headShot": true,
+      "eventId": 1941769822
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "EspiranTo",
+      "killerNick": "EspiranTo",
+      "killerSide": "CT",
+      "victimNick": "flusha",
+      "victimName": "flusha",
+      "victimSide": "TERRORIST",
+      "weapon": "ak47",
+      "headShot": true,
+      "eventId": 1941769707
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "EspiranTo",
+      "killerNick": "EspiranTo",
+      "killerSide": "CT",
+      "victimNick": "Brollan",
+      "victimName": "Brollan",
+      "victimSide": "TERRORIST",
+      "weapon": "ak47",
+      "headShot": true,
+      "eventId": 1941769280
+    }
+  },
+  { "RoundStart": {} },
+  {
+    "RoundEnd": {
+      "counterTerroristScore": 5,
+      "terroristScore": 2,
+      "winner": "CT",
+      "winType": "Bomb_Defused"
+    }
+  },
+  { "BombDefused": { "playerName": "EspiranTo", "playerNick": "EspiranTo" } },
+  {
+    "Kill": {
+      "killerName": "rigoN",
+      "killerNick": "rigoN",
+      "killerSide": "CT",
+      "victimNick": "Golden",
+      "victimName": "Golden",
+      "victimSide": "TERRORIST",
+      "weapon": "ak47",
+      "headShot": false,
+      "eventId": 1941768492
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "rigoN",
+      "killerNick": "rigoN",
+      "killerSide": "CT",
+      "victimNick": "JW",
+      "victimName": "JW",
+      "victimSide": "TERRORIST",
+      "weapon": "ak47",
+      "headShot": true,
+      "eventId": 1941768443
+    }
+  },
+  {
+    "Assist": {
+      "assisterName": "Spinx",
+      "assisterNick": "Spinx",
+      "assisterSide": "CT",
+      "victimNick": "KRIMZ",
+      "victimName": "KRIMZ",
+      "victimSide": "TERRORIST",
+      "killEventId": 1941768434
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "rigoN",
+      "killerNick": "rigoN",
+      "killerSide": "CT",
+      "victimNick": "KRIMZ",
+      "victimName": "KRIMZ",
+      "victimSide": "TERRORIST",
+      "weapon": "ak47",
+      "headShot": true,
+      "eventId": 1941768434
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "rigoN",
+      "killerNick": "rigoN",
+      "killerSide": "CT",
+      "victimNick": "Brollan",
+      "victimName": "Brollan",
+      "victimSide": "TERRORIST",
+      "weapon": "ak47",
+      "headShot": false,
+      "eventId": 1941768422
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "Brollan",
+      "killerNick": "Brollan",
+      "killerSide": "TERRORIST",
+      "victimNick": "ottoNd",
+      "victimName": "ottoNd",
+      "victimSide": "CT",
+      "weapon": "mac10",
+      "headShot": true,
+      "eventId": 1941768409
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "EspiranTo",
+      "killerNick": "EspiranTo",
+      "killerSide": "CT",
+      "victimNick": "flusha",
+      "victimName": "flusha",
+      "victimSide": "TERRORIST",
+      "weapon": "ak47",
+      "headShot": false,
+      "eventId": 1941768396
+    }
+  },
+  {
+    "BombPlanted": {
+      "playerName": "JW",
+      "playerNick": "JW",
+      "ctPlayers": 4,
+      "tPlayers": 5
+    }
+  },
+  {
+    "Assist": {
+      "assisterName": "KRIMZ",
+      "assisterNick": "KRIMZ",
+      "assisterSide": "TERRORIST",
+      "victimNick": "Spinx",
+      "victimName": "Spinx",
+      "victimSide": "CT",
+      "killEventId": 1941768303
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "Brollan",
+      "killerNick": "Brollan",
+      "killerSide": "TERRORIST",
+      "victimNick": "Spinx",
+      "victimName": "Spinx",
+      "victimSide": "CT",
+      "weapon": "mac10",
+      "headShot": false,
+      "eventId": 1941768303
+    }
+  },
+  { "RoundStart": {} },
+  {
+    "RoundEnd": {
+      "counterTerroristScore": 4,
+      "terroristScore": 2,
+      "winner": "CT",
+      "winType": "CTs_Win"
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "rigoN",
+      "killerNick": "rigoN",
+      "killerSide": "CT",
+      "victimNick": "KRIMZ",
+      "victimName": "KRIMZ",
+      "victimSide": "TERRORIST",
+      "weapon": "ak47",
+      "headShot": true,
+      "eventId": 1941767869
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "KRIMZ",
+      "killerNick": "KRIMZ",
+      "killerSide": "TERRORIST",
+      "victimNick": "Spinx",
+      "victimName": "Spinx",
+      "victimSide": "CT",
+      "weapon": "ak47",
+      "headShot": true,
+      "eventId": 1941767855
+    }
+  },
+  {
+    "Assist": {
+      "assisterName": "EspiranTo",
+      "assisterNick": "EspiranTo",
+      "assisterSide": "CT",
+      "victimNick": "Brollan",
+      "victimName": "Brollan",
+      "victimSide": "TERRORIST",
+      "killEventId": 1941767828
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "Snappi",
+      "killerNick": "Snappi",
+      "killerSide": "CT",
+      "victimNick": "Brollan",
+      "victimName": "Brollan",
+      "victimSide": "TERRORIST",
+      "weapon": "awp",
+      "headShot": false,
+      "eventId": 1941767828
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "Spinx",
+      "killerNick": "Spinx",
+      "killerSide": "CT",
+      "victimNick": "Golden",
+      "victimName": "Golden",
+      "victimSide": "TERRORIST",
+      "weapon": "ak47",
+      "headShot": false,
+      "eventId": 1941767758
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "Spinx",
+      "killerNick": "Spinx",
+      "killerSide": "CT",
+      "victimNick": "JW",
+      "victimName": "JW",
+      "victimSide": "TERRORIST",
+      "weapon": "ak47",
+      "headShot": false,
+      "eventId": 1941767740
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "JW",
+      "killerNick": "JW",
+      "killerSide": "TERRORIST",
+      "victimNick": "ottoNd",
+      "victimName": "ottoNd",
+      "victimSide": "CT",
+      "weapon": "awp",
+      "headShot": false,
+      "eventId": 1941767730
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "rigoN",
+      "killerNick": "rigoN",
+      "killerSide": "CT",
+      "victimNick": "flusha",
+      "victimName": "flusha",
+      "victimSide": "TERRORIST",
+      "weapon": "m4a1",
+      "headShot": true,
+      "eventId": 1941767438
+    }
+  },
+  { "RoundStart": {} },
+  {
+    "RoundEnd": {
+      "counterTerroristScore": 3,
+      "terroristScore": 2,
+      "winner": "CT",
+      "winType": "CTs_Win"
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "Spinx",
+      "killerNick": "Spinx",
+      "killerSide": "CT",
+      "victimNick": "KRIMZ",
+      "victimName": "KRIMZ",
+      "victimSide": "TERRORIST",
+      "weapon": "ak47",
+      "headShot": false,
+      "eventId": 1941767041
+    }
+  },
+  {
+    "Assist": {
+      "assisterName": "EspiranTo",
+      "assisterNick": "EspiranTo",
+      "assisterSide": "CT",
+      "victimNick": "flusha",
+      "victimName": "flusha",
+      "victimSide": "TERRORIST",
+      "killEventId": 1941767013
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "Snappi",
+      "killerNick": "Snappi",
+      "killerSide": "CT",
+      "victimNick": "flusha",
+      "victimName": "flusha",
+      "victimSide": "TERRORIST",
+      "weapon": "mp9",
+      "headShot": false,
+      "eventId": 1941767013
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "Snappi",
+      "killerNick": "Snappi",
+      "killerSide": "CT",
+      "victimNick": "JW",
+      "victimName": "JW",
+      "victimSide": "TERRORIST",
+      "weapon": "mp9",
+      "headShot": false,
+      "eventId": 1941766999
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "KRIMZ",
+      "killerNick": "KRIMZ",
+      "killerSide": "TERRORIST",
+      "victimNick": "EspiranTo",
+      "victimName": "EspiranTo",
+      "victimSide": "CT",
+      "weapon": "deagle",
+      "headShot": true,
+      "eventId": 1941766983
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "EspiranTo",
+      "killerNick": "EspiranTo",
+      "killerSide": "CT",
+      "victimNick": "Brollan",
+      "victimName": "Brollan",
+      "victimSide": "TERRORIST",
+      "weapon": "m4a1_silencer",
+      "headShot": false,
+      "eventId": 1941766962
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "Brollan",
+      "killerNick": "Brollan",
+      "killerSide": "TERRORIST",
+      "victimNick": "rigoN",
+      "victimName": "rigoN",
+      "victimSide": "CT",
+      "weapon": "deagle",
+      "headShot": false,
+      "eventId": 1941766925
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "Brollan",
+      "killerNick": "Brollan",
+      "killerSide": "TERRORIST",
+      "victimNick": "ottoNd",
+      "victimName": "ottoNd",
+      "victimSide": "CT",
+      "weapon": "deagle",
+      "headShot": true,
+      "eventId": 1941766902
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "ottoNd",
+      "killerNick": "ottoNd",
+      "killerSide": "CT",
+      "victimNick": "Golden",
+      "victimName": "Golden",
+      "victimSide": "TERRORIST",
+      "weapon": "awp",
+      "headShot": false,
+      "eventId": 1941766805
+    }
+  },
+  { "RoundStart": {} },
+  {
+    "RoundEnd": {
+      "counterTerroristScore": 2,
+      "terroristScore": 2,
+      "winner": "CT",
+      "winType": "Bomb_Defused"
+    }
+  },
+  { "BombDefused": { "playerName": "ottoNd", "playerNick": "ottoNd" } },
+  {
+    "Kill": {
+      "killerName": "Spinx",
+      "killerNick": "Spinx",
+      "killerSide": "CT",
+      "victimNick": "JW",
+      "victimName": "JW",
+      "victimSide": "TERRORIST",
+      "weapon": "ak47",
+      "headShot": false,
+      "eventId": 1941766428
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "JW",
+      "killerNick": "JW",
+      "killerSide": "TERRORIST",
+      "victimNick": "EspiranTo",
+      "victimName": "EspiranTo",
+      "victimSide": "CT",
+      "weapon": "ak47",
+      "headShot": true,
+      "eventId": 1941766304
+    }
+  },
+  {
+    "Assist": {
+      "assisterName": "ottoNd",
+      "assisterNick": "ottoNd",
+      "assisterSide": "CT",
+      "victimNick": "Brollan",
+      "victimName": "Brollan",
+      "victimSide": "TERRORIST",
+      "killEventId": 1941766275
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "EspiranTo",
+      "killerNick": "EspiranTo",
+      "killerSide": "CT",
+      "victimNick": "Brollan",
+      "victimName": "Brollan",
+      "victimSide": "TERRORIST",
+      "weapon": "ak47",
+      "headShot": false,
+      "eventId": 1941766275
+    }
+  },
+  {
+    "Assist": {
+      "assisterName": "Snappi",
+      "assisterNick": "Snappi",
+      "assisterSide": "CT",
+      "victimNick": "Golden",
+      "victimName": "Golden",
+      "victimSide": "TERRORIST",
+      "killEventId": 1941766263
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "EspiranTo",
+      "killerNick": "EspiranTo",
+      "killerSide": "CT",
+      "victimNick": "Golden",
+      "victimName": "Golden",
+      "victimSide": "TERRORIST",
+      "weapon": "ak47",
+      "headShot": false,
+      "eventId": 1941766263
+    }
+  },
+  {
+    "BombPlanted": {
+      "playerName": "Brollan",
+      "playerNick": "Brollan",
+      "ctPlayers": 3,
+      "tPlayers": 3
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "JW",
+      "killerNick": "JW",
+      "killerSide": "TERRORIST",
+      "victimNick": "Snappi",
+      "victimName": "Snappi",
+      "victimSide": "CT",
+      "weapon": "ak47",
+      "headShot": false,
+      "eventId": 1941766217
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "Brollan",
+      "killerNick": "Brollan",
+      "killerSide": "TERRORIST",
+      "victimNick": "rigoN",
+      "victimName": "rigoN",
+      "victimSide": "CT",
+      "weapon": "sg556",
+      "headShot": false,
+      "eventId": 1941766140
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "ottoNd",
+      "killerNick": "ottoNd",
+      "killerSide": "CT",
+      "victimNick": "flusha",
+      "victimName": "flusha",
+      "victimSide": "TERRORIST",
+      "weapon": "awp",
+      "headShot": false,
+      "eventId": 1941765998
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "ottoNd",
+      "killerNick": "ottoNd",
+      "killerSide": "CT",
+      "victimNick": "KRIMZ",
+      "victimName": "KRIMZ",
+      "victimSide": "TERRORIST",
+      "weapon": "awp",
+      "headShot": false,
+      "eventId": 1941765927
+    }
+  },
+  { "RoundStart": {} },
+  {
+    "RoundEnd": {
+      "counterTerroristScore": 1,
+      "terroristScore": 2,
+      "winner": "CT",
+      "winType": "Bomb_Defused"
+    }
+  },
+  { "BombDefused": { "playerName": "EspiranTo", "playerNick": "EspiranTo" } },
+  {
+    "Kill": {
+      "killerName": "EspiranTo",
+      "killerNick": "EspiranTo",
+      "killerSide": "CT",
+      "victimNick": "Golden",
+      "victimName": "Golden",
+      "victimSide": "TERRORIST",
+      "weapon": "deagle",
+      "headShot": true,
+      "eventId": 1941765157
+    }
+  },
+  {
+    "BombPlanted": {
+      "playerName": "Golden",
+      "playerNick": "Golden",
+      "ctPlayers": 3,
+      "tPlayers": 1
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "EspiranTo",
+      "killerNick": "EspiranTo",
+      "killerSide": "CT",
+      "victimNick": "JW",
+      "victimName": "JW",
+      "victimSide": "TERRORIST",
+      "weapon": "deagle",
+      "headShot": true,
+      "eventId": 1941765138
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "Spinx",
+      "killerNick": "Spinx",
+      "killerSide": "CT",
+      "victimNick": "KRIMZ",
+      "victimName": "KRIMZ",
+      "victimSide": "TERRORIST",
+      "weapon": "mag7",
+      "headShot": false,
+      "eventId": 1941765106
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "JW",
+      "killerNick": "JW",
+      "killerSide": "TERRORIST",
+      "victimNick": "ottoNd",
+      "victimName": "ottoNd",
+      "victimSide": "CT",
+      "weapon": "ak47",
+      "headShot": false,
+      "eventId": 1941765063,
+      "flasherNick": "Golden",
+      "flasherSide": "TERRORIST"
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "Snappi",
+      "killerNick": "Snappi",
+      "killerSide": "CT",
+      "victimNick": "flusha",
+      "victimName": "flusha",
+      "victimSide": "TERRORIST",
+      "weapon": "ssg08",
+      "headShot": true,
+      "eventId": 1941765057
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "ottoNd",
+      "killerNick": "ottoNd",
+      "killerSide": "CT",
+      "victimNick": "Brollan",
+      "victimName": "Brollan",
+      "victimSide": "TERRORIST",
+      "weapon": "usp_silencer",
+      "headShot": false,
+      "eventId": 1941765048
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "KRIMZ",
+      "killerNick": "KRIMZ",
+      "killerSide": "TERRORIST",
+      "victimNick": "rigoN",
+      "victimName": "rigoN",
+      "victimSide": "CT",
+      "weapon": "ak47",
+      "headShot": true,
+      "eventId": 1941764950
+    }
+  },
+  { "RoundStart": {} },
+  {
+    "RoundEnd": {
+      "counterTerroristScore": 0,
+      "terroristScore": 2,
+      "winner": "TERRORIST",
+      "winType": "Terrorists_Win"
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "KRIMZ",
+      "killerNick": "KRIMZ",
+      "killerSide": "TERRORIST",
+      "victimNick": "Spinx",
+      "victimName": "Spinx",
+      "victimSide": "CT",
+      "weapon": "mac10",
+      "headShot": false,
+      "eventId": 1941764566
+    }
+  },
+  {
+    "Assist": {
+      "assisterName": "ottoNd",
+      "assisterNick": "ottoNd",
+      "assisterSide": "CT",
+      "victimNick": "Golden",
+      "victimName": "Golden",
+      "victimSide": "TERRORIST",
+      "killEventId": 1941764530
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "Spinx",
+      "killerNick": "Spinx",
+      "killerSide": "CT",
+      "victimNick": "Golden",
+      "victimName": "Golden",
+      "victimSide": "TERRORIST",
+      "weapon": "ak47",
+      "headShot": true,
+      "eventId": 1941764530
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "KRIMZ",
+      "killerNick": "KRIMZ",
+      "killerSide": "TERRORIST",
+      "victimNick": "Snappi",
+      "victimName": "Snappi",
+      "victimSide": "CT",
+      "weapon": "mac10",
+      "headShot": true,
+      "eventId": 1941764439
+    }
+  },
+  {
+    "BombPlanted": {
+      "playerName": "Golden",
+      "playerNick": "Golden",
+      "ctPlayers": 2,
+      "tPlayers": 2
+    }
+  },
+  {
+    "Assist": {
+      "assisterName": "Snappi",
+      "assisterNick": "Snappi",
+      "assisterSide": "CT",
+      "victimNick": "JW",
+      "victimName": "JW",
+      "victimSide": "TERRORIST",
+      "killEventId": 1941764168
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "Spinx",
+      "killerNick": "Spinx",
+      "killerSide": "CT",
+      "victimNick": "JW",
+      "victimName": "JW",
+      "victimSide": "TERRORIST",
+      "weapon": "deagle",
+      "headShot": false,
+      "eventId": 1941764168
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "Spinx",
+      "killerNick": "Spinx",
+      "killerSide": "CT",
+      "victimNick": "Brollan",
+      "victimName": "Brollan",
+      "victimSide": "TERRORIST",
+      "weapon": "deagle",
+      "headShot": false,
+      "eventId": 1941764149
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "Snappi",
+      "killerNick": "Snappi",
+      "killerSide": "CT",
+      "victimNick": "flusha",
+      "victimName": "flusha",
+      "victimSide": "TERRORIST",
+      "weapon": "ssg08",
+      "headShot": true,
+      "eventId": 1941764140
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "Brollan",
+      "killerNick": "Brollan",
+      "killerSide": "TERRORIST",
+      "victimNick": "ottoNd",
+      "victimName": "ottoNd",
+      "victimSide": "CT",
+      "weapon": "ump45",
+      "headShot": true,
+      "eventId": 1941764114
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "JW",
+      "killerNick": "JW",
+      "killerSide": "TERRORIST",
+      "victimNick": "EspiranTo",
+      "victimName": "EspiranTo",
+      "victimSide": "CT",
+      "weapon": "ak47",
+      "headShot": true,
+      "eventId": 1941764100
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "Brollan",
+      "killerNick": "Brollan",
+      "killerSide": "TERRORIST",
+      "victimNick": "rigoN",
+      "victimName": "rigoN",
+      "victimSide": "CT",
+      "weapon": "ump45",
+      "headShot": true,
+      "eventId": 1941764067,
+      "flasherNick": "Golden",
+      "flasherSide": "TERRORIST"
+    }
+  },
+  { "RoundStart": {} },
+  {
+    "RoundEnd": {
+      "counterTerroristScore": 0,
+      "terroristScore": 1,
+      "winner": "TERRORIST",
+      "winType": "Terrorists_Win"
+    }
+  },
+  {
+    "Assist": {
+      "assisterName": "KRIMZ",
+      "assisterNick": "KRIMZ",
+      "assisterSide": "TERRORIST",
+      "victimNick": "Snappi",
+      "victimName": "Snappi",
+      "victimSide": "CT",
+      "killEventId": 1941763429
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "JW",
+      "killerNick": "JW",
+      "killerSide": "TERRORIST",
+      "victimNick": "Snappi",
+      "victimName": "Snappi",
+      "victimSide": "CT",
+      "weapon": "glock",
+      "headShot": true,
+      "eventId": 1941763429
+    }
+  },
+  {
+    "Assist": {
+      "assisterName": "Golden",
+      "assisterNick": "Golden",
+      "assisterSide": "TERRORIST",
+      "victimNick": "ottoNd",
+      "victimName": "ottoNd",
+      "victimSide": "CT",
+      "killEventId": 1941763403
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "JW",
+      "killerNick": "JW",
+      "killerSide": "TERRORIST",
+      "victimNick": "ottoNd",
+      "victimName": "ottoNd",
+      "victimSide": "CT",
+      "weapon": "glock",
+      "headShot": false,
+      "eventId": 1941763403
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "Snappi",
+      "killerNick": "Snappi",
+      "killerSide": "CT",
+      "victimNick": "KRIMZ",
+      "victimName": "KRIMZ",
+      "victimSide": "TERRORIST",
+      "weapon": "usp_silencer",
+      "headShot": true,
+      "eventId": 1941763217
+    }
+  },
+  {
+    "BombPlanted": {
+      "playerName": "KRIMZ",
+      "playerNick": "KRIMZ",
+      "ctPlayers": 2,
+      "tPlayers": 4
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "flusha",
+      "killerNick": "flusha",
+      "killerSide": "TERRORIST",
+      "victimNick": "rigoN",
+      "victimName": "rigoN",
+      "victimSide": "CT",
+      "weapon": "glock",
+      "headShot": true,
+      "eventId": 1941763166
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "flusha",
+      "killerNick": "flusha",
+      "killerSide": "TERRORIST",
+      "victimNick": "Spinx",
+      "victimName": "Spinx",
+      "victimSide": "CT",
+      "weapon": "glock",
+      "headShot": true,
+      "eventId": 1941763157
+    }
+  },
+  {
+    "Assist": {
+      "assisterName": "Spinx",
+      "assisterNick": "Spinx",
+      "assisterSide": "CT",
+      "victimNick": "Brollan",
+      "victimName": "Brollan",
+      "victimSide": "TERRORIST",
+      "killEventId": 1941763137
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "rigoN",
+      "killerNick": "rigoN",
+      "killerSide": "CT",
+      "victimNick": "Brollan",
+      "victimName": "Brollan",
+      "victimSide": "TERRORIST",
+      "weapon": "usp_silencer",
+      "headShot": true,
+      "eventId": 1941763137
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "JW",
+      "killerNick": "JW",
+      "killerSide": "TERRORIST",
+      "victimNick": "EspiranTo",
+      "victimName": "EspiranTo",
+      "victimSide": "CT",
+      "weapon": "glock",
+      "headShot": true,
+      "eventId": 1941763096
+    }
+  },
+  { "RoundStart": {} },
+  { "MatchStarted": { "map": "de_train" } },
+  { "Restart": {} },
+  { "RoundStart": {} },
+  { "MatchStarted": { "map": "de_train" } },
+  { "Restart": {} },
+  { "MatchStarted": { "map": "de_train" } },
+  {
+    "Kill": {
+      "killerName": "Brollan",
+      "killerNick": "Brollan",
+      "killerSide": "TERRORIST",
+      "victimNick": "rigoN",
+      "victimName": "rigoN",
+      "victimSide": "CT",
+      "weapon": "ak47",
+      "headShot": true,
+      "eventId": 1941762092
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "KRIMZ",
+      "killerNick": "KRIMZ",
+      "killerSide": "TERRORIST",
+      "victimNick": "Snappi",
+      "victimName": "Snappi",
+      "victimSide": "CT",
+      "weapon": "ak47",
+      "headShot": false,
+      "eventId": 1941762078
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "rigoN",
+      "killerNick": "rigoN",
+      "killerSide": "CT",
+      "victimNick": "JW",
+      "victimName": "JW",
+      "victimSide": "TERRORIST",
+      "weapon": "deagle",
+      "headShot": false,
+      "eventId": 1941762044
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "JW",
+      "killerNick": "JW",
+      "killerSide": "TERRORIST",
+      "victimNick": "rigoN",
+      "victimName": "rigoN",
+      "victimSide": "CT",
+      "weapon": "deagle",
+      "headShot": true,
+      "eventId": 1941761959
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "KRIMZ",
+      "killerNick": "KRIMZ",
+      "killerSide": "TERRORIST",
+      "victimNick": "ottoNd",
+      "victimName": "ottoNd",
+      "victimSide": "CT",
+      "weapon": "ak47",
+      "headShot": false,
+      "eventId": 1941761953
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "Brollan",
+      "killerNick": "Brollan",
+      "killerSide": "TERRORIST",
+      "victimNick": "Snappi",
+      "victimName": "Snappi",
+      "victimSide": "CT",
+      "weapon": "ak47",
+      "headShot": true,
+      "eventId": 1941761930
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "ottoNd",
+      "killerNick": "ottoNd",
+      "killerSide": "CT",
+      "victimNick": "Golden",
+      "victimName": "Golden",
+      "victimSide": "TERRORIST",
+      "weapon": "awp",
+      "headShot": false,
+      "eventId": 1941761853
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "Snappi",
+      "killerNick": "Snappi",
+      "killerSide": "CT",
+      "victimNick": "flusha",
+      "victimName": "flusha",
+      "victimSide": "TERRORIST",
+      "weapon": "m4a1",
+      "headShot": false,
+      "eventId": 1941761662
+    }
+  },
+  {
+    "Assist": {
+      "assisterName": "Brollan",
+      "assisterNick": "Brollan",
+      "assisterSide": "TERRORIST",
+      "victimNick": "ottoNd",
+      "victimName": "ottoNd",
+      "victimSide": "CT",
+      "killEventId": 1941761647
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "flusha",
+      "killerNick": "flusha",
+      "killerSide": "TERRORIST",
+      "victimNick": "ottoNd",
+      "victimName": "ottoNd",
+      "victimSide": "CT",
+      "weapon": "awp",
+      "headShot": true,
+      "eventId": 1941761647
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "ottoNd",
+      "killerNick": "ottoNd",
+      "killerSide": "CT",
+      "victimNick": "Brollan",
+      "victimName": "Brollan",
+      "victimSide": "TERRORIST",
+      "weapon": "awp",
+      "headShot": false,
+      "eventId": 1941761635
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "Brollan",
+      "killerNick": "Brollan",
+      "killerSide": "TERRORIST",
+      "victimNick": "rigoN",
+      "victimName": "rigoN",
+      "victimSide": "CT",
+      "weapon": "ak47",
+      "headShot": true,
+      "eventId": 1941761599
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "EspiranTo",
+      "killerNick": "EspiranTo",
+      "killerSide": "CT",
+      "victimNick": "flusha",
+      "victimName": "flusha",
+      "victimSide": "TERRORIST",
+      "weapon": "mag7",
+      "headShot": true,
+      "eventId": 1941761560
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "rigoN",
+      "killerNick": "rigoN",
+      "killerSide": "CT",
+      "victimNick": "JW",
+      "victimName": "JW",
+      "victimSide": "TERRORIST",
+      "weapon": "m4a1",
+      "headShot": true,
+      "eventId": 1941761526
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "KRIMZ",
+      "killerNick": "KRIMZ",
+      "killerSide": "TERRORIST",
+      "victimNick": "ottoNd",
+      "victimName": "ottoNd",
+      "victimSide": "CT",
+      "weapon": "ak47",
+      "headShot": false,
+      "eventId": 1941761451
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "rigoN",
+      "killerNick": "rigoN",
+      "killerSide": "CT",
+      "victimNick": "Golden",
+      "victimName": "Golden",
+      "victimSide": "TERRORIST",
+      "weapon": "m4a1",
+      "headShot": false,
+      "eventId": 1941761436
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "Golden",
+      "killerNick": "Golden",
+      "killerSide": "TERRORIST",
+      "victimNick": "ottoNd",
+      "victimName": "ottoNd",
+      "victimSide": "CT",
+      "weapon": "deagle",
+      "headShot": false,
+      "eventId": 1941761389
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "KRIMZ",
+      "killerNick": "KRIMZ",
+      "killerSide": "TERRORIST",
+      "victimNick": "Snappi",
+      "victimName": "Snappi",
+      "victimSide": "CT",
+      "weapon": "ak47",
+      "headShot": true,
+      "eventId": 1941761350
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "ottoNd",
+      "killerNick": "ottoNd",
+      "killerSide": "CT",
+      "victimNick": "flusha",
+      "victimName": "flusha",
+      "victimSide": "TERRORIST",
+      "weapon": "m4a1",
+      "headShot": true,
+      "eventId": 1941761336
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "flusha",
+      "killerNick": "flusha",
+      "killerSide": "TERRORIST",
+      "victimNick": "rigoN",
+      "victimName": "rigoN",
+      "victimSide": "CT",
+      "weapon": "ak47",
+      "headShot": true,
+      "eventId": 1941761290
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "KRIMZ",
+      "killerNick": "KRIMZ",
+      "killerSide": "TERRORIST",
+      "victimNick": "ottoNd",
+      "victimName": "ottoNd",
+      "victimSide": "CT",
+      "weapon": "ak47",
+      "headShot": true,
+      "eventId": 1941761235
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "ottoNd",
+      "killerNick": "ottoNd",
+      "killerSide": "CT",
+      "victimNick": "Golden",
+      "victimName": "Golden",
+      "victimSide": "TERRORIST",
+      "weapon": "m4a1",
+      "headShot": false,
+      "eventId": 1941761204
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "flusha",
+      "killerNick": "flusha",
+      "killerSide": "TERRORIST",
+      "victimNick": "Snappi",
+      "victimName": "Snappi",
+      "victimSide": "CT",
+      "weapon": "ak47",
+      "headShot": true,
+      "eventId": 1941761178
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "flusha",
+      "killerNick": "flusha",
+      "killerSide": "TERRORIST",
+      "victimNick": "rigoN",
+      "victimName": "rigoN",
+      "victimSide": "CT",
+      "weapon": "ak47",
+      "headShot": true,
+      "eventId": 1941761166
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "flusha",
+      "killerNick": "flusha",
+      "killerSide": "TERRORIST",
+      "victimNick": "Snappi",
+      "victimName": "Snappi",
+      "victimSide": "CT",
+      "weapon": "ak47",
+      "headShot": false,
+      "eventId": 1941761143
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "KRIMZ",
+      "killerNick": "KRIMZ",
+      "killerSide": "TERRORIST",
+      "victimNick": "ottoNd",
+      "victimName": "ottoNd",
+      "victimSide": "CT",
+      "weapon": "ak47",
+      "headShot": true,
+      "eventId": 1941761067
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "Snappi",
+      "killerNick": "Snappi",
+      "killerSide": "CT",
+      "victimNick": "flusha",
+      "victimName": "flusha",
+      "victimSide": "TERRORIST",
+      "weapon": "usp_silencer",
+      "headShot": true,
+      "eventId": 1941761048
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "KRIMZ",
+      "killerNick": "KRIMZ",
+      "killerSide": "TERRORIST",
+      "victimNick": "Snappi",
+      "victimName": "Snappi",
+      "victimSide": "CT",
+      "weapon": "ak47",
+      "headShot": false,
+      "eventId": 1941753054
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "flusha",
+      "killerNick": "flusha",
+      "killerSide": "TERRORIST",
+      "victimNick": "ottoNd",
+      "victimName": "ottoNd",
+      "victimSide": "CT",
+      "weapon": "deagle",
+      "headShot": false,
+      "eventId": 1941753037
+    }
+  },
+  { "PlayerJoin": { "playerName": "Golden", "playerNick": "Golden" } },
+  {
+    "Kill": {
+      "killerName": "ottoNd",
+      "killerNick": "ottoNd",
+      "killerSide": "CT",
+      "victimNick": "flusha",
+      "victimName": "flusha",
+      "victimSide": "TERRORIST",
+      "weapon": "m4a1",
+      "headShot": true,
+      "eventId": 1941752983
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "Snappi",
+      "killerNick": "Snappi",
+      "killerSide": "CT",
+      "victimNick": "KRIMZ",
+      "victimName": "KRIMZ",
+      "victimSide": "TERRORIST",
+      "weapon": "m4a1",
+      "headShot": false,
+      "eventId": 1941752935
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "KRIMZ",
+      "killerNick": "KRIMZ",
+      "killerSide": "TERRORIST",
+      "victimNick": "ottoNd",
+      "victimName": "ottoNd",
+      "victimSide": "CT",
+      "weapon": "ak47",
+      "headShot": true,
+      "eventId": 1941752872
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "ottoNd",
+      "killerNick": "ottoNd",
+      "killerSide": "CT",
+      "victimNick": "flusha",
+      "victimName": "flusha",
+      "victimSide": "TERRORIST",
+      "weapon": "m4a1",
+      "headShot": true,
+      "eventId": 1941752844
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "KRIMZ",
+      "killerNick": "KRIMZ",
+      "killerSide": "TERRORIST",
+      "victimNick": "Snappi",
+      "victimName": "Snappi",
+      "victimSide": "CT",
+      "weapon": "ak47",
+      "headShot": false,
+      "eventId": 1941752820
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "KRIMZ",
+      "killerNick": "KRIMZ",
+      "killerSide": "TERRORIST",
+      "victimNick": "Snappi",
+      "victimName": "Snappi",
+      "victimSide": "CT",
+      "weapon": "ak47",
+      "headShot": false,
+      "eventId": 1941752760
+    }
+  },
+  { "PlayerJoin": { "playerName": "ottoNd", "playerNick": "ottoNd" } },
+  {
+    "Kill": {
+      "killerName": "KRIMZ",
+      "killerNick": "KRIMZ",
+      "killerSide": "TERRORIST",
+      "victimNick": "Spinx",
+      "victimName": "Spinx",
+      "victimSide": "CT",
+      "weapon": "ak47",
+      "headShot": true,
+      "eventId": 1941752721
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "KRIMZ",
+      "killerNick": "KRIMZ",
+      "killerSide": "TERRORIST",
+      "victimNick": "rigoN",
+      "victimName": "rigoN",
+      "victimSide": "CT",
+      "weapon": "ak47",
+      "headShot": true,
+      "eventId": 1941752716
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "KRIMZ",
+      "killerNick": "KRIMZ",
+      "killerSide": "TERRORIST",
+      "victimNick": "EspiranTo",
+      "victimName": "EspiranTo",
+      "victimSide": "CT",
+      "weapon": "ak47",
+      "headShot": false,
+      "eventId": 1941752711
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "EspiranTo",
+      "killerNick": "EspiranTo",
+      "killerSide": "CT",
+      "victimNick": "flusha",
+      "victimName": "flusha",
+      "victimSide": "TERRORIST",
+      "weapon": "usp_silencer",
+      "headShot": true,
+      "eventId": 1941752682
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "flusha",
+      "killerNick": "flusha",
+      "killerSide": "TERRORIST",
+      "victimNick": "Spinx",
+      "victimName": "Spinx",
+      "victimSide": "CT",
+      "weapon": "awp",
+      "headShot": true,
+      "eventId": 1941752672
+    }
+  },
+  { "PlayerJoin": { "playerName": "EspiranTo", "playerNick": "EspiranTo" } },
+  {
+    "Kill": {
+      "killerName": "flusha",
+      "killerNick": "flusha",
+      "killerSide": "TERRORIST",
+      "victimNick": "rigoN",
+      "victimName": "rigoN",
+      "victimSide": "CT",
+      "weapon": "inferno",
+      "headShot": false,
+      "eventId": 1941752600
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "flusha",
+      "killerNick": "flusha",
+      "killerSide": "TERRORIST",
+      "victimNick": "rigoN",
+      "victimName": "rigoN",
+      "victimSide": "CT",
+      "weapon": "awp",
+      "headShot": true,
+      "eventId": 1941752454
+    }
+  },
+  { "PlayerJoin": { "playerName": "Snappi", "playerNick": "Snappi" } },
+  {
+    "Kill": {
+      "killerName": "flusha",
+      "killerNick": "flusha",
+      "killerSide": "TERRORIST",
+      "victimNick": "Spinx",
+      "victimName": "Spinx",
+      "victimSide": "CT",
+      "weapon": "awp",
+      "headShot": true,
+      "eventId": 1941747669
+    }
+  },
+  { "PlayerJoin": { "playerName": "KRIMZ", "playerNick": "KRIMZ" } },
+  { "PlayerJoin": { "playerName": "JW", "playerNick": "JW" } },
+  {
+    "Kill": {
+      "killerName": "flusha",
+      "killerNick": "flusha",
+      "killerSide": "TERRORIST",
+      "victimNick": "rigoN",
+      "victimName": "rigoN",
+      "victimSide": "CT",
+      "weapon": "awp",
+      "headShot": true,
+      "eventId": 1941744215
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "flusha",
+      "killerNick": "flusha",
+      "killerSide": "TERRORIST",
+      "victimNick": "Spinx",
+      "victimName": "Spinx",
+      "victimSide": "CT",
+      "weapon": "awp",
+      "headShot": true,
+      "eventId": 1941744189
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "flusha",
+      "killerNick": "flusha",
+      "killerSide": "TERRORIST",
+      "victimNick": "rigoN",
+      "victimName": "rigoN",
+      "victimSide": "CT",
+      "weapon": "awp",
+      "headShot": false,
+      "eventId": 1941744099
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "flusha",
+      "killerNick": "flusha",
+      "killerSide": "TERRORIST",
+      "victimNick": "Spinx",
+      "victimName": "Spinx",
+      "victimSide": "CT",
+      "weapon": "awp",
+      "headShot": false,
+      "eventId": 1941744044
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "flusha",
+      "killerNick": "flusha",
+      "killerSide": "TERRORIST",
+      "victimNick": "rigoN",
+      "victimName": "rigoN",
+      "victimSide": "CT",
+      "weapon": "awp",
+      "headShot": false,
+      "eventId": 1941743961
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "flusha",
+      "killerNick": "flusha",
+      "killerSide": "TERRORIST",
+      "victimNick": "Spinx",
+      "victimName": "Spinx",
+      "victimSide": "CT",
+      "weapon": "awp",
+      "headShot": true,
+      "eventId": 1941743876
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "flusha",
+      "killerNick": "flusha",
+      "killerSide": "TERRORIST",
+      "victimNick": "rigoN",
+      "victimName": "rigoN",
+      "victimSide": "CT",
+      "weapon": "awp",
+      "headShot": true,
+      "eventId": 1941743864
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "flusha",
+      "killerNick": "flusha",
+      "killerSide": "TERRORIST",
+      "victimNick": "rigoN",
+      "victimName": "rigoN",
+      "victimSide": "CT",
+      "weapon": "awp",
+      "headShot": true,
+      "eventId": 1941743399
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "flusha",
+      "killerNick": "flusha",
+      "killerSide": "TERRORIST",
+      "victimNick": "Spinx",
+      "victimName": "Spinx",
+      "victimSide": "CT",
+      "weapon": "awp",
+      "headShot": true,
+      "eventId": 1941743395
+    }
+  },
+  { "PlayerJoin": { "playerName": "flusha", "playerNick": "flusha" } },
+  { "RoundStart": {} },
+  { "MatchStarted": { "map": "de_train" } },
+  { "Restart": {} },
+  { "PlayerJoin": { "playerName": "FACEIT.p", "playerNick": "FACEIT.p" } },
+  { "RoundStart": {} },
+  { "PlayerJoin": { "playerName": "prius", "playerNick": "prius" } },
+  { "MatchStarted": { "map": "de_train" } },
+  { "PlayerJoin": { "playerName": "Brollan", "playerNick": "Brollan" } },
+  { "PlayerJoin": { "playerName": "djL", "playerNick": "djL" } },
+  { "PlayerJoin": { "playerName": "FACEIT.m", "playerNick": "FACEIT.m" } },
+  { "PlayerJoin": { "playerName": "Spinx", "playerNick": "Spinx" } },
+  { "PlayerJoin": { "playerName": "Samme", "playerNick": "Samme" } },
+  { "PlayerJoin": { "playerName": "rigoN", "playerNick": "rigoN" } },
+  { "RoundStart": {} },
+  {
+    "PlayerQuit": {
+      "playerName": "EspiranTo",
+      "playerSide": "CT",
+      "playerNick": "EspiranTo"
+    }
+  },
+  {
+    "PlayerQuit": {
+      "playerName": "KRIMZ",
+      "playerSide": "TERRORIST",
+      "playerNick": "KRIMZ"
+    }
+  },
+  {
+    "PlayerQuit": {
+      "playerName": "JW",
+      "playerSide": "TERRORIST",
+      "playerNick": "JW"
+    }
+  },
+  {
+    "PlayerQuit": {
+      "playerName": "Golden",
+      "playerSide": "TERRORIST",
+      "playerNick": "Golden"
+    }
+  },
+  {
+    "PlayerQuit": {
+      "playerName": "Snappi",
+      "playerSide": "CT",
+      "playerNick": "Snappi"
+    }
+  },
+  {
+    "PlayerQuit": {
+      "playerName": "flusha",
+      "playerSide": "TERRORIST",
+      "playerNick": "flusha"
+    }
+  },
+  {
+    "PlayerQuit": {
+      "playerName": "ottoNd",
+      "playerSide": "CT",
+      "playerNick": "ottoNd"
+    }
+  },
+  { "RoundStart": {} },
+  {
+    "RoundEnd": {
+      "counterTerroristScore": 10,
+      "terroristScore": 16,
+      "winner": "TERRORIST",
+      "winType": "Terrorists_Win"
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "flusha",
+      "killerNick": "flusha",
+      "killerSide": "TERRORIST",
+      "victimNick": "Spinx",
+      "victimName": "Spinx",
+      "victimSide": "CT",
+      "weapon": "ak47",
+      "headShot": true,
+      "eventId": 1941741374
+    }
+  },
+  {
+    "Assist": {
+      "assisterName": "flusha",
+      "assisterNick": "flusha",
+      "assisterSide": "TERRORIST",
+      "victimNick": "EspiranTo",
+      "victimName": "EspiranTo",
+      "victimSide": "CT",
+      "killEventId": 1941741292
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "Brollan",
+      "killerNick": "Brollan",
+      "killerSide": "TERRORIST",
+      "victimNick": "EspiranTo",
+      "victimName": "EspiranTo",
+      "victimSide": "CT",
+      "weapon": "ak47",
+      "headShot": true,
+      "eventId": 1941741292
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "flusha",
+      "killerNick": "flusha",
+      "killerSide": "TERRORIST",
+      "victimNick": "rigoN",
+      "victimName": "rigoN",
+      "victimSide": "CT",
+      "weapon": "ak47",
+      "headShot": true,
+      "eventId": 1941741280
+    }
+  },
+  {
+    "BombPlanted": {
+      "playerName": "JW",
+      "playerNick": "JW",
+      "ctPlayers": 3,
+      "tPlayers": 4
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "EspiranTo",
+      "killerNick": "EspiranTo",
+      "killerSide": "CT",
+      "victimNick": "Golden",
+      "victimName": "Golden",
+      "victimSide": "TERRORIST",
+      "weapon": "deagle",
+      "headShot": true,
+      "eventId": 1941741185
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "flusha",
+      "killerNick": "flusha",
+      "killerSide": "TERRORIST",
+      "victimNick": "Snappi",
+      "victimName": "Snappi",
+      "victimSide": "CT",
+      "weapon": "ak47",
+      "headShot": true,
+      "eventId": 1941741140
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "Golden",
+      "killerNick": "Golden",
+      "killerSide": "TERRORIST",
+      "victimNick": "ottoNd",
+      "victimName": "ottoNd",
+      "victimSide": "CT",
+      "weapon": "ak47",
+      "headShot": true,
+      "eventId": 1941741129
+    }
+  },
+  { "RoundStart": {} },
+  {
+    "RoundEnd": {
+      "counterTerroristScore": 10,
+      "terroristScore": 15,
+      "winner": "TERRORIST",
+      "winType": "Terrorists_Win"
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "KRIMZ",
+      "killerNick": "KRIMZ",
+      "killerSide": "TERRORIST",
+      "victimNick": "Snappi",
+      "victimName": "Snappi",
+      "victimSide": "CT",
+      "weapon": "ak47",
+      "headShot": true,
+      "eventId": 1941740622
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "JW",
+      "killerNick": "JW",
+      "killerSide": "TERRORIST",
+      "victimNick": "Spinx",
+      "victimName": "Spinx",
+      "victimSide": "CT",
+      "weapon": "awp",
+      "headShot": false,
+      "eventId": 1941740608
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "flusha",
+      "killerNick": "flusha",
+      "killerSide": "TERRORIST",
+      "victimNick": "EspiranTo",
+      "victimName": "EspiranTo",
+      "victimSide": "CT",
+      "weapon": "ak47",
+      "headShot": true,
+      "eventId": 1941740574
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "EspiranTo",
+      "killerNick": "EspiranTo",
+      "killerSide": "CT",
+      "victimNick": "Brollan",
+      "victimName": "Brollan",
+      "victimSide": "TERRORIST",
+      "weapon": "deagle",
+      "headShot": true,
+      "eventId": 1941740554
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "JW",
+      "killerNick": "JW",
+      "killerSide": "TERRORIST",
+      "victimNick": "ottoNd",
+      "victimName": "ottoNd",
+      "victimSide": "CT",
+      "weapon": "awp",
+      "headShot": false,
+      "eventId": 1941740534
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "Brollan",
+      "killerNick": "Brollan",
+      "killerSide": "TERRORIST",
+      "victimNick": "rigoN",
+      "victimName": "rigoN",
+      "victimSide": "CT",
+      "weapon": "ak47",
+      "headShot": true,
+      "eventId": 1941740502
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "Snappi",
+      "killerNick": "Snappi",
+      "killerSide": "CT",
+      "victimNick": "Golden",
+      "victimName": "Golden",
+      "victimSide": "TERRORIST",
+      "weapon": "m4a1",
+      "headShot": true,
+      "eventId": 1941740466
+    }
+  },
+  { "RoundStart": {} },
+  {
+    "BombPlanted": {
+      "playerName": "JW",
+      "playerNick": "JW",
+      "ctPlayers": 0,
+      "tPlayers": 3
+    }
+  },
+  {
+    "RoundEnd": {
+      "counterTerroristScore": 10,
+      "terroristScore": 14,
+      "winner": "TERRORIST",
+      "winType": "Terrorists_Win"
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "Brollan",
+      "killerNick": "Brollan",
+      "killerSide": "TERRORIST",
+      "victimNick": "EspiranTo",
+      "victimName": "EspiranTo",
+      "victimSide": "CT",
+      "weapon": "ak47",
+      "headShot": false,
+      "eventId": 1941740151,
+      "flasherNick": "JW",
+      "flasherSide": "TERRORIST"
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "flusha",
+      "killerNick": "flusha",
+      "killerSide": "TERRORIST",
+      "victimNick": "Snappi",
+      "victimName": "Snappi",
+      "victimSide": "CT",
+      "weapon": "ak47",
+      "headShot": false,
+      "eventId": 1941740131
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "Brollan",
+      "killerNick": "Brollan",
+      "killerSide": "TERRORIST",
+      "victimNick": "Spinx",
+      "victimName": "Spinx",
+      "victimSide": "CT",
+      "weapon": "ak47",
+      "headShot": true,
+      "eventId": 1941740026
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "flusha",
+      "killerNick": "flusha",
+      "killerSide": "TERRORIST",
+      "victimNick": "rigoN",
+      "victimName": "rigoN",
+      "victimSide": "CT",
+      "weapon": "ak47",
+      "headShot": false,
+      "eventId": 1941740017
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "Brollan",
+      "killerNick": "Brollan",
+      "killerSide": "TERRORIST",
+      "victimNick": "ottoNd",
+      "victimName": "ottoNd",
+      "victimSide": "CT",
+      "weapon": "ak47",
+      "headShot": true,
+      "eventId": 1941739974
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "rigoN",
+      "killerNick": "rigoN",
+      "killerSide": "CT",
+      "victimNick": "KRIMZ",
+      "victimName": "KRIMZ",
+      "victimSide": "TERRORIST",
+      "weapon": "m4a1",
+      "headShot": true,
+      "eventId": 1941739803
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "EspiranTo",
+      "killerNick": "EspiranTo",
+      "killerSide": "CT",
+      "victimNick": "Golden",
+      "victimName": "Golden",
+      "victimSide": "TERRORIST",
+      "weapon": "awp",
+      "headShot": false,
+      "eventId": 1941739670
+    }
+  },
+  { "RoundStart": {} },
+  {
+    "RoundEnd": {
+      "counterTerroristScore": 10,
+      "terroristScore": 13,
+      "winner": "CT",
+      "winType": "Target_Saved"
+    }
+  },
+  {
+    "Assist": {
+      "assisterName": "JW",
+      "assisterNick": "JW",
+      "assisterSide": "TERRORIST",
+      "victimNick": "EspiranTo",
+      "victimName": "EspiranTo",
+      "victimSide": "CT",
+      "killEventId": 1941739076
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "KRIMZ",
+      "killerNick": "KRIMZ",
+      "killerSide": "TERRORIST",
+      "victimNick": "EspiranTo",
+      "victimName": "EspiranTo",
+      "victimSide": "CT",
+      "weapon": "sg556",
+      "headShot": false,
+      "eventId": 1941739076
+    }
+  },
+  {
+    "Assist": {
+      "assisterName": "Spinx",
+      "assisterNick": "Spinx",
+      "assisterSide": "CT",
+      "victimNick": "JW",
+      "victimName": "JW",
+      "victimSide": "TERRORIST",
+      "killEventId": 1941739037
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "EspiranTo",
+      "killerNick": "EspiranTo",
+      "killerSide": "CT",
+      "victimNick": "JW",
+      "victimName": "JW",
+      "victimSide": "TERRORIST",
+      "weapon": "usp_silencer",
+      "headShot": false,
+      "eventId": 1941739037
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "flusha",
+      "killerNick": "flusha",
+      "killerSide": "TERRORIST",
+      "victimNick": "Spinx",
+      "victimName": "Spinx",
+      "victimSide": "CT",
+      "weapon": "ak47",
+      "headShot": false,
+      "eventId": 1941739019
+    }
+  },
+  {
+    "Assist": {
+      "assisterName": "EspiranTo",
+      "assisterNick": "EspiranTo",
+      "assisterSide": "CT",
+      "victimNick": "Golden",
+      "victimName": "Golden",
+      "victimSide": "TERRORIST",
+      "killEventId": 1941738596
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "ottoNd",
+      "killerNick": "ottoNd",
+      "killerSide": "CT",
+      "victimNick": "Golden",
+      "victimName": "Golden",
+      "victimSide": "TERRORIST",
+      "weapon": "awp",
+      "headShot": false,
+      "eventId": 1941738596
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "Golden",
+      "killerNick": "Golden",
+      "killerSide": "TERRORIST",
+      "victimNick": "rigoN",
+      "victimName": "rigoN",
+      "victimSide": "CT",
+      "weapon": "ak47",
+      "headShot": true,
+      "eventId": 1941738576
+    }
+  },
+  {
+    "Assist": {
+      "assisterName": "EspiranTo",
+      "assisterNick": "EspiranTo",
+      "assisterSide": "CT",
+      "victimNick": "Brollan",
+      "victimName": "Brollan",
+      "victimSide": "TERRORIST",
+      "killEventId": 1941738553
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "rigoN",
+      "killerNick": "rigoN",
+      "killerSide": "CT",
+      "victimNick": "Brollan",
+      "victimName": "Brollan",
+      "victimSide": "TERRORIST",
+      "weapon": "m4a1",
+      "headShot": false,
+      "eventId": 1941738553
+    }
+  },
+  { "RoundStart": {} },
+  {
+    "RoundEnd": {
+      "counterTerroristScore": 9,
+      "terroristScore": 13,
+      "winner": "CT",
+      "winType": "Bomb_Defused"
+    }
+  },
+  { "BombDefused": { "playerName": "ottoNd", "playerNick": "ottoNd" } },
+  {
+    "Kill": {
+      "killerName": "Snappi",
+      "killerNick": "Snappi",
+      "killerSide": "CT",
+      "victimNick": "JW",
+      "victimName": "JW",
+      "victimSide": "TERRORIST",
+      "weapon": "ak47",
+      "headShot": true,
+      "eventId": 1941738003
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "JW",
+      "killerNick": "JW",
+      "killerSide": "TERRORIST",
+      "victimNick": "EspiranTo",
+      "victimName": "EspiranTo",
+      "victimSide": "CT",
+      "weapon": "awp",
+      "headShot": false,
+      "eventId": 1941737981
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "EspiranTo",
+      "killerNick": "EspiranTo",
+      "killerSide": "CT",
+      "victimNick": "KRIMZ",
+      "victimName": "KRIMZ",
+      "victimSide": "TERRORIST",
+      "weapon": "deagle",
+      "headShot": true,
+      "eventId": 1941737964
+    }
+  },
+  {
+    "Assist": {
+      "assisterName": "Spinx",
+      "assisterNick": "Spinx",
+      "assisterSide": "CT",
+      "victimNick": "Brollan",
+      "victimName": "Brollan",
+      "victimSide": "TERRORIST",
+      "killEventId": 1941737953
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "Snappi",
+      "killerNick": "Snappi",
+      "killerSide": "CT",
+      "victimNick": "Brollan",
+      "victimName": "Brollan",
+      "victimSide": "TERRORIST",
+      "weapon": "deagle",
+      "headShot": false,
+      "eventId": 1941737953
+    }
+  },
+  {
+    "BombPlanted": {
+      "playerName": "KRIMZ",
+      "playerNick": "KRIMZ",
+      "ctPlayers": 3,
+      "tPlayers": 3
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "Brollan",
+      "killerNick": "Brollan",
+      "killerSide": "TERRORIST",
+      "victimNick": "rigoN",
+      "victimName": "rigoN",
+      "victimSide": "CT",
+      "weapon": "ak47",
+      "headShot": true,
+      "eventId": 1941737888
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "ottoNd",
+      "killerNick": "ottoNd",
+      "killerSide": "CT",
+      "victimNick": "Golden",
+      "victimName": "Golden",
+      "victimSide": "TERRORIST",
+      "weapon": "deagle",
+      "headShot": true,
+      "eventId": 1941737881
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "rigoN",
+      "killerNick": "rigoN",
+      "killerSide": "CT",
+      "victimNick": "flusha",
+      "victimName": "flusha",
+      "victimSide": "TERRORIST",
+      "weapon": "deagle",
+      "headShot": false,
+      "eventId": 1941737865
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "Brollan",
+      "killerNick": "Brollan",
+      "killerSide": "TERRORIST",
+      "victimNick": "Spinx",
+      "victimName": "Spinx",
+      "victimSide": "CT",
+      "weapon": "ak47",
+      "headShot": false,
+      "eventId": 1941737767
+    }
+  },
+  { "RoundStart": {} },
+  {
+    "RoundEnd": {
+      "counterTerroristScore": 8,
+      "terroristScore": 13,
+      "winner": "TERRORIST",
+      "winType": "Terrorists_Win"
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "flusha",
+      "killerNick": "flusha",
+      "killerSide": "TERRORIST",
+      "victimNick": "EspiranTo",
+      "victimName": "EspiranTo",
+      "victimSide": "CT",
+      "weapon": "ak47",
+      "headShot": true,
+      "eventId": 1941736656
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "flusha",
+      "killerNick": "flusha",
+      "killerSide": "TERRORIST",
+      "victimNick": "Snappi",
+      "victimName": "Snappi",
+      "victimSide": "CT",
+      "weapon": "ak47",
+      "headShot": false,
+      "eventId": 1941736631
+    }
+  },
+  {
+    "BombPlanted": {
+      "playerName": "Golden",
+      "playerNick": "Golden",
+      "ctPlayers": 2,
+      "tPlayers": 2
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "flusha",
+      "killerNick": "flusha",
+      "killerSide": "TERRORIST",
+      "victimNick": "ottoNd",
+      "victimName": "ottoNd",
+      "victimSide": "CT",
+      "weapon": "ak47",
+      "headShot": false,
+      "eventId": 1941736011,
+      "flasherNick": "Brollan",
+      "flasherSide": "TERRORIST"
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "EspiranTo",
+      "killerNick": "EspiranTo",
+      "killerSide": "CT",
+      "victimNick": "JW",
+      "victimName": "JW",
+      "victimSide": "TERRORIST",
+      "weapon": "awp",
+      "headShot": false,
+      "eventId": 1941735978
+    }
+  },
+  {
+    "Assist": {
+      "assisterName": "Spinx",
+      "assisterNick": "Spinx",
+      "assisterSide": "CT",
+      "victimNick": "Brollan",
+      "victimName": "Brollan",
+      "victimSide": "TERRORIST",
+      "killEventId": 1941735923
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "ottoNd",
+      "killerNick": "ottoNd",
+      "killerSide": "CT",
+      "victimNick": "Brollan",
+      "victimName": "Brollan",
+      "victimSide": "TERRORIST",
+      "weapon": "awp",
+      "headShot": false,
+      "eventId": 1941735923
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "ottoNd",
+      "killerNick": "ottoNd",
+      "killerSide": "CT",
+      "victimNick": "KRIMZ",
+      "victimName": "KRIMZ",
+      "victimSide": "TERRORIST",
+      "weapon": "awp",
+      "headShot": false,
+      "eventId": 1941735849
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "Brollan",
+      "killerNick": "Brollan",
+      "killerSide": "TERRORIST",
+      "victimNick": "Spinx",
+      "victimName": "Spinx",
+      "victimSide": "CT",
+      "weapon": "ak47",
+      "headShot": true,
+      "eventId": 1941735836
+    }
+  },
+  {
+    "Assist": {
+      "assisterName": "KRIMZ",
+      "assisterNick": "KRIMZ",
+      "assisterSide": "TERRORIST",
+      "victimNick": "rigoN",
+      "victimName": "rigoN",
+      "victimSide": "CT",
+      "killEventId": 1941735655
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "JW",
+      "killerNick": "JW",
+      "killerSide": "TERRORIST",
+      "victimNick": "rigoN",
+      "victimName": "rigoN",
+      "victimSide": "CT",
+      "weapon": "awp",
+      "headShot": false,
+      "eventId": 1941735655
+    }
+  },
+  { "RoundStart": {} },
+  {
+    "RoundEnd": {
+      "counterTerroristScore": 8,
+      "terroristScore": 12,
+      "winner": "TERRORIST",
+      "winType": "Terrorists_Win"
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "JW",
+      "killerNick": "JW",
+      "killerSide": "TERRORIST",
+      "victimNick": "rigoN",
+      "victimName": "rigoN",
+      "victimSide": "CT",
+      "weapon": "awp",
+      "headShot": false,
+      "eventId": 1941734819
+    }
+  },
+  {
+    "Assist": {
+      "assisterName": "Spinx",
+      "assisterNick": "Spinx",
+      "assisterSide": "CT",
+      "victimNick": "Golden",
+      "victimName": "Golden",
+      "victimSide": "TERRORIST",
+      "killEventId": 1941734809
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "rigoN",
+      "killerNick": "rigoN",
+      "killerSide": "CT",
+      "victimNick": "Golden",
+      "victimName": "Golden",
+      "victimSide": "TERRORIST",
+      "weapon": "m4a1",
+      "headShot": false,
+      "eventId": 1941734809
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "Golden",
+      "killerNick": "Golden",
+      "killerSide": "TERRORIST",
+      "victimNick": "Spinx",
+      "victimName": "Spinx",
+      "victimSide": "CT",
+      "weapon": "ak47",
+      "headShot": false,
+      "eventId": 1941734791
+    }
+  },
+  {
+    "Assist": {
+      "assisterName": "flusha",
+      "assisterNick": "flusha",
+      "assisterSide": "TERRORIST",
+      "victimNick": "Snappi",
+      "victimName": "Snappi",
+      "victimSide": "CT",
+      "killEventId": 1941734774
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "Golden",
+      "killerNick": "Golden",
+      "killerSide": "TERRORIST",
+      "victimNick": "Snappi",
+      "victimName": "Snappi",
+      "victimSide": "CT",
+      "weapon": "ak47",
+      "headShot": true,
+      "eventId": 1941734774
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "Snappi",
+      "killerNick": "Snappi",
+      "killerSide": "CT",
+      "victimNick": "flusha",
+      "victimName": "flusha",
+      "victimSide": "TERRORIST",
+      "weapon": "m4a1",
+      "headShot": false,
+      "eventId": 1941734711
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "Golden",
+      "killerNick": "Golden",
+      "killerSide": "TERRORIST",
+      "victimNick": "EspiranTo",
+      "victimName": "EspiranTo",
+      "victimSide": "CT",
+      "weapon": "ak47",
+      "headShot": false,
+      "eventId": 1941734697
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "flusha",
+      "killerNick": "flusha",
+      "killerSide": "TERRORIST",
+      "victimNick": "ottoNd",
+      "victimName": "ottoNd",
+      "victimSide": "CT",
+      "weapon": "ak47",
+      "headShot": false,
+      "eventId": 1941734683
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "EspiranTo",
+      "killerNick": "EspiranTo",
+      "killerSide": "CT",
+      "victimNick": "Brollan",
+      "victimName": "Brollan",
+      "victimSide": "TERRORIST",
+      "weapon": "deagle",
+      "headShot": false,
+      "eventId": 1941734590
+    }
+  },
+  { "RoundStart": {} },
+  {
+    "RoundEnd": {
+      "counterTerroristScore": 8,
+      "terroristScore": 11,
+      "winner": "TERRORIST",
+      "winType": "Target_Bombed"
+    }
+  },
+  {
+    "BombPlanted": {
+      "playerName": "KRIMZ",
+      "playerNick": "KRIMZ",
+      "ctPlayers": 1,
+      "tPlayers": 4
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "flusha",
+      "killerNick": "flusha",
+      "killerSide": "TERRORIST",
+      "victimNick": "rigoN",
+      "victimName": "rigoN",
+      "victimSide": "CT",
+      "weapon": "ak47",
+      "headShot": true,
+      "eventId": 1941733433
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "JW",
+      "killerNick": "JW",
+      "killerSide": "TERRORIST",
+      "victimNick": "EspiranTo",
+      "victimName": "EspiranTo",
+      "victimSide": "CT",
+      "weapon": "awp",
+      "headShot": false,
+      "eventId": 1941733413
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "KRIMZ",
+      "killerNick": "KRIMZ",
+      "killerSide": "TERRORIST",
+      "victimNick": "ottoNd",
+      "victimName": "ottoNd",
+      "victimSide": "CT",
+      "weapon": "ak47",
+      "headShot": true,
+      "eventId": 1941733359
+    }
+  },
+  {
+    "Assist": {
+      "assisterName": "Brollan",
+      "assisterNick": "Brollan",
+      "assisterSide": "TERRORIST",
+      "victimNick": "Spinx",
+      "victimName": "Spinx",
+      "victimSide": "CT",
+      "killEventId": 1941733315
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "flusha",
+      "killerNick": "flusha",
+      "killerSide": "TERRORIST",
+      "victimNick": "Spinx",
+      "victimName": "Spinx",
+      "victimSide": "CT",
+      "weapon": "ak47",
+      "headShot": false,
+      "eventId": 1941733315
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "Spinx",
+      "killerNick": "Spinx",
+      "killerSide": "CT",
+      "victimNick": "Brollan",
+      "victimName": "Brollan",
+      "victimSide": "TERRORIST",
+      "weapon": "m4a1",
+      "headShot": false,
+      "eventId": 1941733156
+    }
+  },
+  { "RoundStart": {} },
+  {
+    "Kill": {
+      "killerName": "rigoN",
+      "killerNick": "rigoN",
+      "killerSide": "CT",
+      "victimNick": "JW",
+      "victimName": "JW",
+      "victimSide": "TERRORIST",
+      "weapon": "ak47",
+      "headShot": true,
+      "eventId": 1941732507
+    }
+  },
+  {
+    "RoundEnd": {
+      "counterTerroristScore": 8,
+      "terroristScore": 10,
+      "winner": "TERRORIST",
+      "winType": "Target_Bombed"
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "rigoN",
+      "killerNick": "rigoN",
+      "killerSide": "CT",
+      "victimNick": "Golden",
+      "victimName": "Golden",
+      "victimSide": "TERRORIST",
+      "weapon": "deagle",
+      "headShot": true,
+      "eventId": 1941732394
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "Golden",
+      "killerNick": "Golden",
+      "killerSide": "TERRORIST",
+      "victimNick": "Snappi",
+      "victimName": "Snappi",
+      "victimSide": "CT",
+      "weapon": "deagle",
+      "headShot": true,
+      "eventId": 1941732377
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "Snappi",
+      "killerNick": "Snappi",
+      "killerSide": "CT",
+      "victimNick": "flusha",
+      "victimName": "flusha",
+      "victimSide": "TERRORIST",
+      "weapon": "deagle",
+      "headShot": true,
+      "eventId": 1941732326
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "Golden",
+      "killerNick": "Golden",
+      "killerSide": "TERRORIST",
+      "victimNick": "ottoNd",
+      "victimName": "ottoNd",
+      "victimSide": "CT",
+      "weapon": "deagle",
+      "headShot": true,
+      "eventId": 1941732304
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "flusha",
+      "killerNick": "flusha",
+      "killerSide": "TERRORIST",
+      "victimNick": "Spinx",
+      "victimName": "Spinx",
+      "victimSide": "CT",
+      "weapon": "ak47",
+      "headShot": true,
+      "eventId": 1941732299
+    }
+  },
+  {
+    "BombPlanted": {
+      "playerName": "Golden",
+      "playerNick": "Golden",
+      "ctPlayers": 4,
+      "tPlayers": 5
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "Golden",
+      "killerNick": "Golden",
+      "killerSide": "TERRORIST",
+      "victimNick": "EspiranTo",
+      "victimName": "EspiranTo",
+      "victimSide": "CT",
+      "weapon": "deagle",
+      "headShot": true,
+      "eventId": 1941732237
+    }
+  },
+  { "RoundStart": {} },
+  {
+    "RoundEnd": {
+      "counterTerroristScore": 8,
+      "terroristScore": 9,
+      "winner": "TERRORIST",
+      "winType": "Target_Bombed"
+    }
+  },
+  {
+    "BombPlanted": {
+      "playerName": "Golden",
+      "playerNick": "Golden",
+      "ctPlayers": 1,
+      "tPlayers": 3
+    }
+  },
+  {
+    "Assist": {
+      "assisterName": "flusha",
+      "assisterNick": "flusha",
+      "assisterSide": "TERRORIST",
+      "victimNick": "EspiranTo",
+      "victimName": "EspiranTo",
+      "victimSide": "CT",
+      "killEventId": 1941731354
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "JW",
+      "killerNick": "JW",
+      "killerSide": "TERRORIST",
+      "victimNick": "EspiranTo",
+      "victimName": "EspiranTo",
+      "victimSide": "CT",
+      "weapon": "ak47",
+      "headShot": false,
+      "eventId": 1941731354
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "Golden",
+      "killerNick": "Golden",
+      "killerSide": "TERRORIST",
+      "victimNick": "rigoN",
+      "victimName": "rigoN",
+      "victimSide": "CT",
+      "weapon": "ak47",
+      "headShot": true,
+      "eventId": 1941731342
+    }
+  },
+  {
+    "Assist": {
+      "assisterName": "Golden",
+      "assisterNick": "Golden",
+      "assisterSide": "TERRORIST",
+      "victimNick": "ottoNd",
+      "victimName": "ottoNd",
+      "victimSide": "CT",
+      "killEventId": 1941731335
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "JW",
+      "killerNick": "JW",
+      "killerSide": "TERRORIST",
+      "victimNick": "ottoNd",
+      "victimName": "ottoNd",
+      "victimSide": "CT",
+      "weapon": "ak47",
+      "headShot": false,
+      "eventId": 1941731335
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "EspiranTo",
+      "killerNick": "EspiranTo",
+      "killerSide": "CT",
+      "victimNick": "flusha",
+      "victimName": "flusha",
+      "victimSide": "TERRORIST",
+      "weapon": "deagle",
+      "headShot": true,
+      "eventId": 1941731315
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "ottoNd",
+      "killerNick": "ottoNd",
+      "killerSide": "CT",
+      "victimNick": "Brollan",
+      "victimName": "Brollan",
+      "victimSide": "TERRORIST",
+      "weapon": "ssg08",
+      "headShot": true,
+      "eventId": 1941731296
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "JW",
+      "killerNick": "JW",
+      "killerSide": "TERRORIST",
+      "victimNick": "Spinx",
+      "victimName": "Spinx",
+      "victimSide": "CT",
+      "weapon": "ak47",
+      "headShot": true,
+      "eventId": 1941731283
+    }
+  },
+  { "RoundStart": {} },
+  {
+    "RoundEnd": {
+      "counterTerroristScore": 8,
+      "terroristScore": 8,
+      "winner": "TERRORIST",
+      "winType": "Terrorists_Win"
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "Golden",
+      "killerNick": "Golden",
+      "killerSide": "TERRORIST",
+      "victimNick": "rigoN",
+      "victimName": "rigoN",
+      "victimSide": "CT",
+      "weapon": "usp_silencer",
+      "headShot": true,
+      "eventId": 1941731067
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "rigoN",
+      "killerNick": "rigoN",
+      "killerSide": "CT",
+      "victimNick": "JW",
+      "victimName": "JW",
+      "victimSide": "TERRORIST",
+      "weapon": "usp_silencer",
+      "headShot": true,
+      "eventId": 1941731062
+    }
+  },
+  {
+    "BombPlanted": {
+      "playerName": "JW",
+      "playerNick": "JW",
+      "ctPlayers": 1,
+      "tPlayers": 2
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "Golden",
+      "killerNick": "Golden",
+      "killerSide": "TERRORIST",
+      "victimNick": "ottoNd",
+      "victimName": "ottoNd",
+      "victimSide": "CT",
+      "weapon": "glock",
+      "headShot": true,
+      "eventId": 1941731048
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "JW",
+      "killerNick": "JW",
+      "killerSide": "TERRORIST",
+      "victimNick": "EspiranTo",
+      "victimName": "EspiranTo",
+      "victimSide": "CT",
+      "weapon": "glock",
+      "headShot": false,
+      "eventId": 1941731042
+    }
+  },
+  {
+    "Assist": {
+      "assisterName": "KRIMZ",
+      "assisterNick": "KRIMZ",
+      "assisterSide": "TERRORIST",
+      "victimNick": "Snappi",
+      "victimName": "Snappi",
+      "victimSide": "CT",
+      "killEventId": 1941731036
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "Golden",
+      "killerNick": "Golden",
+      "killerSide": "TERRORIST",
+      "victimNick": "Snappi",
+      "victimName": "Snappi",
+      "victimSide": "CT",
+      "weapon": "glock",
+      "headShot": true,
+      "eventId": 1941731036
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "Snappi",
+      "killerNick": "Snappi",
+      "killerSide": "CT",
+      "victimNick": "KRIMZ",
+      "victimName": "KRIMZ",
+      "victimSide": "TERRORIST",
+      "weapon": "usp_silencer",
+      "headShot": true,
+      "eventId": 1941731022
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "rigoN",
+      "killerNick": "rigoN",
+      "killerSide": "CT",
+      "victimNick": "flusha",
+      "victimName": "flusha",
+      "victimSide": "TERRORIST",
+      "weapon": "usp_silencer",
+      "headShot": true,
+      "eventId": 1941731009
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "flusha",
+      "killerNick": "flusha",
+      "killerSide": "TERRORIST",
+      "victimNick": "Spinx",
+      "victimName": "Spinx",
+      "victimSide": "CT",
+      "weapon": "p250",
+      "headShot": true,
+      "eventId": 1941731003
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "ottoNd",
+      "killerNick": "ottoNd",
+      "killerSide": "CT",
+      "victimNick": "Brollan",
+      "victimName": "Brollan",
+      "victimSide": "TERRORIST",
+      "weapon": "usp_silencer",
+      "headShot": true,
+      "eventId": 1941730989
+    }
+  },
+  { "RoundStart": {} },
+  {
+    "RoundEnd": {
+      "counterTerroristScore": 7,
+      "terroristScore": 8,
+      "winner": "CT",
+      "winType": "CTs_Win"
+    }
+  },
+  {
+    "Assist": {
+      "assisterName": "flusha",
+      "assisterNick": "flusha",
+      "assisterSide": "CT",
+      "victimNick": "ottoNd",
+      "victimName": "ottoNd",
+      "victimSide": "TERRORIST",
+      "killEventId": 1941717326
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "KRIMZ",
+      "killerNick": "KRIMZ",
+      "killerSide": "CT",
+      "victimNick": "ottoNd",
+      "victimName": "ottoNd",
+      "victimSide": "TERRORIST",
+      "weapon": "m4a1",
+      "headShot": false,
+      "eventId": 1941717326
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "ottoNd",
+      "killerNick": "ottoNd",
+      "killerSide": "TERRORIST",
+      "victimNick": "Golden",
+      "victimName": "Golden",
+      "victimSide": "CT",
+      "weapon": "awp",
+      "headShot": false,
+      "eventId": 1941717285
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "JW",
+      "killerNick": "JW",
+      "killerSide": "CT",
+      "victimNick": "Snappi",
+      "victimName": "Snappi",
+      "victimSide": "TERRORIST",
+      "weapon": "awp",
+      "headShot": false,
+      "eventId": 1941717199
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "KRIMZ",
+      "killerNick": "KRIMZ",
+      "killerSide": "CT",
+      "victimNick": "Spinx",
+      "victimName": "Spinx",
+      "victimSide": "TERRORIST",
+      "weapon": "m4a1",
+      "headShot": true,
+      "eventId": 1941717181
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "ottoNd",
+      "killerNick": "ottoNd",
+      "killerSide": "TERRORIST",
+      "victimNick": "flusha",
+      "victimName": "flusha",
+      "victimSide": "CT",
+      "weapon": "awp",
+      "headShot": false,
+      "eventId": 1941717152
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "KRIMZ",
+      "killerNick": "KRIMZ",
+      "killerSide": "CT",
+      "victimNick": "rigoN",
+      "victimName": "rigoN",
+      "victimSide": "TERRORIST",
+      "weapon": "m4a1",
+      "headShot": true,
+      "eventId": 1941717076
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "KRIMZ",
+      "killerNick": "KRIMZ",
+      "killerSide": "CT",
+      "victimNick": "EspiranTo",
+      "victimName": "EspiranTo",
+      "victimSide": "TERRORIST",
+      "weapon": "m4a1",
+      "headShot": true,
+      "eventId": 1941717031
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "EspiranTo",
+      "killerNick": "EspiranTo",
+      "killerSide": "TERRORIST",
+      "victimNick": "Brollan",
+      "victimName": "Brollan",
+      "victimSide": "CT",
+      "weapon": "ak47",
+      "headShot": true,
+      "eventId": 1941716865
+    }
+  },
+  { "RoundStart": {} },
+  {
+    "RoundEnd": {
+      "counterTerroristScore": 6,
+      "terroristScore": 8,
+      "winner": "TERRORIST",
+      "winType": "Target_Bombed"
+    }
+  },
+  {
+    "BombPlanted": {
+      "playerName": "ottoNd",
+      "playerNick": "ottoNd",
+      "ctPlayers": 1,
+      "tPlayers": 3
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "rigoN",
+      "killerNick": "rigoN",
+      "killerSide": "TERRORIST",
+      "victimNick": "flusha",
+      "victimName": "flusha",
+      "victimSide": "CT",
+      "weapon": "ak47",
+      "headShot": true,
+      "eventId": 1941715820
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "EspiranTo",
+      "killerNick": "EspiranTo",
+      "killerSide": "TERRORIST",
+      "victimNick": "KRIMZ",
+      "victimName": "KRIMZ",
+      "victimSide": "CT",
+      "weapon": "ak47",
+      "headShot": false,
+      "eventId": 1941715798
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "rigoN",
+      "killerNick": "rigoN",
+      "killerSide": "TERRORIST",
+      "victimNick": "JW",
+      "victimName": "JW",
+      "victimSide": "CT",
+      "weapon": "ak47",
+      "headShot": true,
+      "eventId": 1941715762
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "KRIMZ",
+      "killerNick": "KRIMZ",
+      "killerSide": "CT",
+      "victimNick": "Snappi",
+      "victimName": "Snappi",
+      "victimSide": "TERRORIST",
+      "weapon": "m4a1",
+      "headShot": false,
+      "eventId": 1941715712
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "rigoN",
+      "killerNick": "rigoN",
+      "killerSide": "TERRORIST",
+      "victimNick": "Brollan",
+      "victimName": "Brollan",
+      "victimSide": "CT",
+      "weapon": "ak47",
+      "headShot": true,
+      "eventId": 1941715656
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "Brollan",
+      "killerNick": "Brollan",
+      "killerSide": "CT",
+      "victimNick": "Spinx",
+      "victimName": "Spinx",
+      "victimSide": "TERRORIST",
+      "weapon": "aug",
+      "headShot": false,
+      "eventId": 1941715601
+    }
+  },
+  { "RoundStart": {} },
+  {
+    "RoundEnd": {
+      "counterTerroristScore": 6,
+      "terroristScore": 7,
+      "winner": "TERRORIST",
+      "winType": "Terrorists_Win"
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "EspiranTo",
+      "killerNick": "EspiranTo",
+      "killerSide": "TERRORIST",
+      "victimNick": "KRIMZ",
+      "victimName": "KRIMZ",
+      "victimSide": "CT",
+      "weapon": "ak47",
+      "headShot": true,
+      "eventId": 1941714997
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "KRIMZ",
+      "killerNick": "KRIMZ",
+      "killerSide": "CT",
+      "victimNick": "ottoNd",
+      "victimName": "ottoNd",
+      "victimSide": "TERRORIST",
+      "weapon": "deagle",
+      "headShot": true,
+      "eventId": 1941714976
+    }
+  },
+  {
+    "BombPlanted": {
+      "playerName": "rigoN",
+      "playerNick": "rigoN",
+      "ctPlayers": 1,
+      "tPlayers": 4
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "Snappi",
+      "killerNick": "Snappi",
+      "killerSide": "TERRORIST",
+      "victimNick": "Brollan",
+      "victimName": "Brollan",
+      "victimSide": "CT",
+      "weapon": "ak47",
+      "headShot": false,
+      "eventId": 1941714896
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "Brollan",
+      "killerNick": "Brollan",
+      "killerSide": "CT",
+      "victimNick": "Spinx",
+      "victimName": "Spinx",
+      "victimSide": "TERRORIST",
+      "weapon": "deagle",
+      "headShot": true,
+      "eventId": 1941714878
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "Spinx",
+      "killerNick": "Spinx",
+      "killerSide": "TERRORIST",
+      "victimNick": "Golden",
+      "victimName": "Golden",
+      "victimSide": "CT",
+      "weapon": "ak47",
+      "headShot": false,
+      "eventId": 1941714813
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "EspiranTo",
+      "killerNick": "EspiranTo",
+      "killerSide": "TERRORIST",
+      "victimNick": "flusha",
+      "victimName": "flusha",
+      "victimSide": "CT",
+      "weapon": "ak47",
+      "headShot": true,
+      "eventId": 1941714755
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "Snappi",
+      "killerNick": "Snappi",
+      "killerSide": "TERRORIST",
+      "victimNick": "JW",
+      "victimName": "JW",
+      "victimSide": "CT",
+      "weapon": "ak47",
+      "headShot": false,
+      "eventId": 1941714713
+    }
+  },
+  { "RoundStart": {} },
+  {
+    "BombPlanted": {
+      "playerName": "Snappi",
+      "playerNick": "Snappi",
+      "ctPlayers": 0,
+      "tPlayers": 4
+    }
+  },
+  {
+    "RoundEnd": {
+      "counterTerroristScore": 6,
+      "terroristScore": 6,
+      "winner": "TERRORIST",
+      "winType": "Terrorists_Win"
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "Spinx",
+      "killerNick": "Spinx",
+      "killerSide": "TERRORIST",
+      "victimNick": "flusha",
+      "victimName": "flusha",
+      "victimSide": "CT",
+      "weapon": "ak47",
+      "headShot": false,
+      "eventId": 1941714234
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "ottoNd",
+      "killerNick": "ottoNd",
+      "killerSide": "TERRORIST",
+      "victimNick": "JW",
+      "victimName": "JW",
+      "victimSide": "CT",
+      "weapon": "awp",
+      "headShot": false,
+      "eventId": 1941714086
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "ottoNd",
+      "killerNick": "ottoNd",
+      "killerSide": "TERRORIST",
+      "victimNick": "Brollan",
+      "victimName": "Brollan",
+      "victimSide": "CT",
+      "weapon": "awp",
+      "headShot": false,
+      "eventId": 1941714000
+    }
+  },
+  {
+    "Assist": {
+      "assisterName": "Golden",
+      "assisterNick": "Golden",
+      "assisterSide": "CT",
+      "victimNick": "EspiranTo",
+      "victimName": "EspiranTo",
+      "victimSide": "TERRORIST",
+      "killEventId": 1941713975
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "Brollan",
+      "killerNick": "Brollan",
+      "killerSide": "CT",
+      "victimNick": "EspiranTo",
+      "victimName": "EspiranTo",
+      "victimSide": "TERRORIST",
+      "weapon": "ak47",
+      "headShot": false,
+      "eventId": 1941713975
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "ottoNd",
+      "killerNick": "ottoNd",
+      "killerSide": "TERRORIST",
+      "victimNick": "Golden",
+      "victimName": "Golden",
+      "victimSide": "CT",
+      "weapon": "awp",
+      "headShot": false,
+      "eventId": 1941713957
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "EspiranTo",
+      "killerNick": "EspiranTo",
+      "killerSide": "TERRORIST",
+      "victimNick": "KRIMZ",
+      "victimName": "KRIMZ",
+      "victimSide": "CT",
+      "weapon": "ak47",
+      "headShot": true,
+      "eventId": 1941713895
+    }
+  },
+  { "RoundStart": {} },
+  {
+    "RoundEnd": {
+      "counterTerroristScore": 6,
+      "terroristScore": 5,
+      "winner": "TERRORIST",
+      "winType": "Target_Bombed"
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "Snappi",
+      "killerNick": "Snappi",
+      "killerSide": "TERRORIST",
+      "victimNick": "JW",
+      "victimName": "JW",
+      "victimSide": "CT",
+      "weapon": "ak47",
+      "headShot": false,
+      "eventId": 1941713281
+    }
+  },
+  {
+    "BombPlanted": {
+      "playerName": "Snappi",
+      "playerNick": "Snappi",
+      "ctPlayers": 2,
+      "tPlayers": 4
+    }
+  },
+  {
+    "Assist": {
+      "assisterName": "Golden",
+      "assisterNick": "Golden",
+      "assisterSide": "CT",
+      "victimNick": "rigoN",
+      "victimName": "rigoN",
+      "victimSide": "TERRORIST",
+      "killEventId": 1941713231
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "Brollan",
+      "killerNick": "Brollan",
+      "killerSide": "CT",
+      "victimNick": "rigoN",
+      "victimName": "rigoN",
+      "victimSide": "TERRORIST",
+      "weapon": "aug",
+      "headShot": false,
+      "eventId": 1941713231
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "rigoN",
+      "killerNick": "rigoN",
+      "killerSide": "TERRORIST",
+      "victimNick": "Golden",
+      "victimName": "Golden",
+      "victimSide": "CT",
+      "weapon": "ak47",
+      "headShot": true,
+      "eventId": 1941713124
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "rigoN",
+      "killerNick": "rigoN",
+      "killerSide": "TERRORIST",
+      "victimNick": "flusha",
+      "victimName": "flusha",
+      "victimSide": "CT",
+      "weapon": "ak47",
+      "headShot": true,
+      "eventId": 1941712992
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "ottoNd",
+      "killerNick": "ottoNd",
+      "killerSide": "TERRORIST",
+      "victimNick": "KRIMZ",
+      "victimName": "KRIMZ",
+      "victimSide": "CT",
+      "weapon": "awp",
+      "headShot": false,
+      "eventId": 1941712895
+    }
+  },
+  { "RoundStart": {} },
+  {
+    "RoundEnd": {
+      "counterTerroristScore": 6,
+      "terroristScore": 4,
+      "winner": "TERRORIST",
+      "winType": "Terrorists_Win"
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "ottoNd",
+      "killerNick": "ottoNd",
+      "killerSide": "TERRORIST",
+      "victimNick": "KRIMZ",
+      "victimName": "KRIMZ",
+      "victimSide": "CT",
+      "weapon": "awp",
+      "headShot": false,
+      "eventId": 1941712245
+    }
+  },
+  {
+    "Assist": {
+      "assisterName": "flusha",
+      "assisterNick": "flusha",
+      "assisterSide": "CT",
+      "victimNick": "Spinx",
+      "victimName": "Spinx",
+      "victimSide": "TERRORIST",
+      "killEventId": 1941712211
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "KRIMZ",
+      "killerNick": "KRIMZ",
+      "killerSide": "CT",
+      "victimNick": "Spinx",
+      "victimName": "Spinx",
+      "victimSide": "TERRORIST",
+      "weapon": "aug",
+      "headShot": true,
+      "eventId": 1941712211
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "Spinx",
+      "killerNick": "Spinx",
+      "killerSide": "TERRORIST",
+      "victimNick": "flusha",
+      "victimName": "flusha",
+      "victimSide": "CT",
+      "weapon": "galilar",
+      "headShot": true,
+      "eventId": 1941712163
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "ottoNd",
+      "killerNick": "ottoNd",
+      "killerSide": "TERRORIST",
+      "victimNick": "Golden",
+      "victimName": "Golden",
+      "victimSide": "CT",
+      "weapon": "awp",
+      "headShot": false,
+      "eventId": 1941712125
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "Golden",
+      "killerNick": "Golden",
+      "killerSide": "CT",
+      "victimNick": "rigoN",
+      "victimName": "rigoN",
+      "victimSide": "TERRORIST",
+      "weapon": "m4a1",
+      "headShot": false,
+      "eventId": 1941712101
+    }
+  },
+  {
+    "Assist": {
+      "assisterName": "Spinx",
+      "assisterNick": "Spinx",
+      "assisterSide": "TERRORIST",
+      "victimNick": "JW",
+      "victimName": "JW",
+      "victimSide": "CT",
+      "killEventId": 1941712027
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "ottoNd",
+      "killerNick": "ottoNd",
+      "killerSide": "TERRORIST",
+      "victimNick": "JW",
+      "victimName": "JW",
+      "victimSide": "CT",
+      "weapon": "p250",
+      "headShot": true,
+      "eventId": 1941712027
+    }
+  },
+  {
+    "Assist": {
+      "assisterName": "Brollan",
+      "assisterNick": "Brollan",
+      "assisterSide": "CT",
+      "victimNick": "Snappi",
+      "victimName": "Snappi",
+      "victimSide": "TERRORIST",
+      "killEventId": 1941711993
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "JW",
+      "killerNick": "JW",
+      "killerSide": "CT",
+      "victimNick": "Snappi",
+      "victimName": "Snappi",
+      "victimSide": "TERRORIST",
+      "weapon": "awp",
+      "headShot": false,
+      "eventId": 1941711993
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "Snappi",
+      "killerNick": "Snappi",
+      "killerSide": "TERRORIST",
+      "victimNick": "Brollan",
+      "victimName": "Brollan",
+      "victimSide": "CT",
+      "weapon": "tec9",
+      "headShot": true,
+      "eventId": 1941711836
+    }
+  },
+  { "RoundStart": {} },
+  {
+    "RoundEnd": {
+      "counterTerroristScore": 6,
+      "terroristScore": 3,
+      "winner": "CT",
+      "winType": "CTs_Win"
+    }
+  },
+  {
+    "Assist": {
+      "assisterName": "Golden",
+      "assisterNick": "Golden",
+      "assisterSide": "CT",
+      "victimNick": "Spinx",
+      "victimName": "Spinx",
+      "victimSide": "TERRORIST",
+      "killEventId": 1941711152
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "Brollan",
+      "killerNick": "Brollan",
+      "killerSide": "CT",
+      "victimNick": "Spinx",
+      "victimName": "Spinx",
+      "victimSide": "TERRORIST",
+      "weapon": "aug",
+      "headShot": false,
+      "eventId": 1941711152
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "Spinx",
+      "killerNick": "Spinx",
+      "killerSide": "TERRORIST",
+      "victimNick": "JW",
+      "victimName": "JW",
+      "victimSide": "CT",
+      "weapon": "ak47",
+      "headShot": false,
+      "eventId": 1941711139
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "Spinx",
+      "killerNick": "Spinx",
+      "killerSide": "TERRORIST",
+      "victimNick": "Golden",
+      "victimName": "Golden",
+      "victimSide": "CT",
+      "weapon": "ak47",
+      "headShot": false,
+      "eventId": 1941711057
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "flusha",
+      "killerNick": "flusha",
+      "killerSide": "CT",
+      "victimNick": "rigoN",
+      "victimName": "rigoN",
+      "victimSide": "TERRORIST",
+      "weapon": "m4a1",
+      "headShot": false,
+      "eventId": 1941710986
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "Golden",
+      "killerNick": "Golden",
+      "killerSide": "CT",
+      "victimNick": "ottoNd",
+      "victimName": "ottoNd",
+      "victimSide": "TERRORIST",
+      "weapon": "m4a1",
+      "headShot": true,
+      "eventId": 1941710954
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "Brollan",
+      "killerNick": "Brollan",
+      "killerSide": "CT",
+      "victimNick": "EspiranTo",
+      "victimName": "EspiranTo",
+      "victimSide": "TERRORIST",
+      "weapon": "aug",
+      "headShot": false,
+      "eventId": 1941710933
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "Brollan",
+      "killerNick": "Brollan",
+      "killerSide": "CT",
+      "victimNick": "Snappi",
+      "victimName": "Snappi",
+      "victimSide": "TERRORIST",
+      "weapon": "aug",
+      "headShot": false,
+      "eventId": 1941710905
+    }
+  },
+  { "RoundStart": {} },
+  {
+    "RoundEnd": {
+      "counterTerroristScore": 5,
+      "terroristScore": 3,
+      "winner": "CT",
+      "winType": "CTs_Win"
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "Golden",
+      "killerNick": "Golden",
+      "killerSide": "CT",
+      "victimNick": "Snappi",
+      "victimName": "Snappi",
+      "victimSide": "TERRORIST",
+      "weapon": "m4a1",
+      "headShot": true,
+      "eventId": 1941710257
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "JW",
+      "killerNick": "JW",
+      "killerSide": "CT",
+      "victimNick": "Spinx",
+      "victimName": "Spinx",
+      "victimSide": "TERRORIST",
+      "weapon": "awp",
+      "headShot": true,
+      "eventId": 1941710229
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "JW",
+      "killerNick": "JW",
+      "killerSide": "CT",
+      "victimNick": "ottoNd",
+      "victimName": "ottoNd",
+      "victimSide": "TERRORIST",
+      "weapon": "awp",
+      "headShot": false,
+      "eventId": 1941710215
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "flusha",
+      "killerNick": "flusha",
+      "killerSide": "CT",
+      "victimNick": "EspiranTo",
+      "victimName": "EspiranTo",
+      "victimSide": "TERRORIST",
+      "weapon": "m4a1",
+      "headShot": true,
+      "eventId": 1941710164
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "Golden",
+      "killerNick": "Golden",
+      "killerSide": "CT",
+      "victimNick": "rigoN",
+      "victimName": "rigoN",
+      "victimSide": "TERRORIST",
+      "weapon": "m4a1",
+      "headShot": false,
+      "eventId": 1941710114
+    }
+  },
+  { "RoundStart": {} },
+  {
+    "RoundEnd": {
+      "counterTerroristScore": 4,
+      "terroristScore": 3,
+      "winner": "CT",
+      "winType": "Bomb_Defused"
+    }
+  },
+  { "BombDefused": { "playerName": "KRIMZ", "playerNick": "KRIMZ" } },
+  {
+    "Kill": {
+      "killerName": "KRIMZ",
+      "killerNick": "KRIMZ",
+      "killerSide": "CT",
+      "victimNick": "rigoN",
+      "victimName": "rigoN",
+      "victimSide": "TERRORIST",
+      "weapon": "ak47",
+      "headShot": false,
+      "eventId": 1941709503
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "KRIMZ",
+      "killerNick": "KRIMZ",
+      "killerSide": "CT",
+      "victimNick": "ottoNd",
+      "victimName": "ottoNd",
+      "victimSide": "TERRORIST",
+      "weapon": "ak47",
+      "headShot": false,
+      "eventId": 1941709404
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "ottoNd",
+      "killerNick": "ottoNd",
+      "killerSide": "TERRORIST",
+      "victimNick": "flusha",
+      "victimName": "flusha",
+      "victimSide": "CT",
+      "weapon": "ak47",
+      "headShot": true,
+      "eventId": 1941709317
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "JW",
+      "killerNick": "JW",
+      "killerSide": "CT",
+      "victimNick": "Snappi",
+      "victimName": "Snappi",
+      "victimSide": "TERRORIST",
+      "weapon": "awp",
+      "headShot": false,
+      "eventId": 1941709286
+    }
+  },
+  {
+    "Assist": {
+      "assisterName": "Spinx",
+      "assisterNick": "Spinx",
+      "assisterSide": "TERRORIST",
+      "victimNick": "Golden",
+      "victimName": "Golden",
+      "victimSide": "CT",
+      "killEventId": 1941709253
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "rigoN",
+      "killerNick": "rigoN",
+      "killerSide": "TERRORIST",
+      "victimNick": "Golden",
+      "victimName": "Golden",
+      "victimSide": "CT",
+      "weapon": "ak47",
+      "headShot": false,
+      "eventId": 1941709253
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "flusha",
+      "killerNick": "flusha",
+      "killerSide": "CT",
+      "victimNick": "EspiranTo",
+      "victimName": "EspiranTo",
+      "victimSide": "TERRORIST",
+      "weapon": "ak47",
+      "headShot": true,
+      "eventId": 1941709151
+    }
+  },
+  {
+    "BombPlanted": {
+      "playerName": "ottoNd",
+      "playerNick": "ottoNd",
+      "ctPlayers": 4,
+      "tPlayers": 4
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "ottoNd",
+      "killerNick": "ottoNd",
+      "killerSide": "TERRORIST",
+      "victimNick": "Brollan",
+      "victimName": "Brollan",
+      "victimSide": "CT",
+      "weapon": "ak47",
+      "headShot": true,
+      "eventId": 1941709084
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "Golden",
+      "killerNick": "Golden",
+      "killerSide": "CT",
+      "victimNick": "Spinx",
+      "victimName": "Spinx",
+      "victimSide": "TERRORIST",
+      "weapon": "m4a1",
+      "headShot": false,
+      "eventId": 1941708996
+    }
+  },
+  { "RoundStart": {} },
+  {
+    "RoundEnd": {
+      "counterTerroristScore": 3,
+      "terroristScore": 3,
+      "winner": "CT",
+      "winType": "CTs_Win"
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "KRIMZ",
+      "killerNick": "KRIMZ",
+      "killerSide": "CT",
+      "victimNick": "EspiranTo",
+      "victimName": "EspiranTo",
+      "victimSide": "TERRORIST",
+      "weapon": "ak47",
+      "headShot": false,
+      "eventId": 1941708037
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "KRIMZ",
+      "killerNick": "KRIMZ",
+      "killerSide": "CT",
+      "victimNick": "Spinx",
+      "victimName": "Spinx",
+      "victimSide": "TERRORIST",
+      "weapon": "ak47",
+      "headShot": false,
+      "eventId": 1941708001
+    }
+  },
+  {
+    "Assist": {
+      "assisterName": "KRIMZ",
+      "assisterNick": "KRIMZ",
+      "assisterSide": "CT",
+      "victimNick": "Snappi",
+      "victimName": "Snappi",
+      "victimSide": "TERRORIST",
+      "killEventId": 1941707958
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "JW",
+      "killerNick": "JW",
+      "killerSide": "CT",
+      "victimNick": "Snappi",
+      "victimName": "Snappi",
+      "victimSide": "TERRORIST",
+      "weapon": "awp",
+      "headShot": false,
+      "eventId": 1941707958
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "KRIMZ",
+      "killerNick": "KRIMZ",
+      "killerSide": "CT",
+      "victimNick": "rigoN",
+      "victimName": "rigoN",
+      "victimSide": "TERRORIST",
+      "weapon": "ak47",
+      "headShot": true,
+      "eventId": 1941707949
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "rigoN",
+      "killerNick": "rigoN",
+      "killerSide": "TERRORIST",
+      "victimNick": "Brollan",
+      "victimName": "Brollan",
+      "victimSide": "CT",
+      "weapon": "p250",
+      "headShot": true,
+      "eventId": 1941707905
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "Brollan",
+      "killerNick": "Brollan",
+      "killerSide": "CT",
+      "victimNick": "ottoNd",
+      "victimName": "ottoNd",
+      "victimSide": "TERRORIST",
+      "weapon": "m4a1",
+      "headShot": false,
+      "eventId": 1941707881
+    }
+  },
+  { "RoundStart": {} },
+  {
+    "RoundEnd": {
+      "counterTerroristScore": 2,
+      "terroristScore": 3,
+      "winner": "CT",
+      "winType": "CTs_Win"
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "JW",
+      "killerNick": "JW",
+      "killerSide": "CT",
+      "victimNick": "Spinx",
+      "victimName": "Spinx",
+      "victimSide": "TERRORIST",
+      "weapon": "awp",
+      "headShot": false,
+      "eventId": 1941707149
+    }
+  },
+  {
+    "Assist": {
+      "assisterName": "Golden",
+      "assisterNick": "Golden",
+      "assisterSide": "CT",
+      "victimNick": "Snappi",
+      "victimName": "Snappi",
+      "victimSide": "TERRORIST",
+      "killEventId": 1941707084
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "JW",
+      "killerNick": "JW",
+      "killerSide": "CT",
+      "victimNick": "Snappi",
+      "victimName": "Snappi",
+      "victimSide": "TERRORIST",
+      "weapon": "awp",
+      "headShot": false,
+      "eventId": 1941707084
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "Spinx",
+      "killerNick": "Spinx",
+      "killerSide": "TERRORIST",
+      "victimNick": "Brollan",
+      "victimName": "Brollan",
+      "victimSide": "CT",
+      "weapon": "ak47",
+      "headShot": false,
+      "eventId": 1941707021
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "KRIMZ",
+      "killerNick": "KRIMZ",
+      "killerSide": "CT",
+      "victimNick": "ottoNd",
+      "victimName": "ottoNd",
+      "victimSide": "TERRORIST",
+      "weapon": "aug",
+      "headShot": false,
+      "eventId": 1941706997
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "Snappi",
+      "killerNick": "Snappi",
+      "killerSide": "TERRORIST",
+      "victimNick": "Golden",
+      "victimName": "Golden",
+      "victimSide": "CT",
+      "weapon": "ak47",
+      "headShot": true,
+      "eventId": 1941706820
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "JW",
+      "killerNick": "JW",
+      "killerSide": "CT",
+      "victimNick": "EspiranTo",
+      "victimName": "EspiranTo",
+      "victimSide": "TERRORIST",
+      "weapon": "awp",
+      "headShot": false,
+      "eventId": 1941706717
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "flusha",
+      "killerNick": "flusha",
+      "killerSide": "CT",
+      "victimNick": "rigoN",
+      "victimName": "rigoN",
+      "victimSide": "TERRORIST",
+      "weapon": "m4a1",
+      "headShot": false,
+      "eventId": 1941706556
+    }
+  },
+  { "RoundStart": {} },
+  {
+    "RoundEnd": {
+      "counterTerroristScore": 1,
+      "terroristScore": 3,
+      "winner": "CT",
+      "winType": "CTs_Win"
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "JW",
+      "killerNick": "JW",
+      "killerSide": "CT",
+      "victimNick": "ottoNd",
+      "victimName": "ottoNd",
+      "victimSide": "TERRORIST",
+      "weapon": "awp",
+      "headShot": false,
+      "eventId": 1941705739
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "flusha",
+      "killerNick": "flusha",
+      "killerSide": "CT",
+      "victimNick": "Snappi",
+      "victimName": "Snappi",
+      "victimSide": "TERRORIST",
+      "weapon": "m4a1",
+      "headShot": false,
+      "eventId": 1941705699
+    }
+  },
+  {
+    "Assist": {
+      "assisterName": "KRIMZ",
+      "assisterNick": "KRIMZ",
+      "assisterSide": "CT",
+      "victimNick": "Spinx",
+      "victimName": "Spinx",
+      "victimSide": "TERRORIST",
+      "killEventId": 1941705626
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "JW",
+      "killerNick": "JW",
+      "killerSide": "CT",
+      "victimNick": "Spinx",
+      "victimName": "Spinx",
+      "victimSide": "TERRORIST",
+      "weapon": "awp",
+      "headShot": false,
+      "eventId": 1941705626
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "KRIMZ",
+      "killerNick": "KRIMZ",
+      "killerSide": "CT",
+      "victimNick": "EspiranTo",
+      "victimName": "EspiranTo",
+      "victimSide": "TERRORIST",
+      "weapon": "aug",
+      "headShot": false,
+      "eventId": 1941705605
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "EspiranTo",
+      "killerNick": "EspiranTo",
+      "killerSide": "TERRORIST",
+      "victimNick": "Golden",
+      "victimName": "Golden",
+      "victimSide": "CT",
+      "weapon": "ak47",
+      "headShot": true,
+      "eventId": 1941705551
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "Golden",
+      "killerNick": "Golden",
+      "killerSide": "CT",
+      "victimNick": "rigoN",
+      "victimName": "rigoN",
+      "victimSide": "TERRORIST",
+      "weapon": "m4a1",
+      "headShot": true,
+      "eventId": 1941705509
+    }
+  },
+  { "RoundStart": {} },
+  {
+    "RoundEnd": {
+      "counterTerroristScore": 0,
+      "terroristScore": 3,
+      "winner": "TERRORIST",
+      "winType": "Terrorists_Win"
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "Snappi",
+      "killerNick": "Snappi",
+      "killerSide": "TERRORIST",
+      "victimNick": "flusha",
+      "victimName": "flusha",
+      "victimSide": "CT",
+      "weapon": "mac10",
+      "headShot": false,
+      "eventId": 1941704734
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "Snappi",
+      "killerNick": "Snappi",
+      "killerSide": "TERRORIST",
+      "victimNick": "JW",
+      "victimName": "JW",
+      "victimSide": "CT",
+      "weapon": "mac10",
+      "headShot": false,
+      "eventId": 1941704709
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "flusha",
+      "killerNick": "flusha",
+      "killerSide": "CT",
+      "victimNick": "ottoNd",
+      "victimName": "ottoNd",
+      "victimSide": "TERRORIST",
+      "weapon": "hkp2000",
+      "headShot": true,
+      "eventId": 1941704681
+    }
+  },
+  {
+    "BombPlanted": {
+      "playerName": "Spinx",
+      "playerNick": "Spinx",
+      "ctPlayers": 2,
+      "tPlayers": 5
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "ottoNd",
+      "killerNick": "ottoNd",
+      "killerSide": "TERRORIST",
+      "victimNick": "KRIMZ",
+      "victimName": "KRIMZ",
+      "victimSide": "CT",
+      "weapon": "galilar",
+      "headShot": true,
+      "eventId": 1941704517
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "ottoNd",
+      "killerNick": "ottoNd",
+      "killerSide": "TERRORIST",
+      "victimNick": "Golden",
+      "victimName": "Golden",
+      "victimSide": "CT",
+      "weapon": "galilar",
+      "headShot": true,
+      "eventId": 1941704474
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "EspiranTo",
+      "killerNick": "EspiranTo",
+      "killerSide": "TERRORIST",
+      "victimNick": "Brollan",
+      "victimName": "Brollan",
+      "victimSide": "CT",
+      "weapon": "ak47",
+      "headShot": true,
+      "eventId": 1941704360
+    }
+  },
+  { "RoundStart": {} },
+  {
+    "RoundEnd": {
+      "counterTerroristScore": 0,
+      "terroristScore": 2,
+      "winner": "TERRORIST",
+      "winType": "Target_Bombed"
+    }
+  },
+  {
+    "BombPlanted": {
+      "playerName": "Spinx",
+      "playerNick": "Spinx",
+      "ctPlayers": 2,
+      "tPlayers": 4
+    }
+  },
+  {
+    "Assist": {
+      "assisterName": "Spinx",
+      "assisterNick": "Spinx",
+      "assisterSide": "TERRORIST",
+      "victimNick": "JW",
+      "victimName": "JW",
+      "victimSide": "CT",
+      "killEventId": 1941703595
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "EspiranTo",
+      "killerNick": "EspiranTo",
+      "killerSide": "TERRORIST",
+      "victimNick": "JW",
+      "victimName": "JW",
+      "victimSide": "CT",
+      "weapon": "ak47",
+      "headShot": false,
+      "eventId": 1941703595
+    }
+  },
+  {
+    "Assist": {
+      "assisterName": "Golden",
+      "assisterNick": "Golden",
+      "assisterSide": "CT",
+      "victimNick": "rigoN",
+      "victimName": "rigoN",
+      "victimSide": "TERRORIST",
+      "killEventId": 1941703550
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "JW",
+      "killerNick": "JW",
+      "killerSide": "CT",
+      "victimNick": "rigoN",
+      "victimName": "rigoN",
+      "victimSide": "TERRORIST",
+      "weapon": "revolver",
+      "headShot": false,
+      "eventId": 1941703550
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "rigoN",
+      "killerNick": "rigoN",
+      "killerSide": "TERRORIST",
+      "victimNick": "flusha",
+      "victimName": "flusha",
+      "victimSide": "CT",
+      "weapon": "galilar",
+      "headShot": true,
+      "eventId": 1941703532
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "rigoN",
+      "killerNick": "rigoN",
+      "killerSide": "TERRORIST",
+      "victimNick": "Golden",
+      "victimName": "Golden",
+      "victimSide": "CT",
+      "weapon": "galilar",
+      "headShot": false,
+      "eventId": 1941703509
+    }
+  },
+  { "RoundStart": {} },
+  {
+    "RoundEnd": {
+      "counterTerroristScore": 0,
+      "terroristScore": 1,
+      "winner": "TERRORIST",
+      "winType": "Terrorists_Win"
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "ottoNd",
+      "killerNick": "ottoNd",
+      "killerSide": "TERRORIST",
+      "victimNick": "JW",
+      "victimName": "JW",
+      "victimSide": "CT",
+      "weapon": "glock",
+      "headShot": true,
+      "eventId": 1941702764
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "Snappi",
+      "killerNick": "Snappi",
+      "killerSide": "TERRORIST",
+      "victimNick": "KRIMZ",
+      "victimName": "KRIMZ",
+      "victimSide": "CT",
+      "weapon": "glock",
+      "headShot": true,
+      "eventId": 1941702740
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "KRIMZ",
+      "killerNick": "KRIMZ",
+      "killerSide": "CT",
+      "victimNick": "EspiranTo",
+      "victimName": "EspiranTo",
+      "victimSide": "TERRORIST",
+      "weapon": "usp_silencer",
+      "headShot": true,
+      "eventId": 1941702703
+    }
+  },
+  {
+    "Assist": {
+      "assisterName": "rigoN",
+      "assisterNick": "rigoN",
+      "assisterSide": "TERRORIST",
+      "victimNick": "Golden",
+      "victimName": "Golden",
+      "victimSide": "CT",
+      "killEventId": 1941702565
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "Snappi",
+      "killerNick": "Snappi",
+      "killerSide": "TERRORIST",
+      "victimNick": "Golden",
+      "victimName": "Golden",
+      "victimSide": "CT",
+      "weapon": "hegrenade",
+      "headShot": false,
+      "eventId": 1941702565
+    }
+  },
+  {
+    "Assist": {
+      "assisterName": "rigoN",
+      "assisterNick": "rigoN",
+      "assisterSide": "TERRORIST",
+      "victimNick": "Brollan",
+      "victimName": "Brollan",
+      "victimSide": "CT",
+      "killEventId": 1941702541
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "EspiranTo",
+      "killerNick": "EspiranTo",
+      "killerSide": "TERRORIST",
+      "victimNick": "Brollan",
+      "victimName": "Brollan",
+      "victimSide": "CT",
+      "weapon": "glock",
+      "headShot": true,
+      "eventId": 1941702541
+    }
+  },
+  {
+    "Assist": {
+      "assisterName": "Golden",
+      "assisterNick": "Golden",
+      "assisterSide": "CT",
+      "victimNick": "rigoN",
+      "victimName": "rigoN",
+      "victimSide": "TERRORIST",
+      "killEventId": 1941702525
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "Brollan",
+      "killerNick": "Brollan",
+      "killerSide": "CT",
+      "victimNick": "rigoN",
+      "victimName": "rigoN",
+      "victimSide": "TERRORIST",
+      "weapon": "usp_silencer",
+      "headShot": false,
+      "eventId": 1941702525
+    }
+  },
+  {
+    "Kill": {
+      "killerName": "Spinx",
+      "killerNick": "Spinx",
+      "killerSide": "TERRORIST",
+      "victimNick": "flusha",
+      "victimName": "flusha",
+      "victimSide": "CT",
+      "weapon": "glock",
+      "headShot": true,
+      "eventId": 1941702456
+    }
+  },
+  {
+    "BombPlanted": {
+      "playerName": "Snappi",
+      "playerNick": "Snappi",
+      "ctPlayers": 5,
+      "tPlayers": 5
+    }
+  },
+  { "RoundStart": {} },
+  { "MatchStarted": { "map": "de_mirage" } }]
