@@ -4,7 +4,7 @@ from emoji import demojize
 
 logging.basicConfig(level=logging.DEBUG,
                     format='%(asctime)s — %(message)s',
-                    datefmt='%Y-%m-%d_%H:%M:%S',
+                    datefmt='%Y-%m-%d_%H:%M:%S #',
                     handlers=[logging.FileHandler('chat.log', encoding='utf-8')])
 
 server = 'irc.chat.twitch.tv'
