@@ -1,0 +1,55 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+dist/
+build/
+*.egg
+.eggs/
+
+# Virtual environments
+venv/
+.venv/
+env/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Environment
+.env
+
+# Models & Output
+models/*.pt
+models/*.onnx
+output/
+*.mp4
+*.webm
+*.mkv
+
+# Node
+node_modules/
+webapp/node_modules/
+dashboard/node_modules/
+shared/node_modules/
+webapp/dist/
+dashboard/dist/
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Database
+*.db
+*.sqlite3
+
+# Logs
+*.log
+!data/*.log
+
+# Plugins
+~/.snipbot/
