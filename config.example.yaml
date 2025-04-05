@@ -1,0 +1,44 @@
+# TwitchSnipBot Configuration
+
+twitch:
+  channel: "esl_csgo"
+
+detection:
+  window_size: 10          # seconds per window
+  stride: 5                # seconds between windows starts
+  sequence_length: 12      # windows fed to LSTM
+  z_score_threshold: 2.5   # for statistical auto-labeling
+  sensitivity: 0.7         # 0.0 = less sensitive, 1.0 = most sensitive
+
+clipping:
+  pre_highlight: 15        # seconds before detected moment
+  post_highlight: 10       # seconds after detected moment
+  format: "mp4"            # mp4 or webm
+  quality: "720p"
+
+compilation:
+  order_by: "category"     # category, chronological, score
+  transition: "crossfade"  # crossfade, cut, fade
+  transition_duration: 0.5 # seconds
+
+model:
+  type: "lstm"             # lstm or statistical
+  checkpoint: "models/best.pt"
+  onnx_path: "models/highlight.onnx"
+  hidden_size: 128
+  num_layers: 2
+  dropout: 0.3
+
+upload:
+  youtube:
+    enabled: false
+    privacy: "unlisted"    # public, unlisted, private
+    category: "20"         # Gaming
+
+plugins:
+  enabled:
+    - csgo
+
+server:
+  host: "127.0.0.1"
+  port: 8000
