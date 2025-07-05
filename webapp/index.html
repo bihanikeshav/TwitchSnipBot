@@ -2,9 +2,50 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#0e0e10" />
     <title>TwitchSnipBot — Live Highlight Detection</title>
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✂️</text></svg>" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,wght@0,400..900;1,400..900&family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=Google+Sans+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+    <style>
+      :root {
+        --font-body: "Google Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+        --font-mono: "Google Sans Mono", ui-monospace, "JetBrains Mono", Menlo, Consolas, monospace;
+        --font-display: "Bricolage Grotesque", system-ui, -apple-system, sans-serif;
+      }
+      html, body, #root { margin: 0; padding: 0; height: 100%; background: #0e0e10; }
+      body {
+        -webkit-font-smoothing: antialiased;
+        font-family: var(--font-body);
+        letter-spacing: -0.005em;
+        overflow: hidden; /* the app manages its own scroll regions */
+        overscroll-behavior: none; /* no rubber-band / pull-to-refresh */
+        text-size-adjust: 100%;
+        -webkit-text-size-adjust: 100%; /* stop iOS auto-inflating text */
+      }
+      *, *::before, *::after { box-sizing: border-box; font-family: inherit; }
+      /* Remove the grey/blue tap flash on touch; keep snappy tap response. */
+      * { -webkit-tap-highlight-color: transparent; }
+      button, [role="button"], a, input, label, summary { touch-action: manipulation; }
+      input, button, textarea, select { font-family: var(--font-body); }
+      code, kbd, samp, pre { font-family: var(--font-mono); }
+      ::-webkit-scrollbar { width: 6px; height: 6px; }
+      ::-webkit-scrollbar-track { background: transparent; }
+      ::-webkit-scrollbar-thumb { background: #3f3f48; border-radius: 3px; }
+      ::-webkit-scrollbar-thumb:hover { background: #5a5a64; }
+      ::-webkit-scrollbar-corner { background: transparent; }
+      /* Firefox */
+      * { scrollbar-color: #3f3f48 transparent; scrollbar-width: thin; }
+      /* Opt-out class: keeps native scroll functionality but hides the bar. */
+      .scroll-hidden { scrollbar-width: none; }
+      .scroll-hidden::-webkit-scrollbar { display: none; }
+      /* mobile body scroll fallback */
+      @media (max-width: 768px) {
+        body { overflow: auto; }
+      }
+    </style>
   </head>
   <body>
     <div id="root"></div>
