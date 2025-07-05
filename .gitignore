@@ -22,6 +22,14 @@ env/
 # Environment
 .env
 
+# Credentials / OAuth artifacts (never commit real secrets)
+client_secret*.json
+client_secrets.json
+credentials.json
+token.json
+*.pem
+*.p12
+
 # Models & Output
 models/*.pt
 models/*.onnx
@@ -37,6 +45,17 @@ dashboard/node_modules/
 shared/node_modules/
 webapp/dist/
 dashboard/dist/
+
+# Build caches
+*.tsbuildinfo
+
+# Cloudflare
+.wrangler/
+webapp/.wrangler/
+
+# Local dev / test artifacts
+.playwright-mcp/
+mobile-home.png
 
 # OS
 .DS_Store
