@@ -14,16 +14,25 @@ export class ClipAssembler {
   /**
    * Trigger browser download of a clip.
    */
+  static extensionFor(clip: Blob): string {
+    const t = clip.type.toLowerCase();
+    if (t.includes('mp2t') || t.includes('mpeg-ts') || t.includes('mp2-ts')) return 'ts';
+    if (t.includes('mp4')) return 'mp4';
+    if (t.includes('webm')) return 'webm';
+    return 'ts';
+  }
+
   static downloadClip(clip: Blob, filename?: string): void {
     const url = URL.createObjectURL(clip);
     const a = document.createElement('a');
     a.href = url;
-    a.download = filename || `clip_${Date.now()}.webm`;
+    const ext = this.extensionFor(clip);
+    const base = filename?.replace(/\.[^.]+$/, '') || `clip_${Date.now()}`;
+    a.download = `${base}.${ext}`;
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
 
-    // Revoke after a delay to allow download to start
     setTimeout(() => URL.revokeObjectURL(url), 5000);
   }
 

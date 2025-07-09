@@ -15,7 +15,9 @@ export class VideoCapture {
   }
 
   async start(): Promise<void> {
-    // Request screen capture with audio
+    // Show the full picker (tabs/windows/screens) so the user can pick the
+    // Twitch popup window instead of this tab — otherwise the recording
+    // captures the webapp UI on top of the stream.
     this.stream = await navigator.mediaDevices.getDisplayMedia({
       video: {
         width: { ideal: 1280 },
@@ -23,8 +25,6 @@ export class VideoCapture {
         frameRate: { ideal: 30 },
       },
       audio: true,
-      // @ts-expect-error preferCurrentTab is a newer API
-      preferCurrentTab: true,
     });
 
     const mimeType = this.getSupportedMimeType();
