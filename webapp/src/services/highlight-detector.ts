@@ -7,8 +7,18 @@ import type { ChatMessage } from './chat-reader';
 
 export interface DetectedHighlight {
   timestamp: number;
+  /**
+   * Spike strength — z-score / 5 clamped to [0, 1]. Useful for filtering
+   * but a poor stand-alone display value because it's relative to recent
+   * baseline only.
+   */
   score: number;
+  /** Mean rate over the recent rolling history, used as the spike's baseline. */
+  baselineRate: number;
+  /** baselineRate × this = current peak. I.e. "9× normal." */
+  spikeRatio: number;
   category: 'exciting' | 'funny' | 'surprising' | 'other';
+  /** msg/s at detection time (also the peak of the spike). */
   messageRate: number;
   windowMessages: ChatMessage[];
 }
@@ -49,10 +59,17 @@ export class HighlightDetector {
   private windowHistory: WindowStats[] = [];
   private sensitivity: number;
   private cooldownUntil = 0;
+  private lastHistoryTs = 0;
   private readonly COOLDOWN_MS = 15000;
-  private readonly MAX_HISTORY = 200;
+  /**
+   * History is sampled at a fixed cadence and capped to a few minutes so
+   * the baseline reflects a real time window, not an arbitrary slice that
+   * shrinks during busy chat.
+   */
+  private readonly SAMPLE_INTERVAL_MS = 500;
+  private readonly MAX_HISTORY = 480; // ~4 minutes at 500ms
 
-  constructor(sensitivity = 0.7, windowSizeSeconds = 5) {
+  constructor(sensitivity = 0.5, windowSizeSeconds = 5) {
     this.sensitivity = sensitivity;
     this.windowSize = windowSizeSeconds * 1000;
   }
@@ -73,24 +90,47 @@ export class HighlightDetector {
     const windowMessages = this.messageBuffer;
     const stats = this.computeWindowStats(windowMessages, now);
 
-    // Store window stats for Z-score calculation
-    this.windowHistory.push(stats);
-    if (this.windowHistory.length > this.MAX_HISTORY) {
-      this.windowHistory = this.windowHistory.slice(-this.MAX_HISTORY);
+    // Time-cadence sampling: one history entry per ~500ms regardless of
+    // message arrival rate. This makes baseline computation independent of
+    // how busy chat is.
+    if (now - this.lastHistoryTs >= this.SAMPLE_INTERVAL_MS) {
+      this.lastHistoryTs = now;
+      this.windowHistory.push(stats);
+      if (this.windowHistory.length > this.MAX_HISTORY) {
+        this.windowHistory = this.windowHistory.slice(-this.MAX_HISTORY);
+      }
     }
 
     let highlight: DetectedHighlight | null = null;
 
-    if (now > this.cooldownUntil && this.windowHistory.length >= 10) {
-      const zScore = this.computeZScore(stats);
+    // ~60 samples = 30 s of history before we'll attempt detection. Otherwise
+    // the percentile baseline isn't meaningful yet.
+    if (now > this.cooldownUntil && this.windowHistory.length >= 60) {
+      const baseline = this.computeBaseline();
 
-      // Threshold adjusts with sensitivity: lower sensitivity = higher threshold needed
-      const threshold = 3.5 - this.sensitivity * 2; // range: 1.5 (max sens) to 3.5 (min sens)
+      // Sensitivity 0.0–1.0 maps to:
+      //  - requiredRatio    : 2.5 (low sens) → 1.5 (max sens)
+      //  - requiredAbsolute : 1.5 → 0.7 msg/s above baseline
+      //  - floor            : 1.5 → 0.7 msg/s minimum absolute rate
+      const requiredRatio = 2.5 - this.sensitivity * 1.0;
+      const requiredAbsolute = 1.5 - this.sensitivity * 0.8;
+      const floor = 1.5 - this.sensitivity * 0.8;
 
-      if (zScore > threshold) {
+      const meetsRatio = stats.messageRate >= baseline * requiredRatio;
+      const meetsAbsolute = stats.messageRate >= baseline + requiredAbsolute;
+      const meetsFloor = stats.messageRate >= floor;
+
+      if (meetsRatio && meetsAbsolute && meetsFloor) {
+        const spikeRatio = baseline > 0.1 ? stats.messageRate / baseline : stats.messageRate / 0.1;
+        // Score maps the relative spike magnitude into [0, 1] for display
+        // and downstream gating. Tuned so a 2× spike ≈ 0.35, a 4× ≈ 0.7,
+        // anything bigger saturates at 1.
+        const score = Math.min(1, Math.log(spikeRatio) / Math.log(8));
         highlight = {
           timestamp: now,
-          score: Math.min(zScore / 5, 1),
+          score,
+          baselineRate: baseline,
+          spikeRatio,
           category: this.classifyHighlight(windowMessages, stats),
           messageRate: stats.messageRate,
           windowMessages: [...windowMessages],
@@ -161,20 +201,16 @@ export class HighlightDetector {
     };
   }
 
-  private computeZScore(current: WindowStats): number {
-    const rates = this.windowHistory.map((w) => w.messageRate);
-    const mean = rates.reduce((a, b) => a + b, 0) / rates.length;
-    const variance = rates.reduce((a, b) => a + (b - mean) ** 2, 0) / rates.length;
-    const std = Math.sqrt(variance) || 1;
-
-    const rateZ = (current.messageRate - mean) / std;
-
-    // Boost score with secondary signals
-    const emoteBoost = current.emoteDensity > 0.5 ? 0.5 : 0;
-    const capsBoost = current.capsRatio > 0.3 ? 0.3 : 0;
-    const keywordBoost = current.keywordScore > 0.1 ? 0.4 : 0;
-
-    return rateZ + emoteBoost + capsBoost + keywordBoost;
+  /**
+   * Baseline = 30th percentile of recent rate samples. Robust to spikes —
+   * the spike's own samples sit in the top of the distribution and don't
+   * pull the percentile up the way they pull the mean up.
+   */
+  private computeBaseline(): number {
+    if (this.windowHistory.length === 0) return 0;
+    const rates = this.windowHistory.map((w) => w.messageRate).sort((a, b) => a - b);
+    const idx = Math.floor(rates.length * 0.3);
+    return rates[idx] || 0;
   }
 
   private classifyHighlight(messages: ChatMessage[], stats: WindowStats): DetectedHighlight['category'] {
