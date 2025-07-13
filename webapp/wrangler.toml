@@ -1,0 +1,6 @@
+# Cloudflare Pages config for snipprbot.
+# `pages_build_output_dir` points at Vite's build output; `wrangler pages
+# deploy` (no args) reads this and ships dist/ + the functions/ directory.
+name = "snipprbot"
+pages_build_output_dir = "dist"
+compatibility_date = "2024-12-01"
