@@ -9,45 +9,30 @@ export default function TwitchPlayer({ channel }: TwitchPlayerProps) {
 
   useEffect(() => {
     if (!channel || !containerRef.current) return;
-
-    // Clear previous embed
     containerRef.current.innerHTML = '';
 
-    // Load Twitch embed via iframe (no API key needed)
+    const params = new URLSearchParams({
+      channel,
+      parent: window.location.hostname,
+      muted: 'true',
+      autoplay: 'true',
+      controls: 'true',
+    });
+
     const iframe = document.createElement('iframe');
-    iframe.src = `https://player.twitch.tv/?channel=${encodeURIComponent(channel)}&parent=${window.location.hostname}&muted=false`;
+    iframe.src = `https://player.twitch.tv/?${params.toString()}`;
     iframe.width = '100%';
     iframe.height = '100%';
     iframe.allowFullscreen = true;
     iframe.style.border = 'none';
-    iframe.style.borderRadius = '8px';
-
+    iframe.style.borderRadius = '6px';
+    iframe.title = `${channel} stream preview`;
     containerRef.current.appendChild(iframe);
 
     return () => {
-      if (containerRef.current) {
-        containerRef.current.innerHTML = '';
-      }
+      if (containerRef.current) containerRef.current.innerHTML = '';
     };
   }, [channel]);
-
-  if (!channel) {
-    return (
-      <div style={{
-        width: '100%',
-        aspectRatio: '16/9',
-        background: '#1f1f23',
-        borderRadius: '8px',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        color: '#adadb8',
-        fontSize: '14px',
-      }}>
-        Enter a channel name to start
-      </div>
-    );
-  }
 
   return (
     <div
@@ -56,7 +41,7 @@ export default function TwitchPlayer({ channel }: TwitchPlayerProps) {
         width: '100%',
         aspectRatio: '16/9',
         background: '#000',
-        borderRadius: '8px',
+        borderRadius: '6px',
         overflow: 'hidden',
       }}
     />
