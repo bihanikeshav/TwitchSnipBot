@@ -1,0 +1,4 @@
+# SPA fallback for Cloudflare Pages: serve index.html for client routes
+# (e.g. /cs). Pages Functions (/tw-gql, /tw-usher, /tw-media, /ffmpeg) take
+# precedence over this, so the proxies are unaffected.
+/*    /index.html    200

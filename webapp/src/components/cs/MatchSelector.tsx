@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import type { HLTVMatch } from '../services/hltv-live';
+import type { HLTVMatch } from '../../services/hltv-live';
 
 interface MatchSelectorProps {
   onSelectMatch: (matchId: string) => void;

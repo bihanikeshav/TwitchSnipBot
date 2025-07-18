@@ -1,5 +1,5 @@
 import React from 'react';
-import type { DetectedHighlight } from '../services/highlight-detector';
+import type { DetectedHighlight } from '../../services/highlight-detector';
 
 interface HighlightFeedProps {
   highlights: DetectedHighlight[];

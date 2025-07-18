@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { ClipAssembler } from '../services/clip-assembler';
+import { ClipAssembler } from '../../services/clip-assembler';
 
 interface ClipPreviewProps {
   clips: Blob[];

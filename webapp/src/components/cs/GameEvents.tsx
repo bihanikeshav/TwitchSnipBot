@@ -1,5 +1,5 @@
 import React from 'react';
-import type { HLTVEvent } from '../services/hltv-live';
+import type { HLTVEvent } from '../../services/hltv-live';
 
 interface GameEventsProps {
   events: HLTVEvent[];
