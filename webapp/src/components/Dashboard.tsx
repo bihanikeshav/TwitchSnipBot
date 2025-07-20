@@ -316,37 +316,50 @@ function ConnectForm({ input, setInput, connecting, error, onSubmit }: ConnectFo
   const [focused, setFocused] = useState(false);
   const borderColor = error ? tokens.status.bad : focused ? tokens.brand : tokens.border.default;
   return (
-    <form onSubmit={onSubmit} style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
-      <input
-        type="text"
-        value={input}
-        onChange={(e) => setInput(e.target.value)}
-        placeholder="twitch url or channel name"
-        disabled={connecting}
-        autoFocus
-        spellCheck={false}
-        onFocus={() => setFocused(true)}
-        onBlur={() => setFocused(false)}
-        style={{
-          flex: 1, minWidth: '200px',
-          padding: '11px 14px',
-          background: tokens.bg.raised,
-          border: `1px solid ${borderColor}`,
-          borderRadius: radius.md,
-          color: tokens.text.primary,
-          fontSize: '13px',
-          outline: 'none', fontFamily: 'inherit',
-          transition: `border-color ${transition.med}, background ${transition.med}`,
-          opacity: connecting ? 0.7 : 1,
-        }}
-      />
-      <Button
-        type="submit" variant="primary" size="lg" uppercase={false}
-        disabled={!input.trim()} loading={connecting} loadingText="connecting"
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+      <form onSubmit={onSubmit} style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
+        <input
+          type="text"
+          value={input}
+          onChange={(e) => setInput(e.target.value)}
+          placeholder="twitch url or channel name"
+          disabled={connecting}
+          autoFocus
+          spellCheck={false}
+          onFocus={() => setFocused(true)}
+          onBlur={() => setFocused(false)}
+          style={{
+            flex: 1, minWidth: '200px',
+            padding: '11px 14px',
+            background: tokens.bg.raised,
+            border: `1px solid ${borderColor}`,
+            borderRadius: radius.md,
+            color: tokens.text.primary,
+            fontSize: '13px',
+            outline: 'none', fontFamily: 'inherit',
+            transition: `border-color ${transition.med}, background ${transition.med}`,
+            opacity: connecting ? 0.7 : 1,
+          }}
+        />
+        <Button
+          type="submit" variant="primary" size="lg" uppercase={false}
+          disabled={!input.trim()} loading={connecting} loadingText="connecting"
+        >
+          Connect
+        </Button>
+      </form>
+      <a href="/cs" style={{
+        alignSelf: 'flex-start',
+        fontSize: '12px', color: tokens.text.muted, textDecoration: 'none',
+        display: 'inline-flex', alignItems: 'center', gap: '5px',
+        transition: `color ${transition.fast}`,
+      }}
+        onMouseEnter={(e) => (e.currentTarget.style.color = tokens.brand)}
+        onMouseLeave={(e) => (e.currentTarget.style.color = tokens.text.muted)}
       >
-        Connect
-      </Button>
-    </form>
+        want highlights for cs matches? <span aria-hidden>→</span>
+      </a>
+    </div>
   );
 }
 

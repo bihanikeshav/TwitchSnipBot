@@ -619,13 +619,6 @@ export default function App() {
           {state.isConnected && (
             <Button variant="ghost" size="sm" onClick={disconnect}>disconnect</Button>
           )}
-          <a href="/cs" style={{
-            fontSize: '11px', color: tokens.text.secondary, textDecoration: 'none',
-            textTransform: 'uppercase', letterSpacing: '0.08em', fontWeight: 600,
-            border: `1px solid ${tokens.border.default}`, borderRadius: '5px', padding: '6px 12px',
-          }}>
-            cs mode
-          </a>
           <Button variant="ghost" size="sm" onClick={() => setShowSettings(true)}>settings</Button>
         </div>
       </header>

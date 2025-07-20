@@ -155,7 +155,7 @@ export default function CsApp() {
           margin: 0, fontFamily: 'var(--font-display)',
           fontSize: 'clamp(18px, 2.4vw, 24px)', fontWeight: 700, letterSpacing: '-0.028em',
         }}>
-          twitchsnipbot <span style={{ color: tokens.brand }}>· cs</span>
+          twitchsnipbot
         </h1>
         <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
           <RecordingControls
