@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
 import CsApp from './CsApp';
-import './services/firebase';
 
 // Two standalone tools share one bundle: the streamlined chat highlighter at
 // `/` and the CS-match companion at `/cs`. They're distinct enough that a
