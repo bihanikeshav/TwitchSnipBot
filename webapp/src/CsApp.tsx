@@ -1,284 +1,246 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
-import { ChatReader } from './services/chat-reader';
-import { HighlightDetector, type DetectedHighlight } from './services/highlight-detector';
-import { VideoCapture } from './services/video-capture';
-import { ClipAssembler } from './services/clip-assembler';
-import { HLTVLive, type HLTVEvent, type HLTVMatch } from './services/hltv-live';
+import { HLTVLive, parseMatchId, type HLTVEvent, type Scoreboard, type NotablePlay } from './services/hltv-live';
+import { HlsCapture } from './services/hls-capture';
+import { tsToMp4, preloadFFmpeg } from './services/remuxer';
 import { parseChannel } from './utils/parse-channel';
-import MatchSelector from './components/cs/MatchSelector';
 import GameEvents from './components/cs/GameEvents';
-import HighlightFeed from './components/cs/HighlightFeed';
 import ClipPreview from './components/cs/ClipPreview';
-import RecordingControls from './components/cs/RecordingControls';
 import Button from './components/ui/Button';
 import { tokens, radius } from './components/ui/theme';
 
 /**
- * CS-match companion view (route: /cs).
+ * CS-match companion (route: /cs).
  *
- * The streamlined `/` app is chat-only and zero-config. This view is the
- * "pro" mode for CS:GO/CS2: it pairs Twitch chat-spike highlights with live
- * HLTV game events (kills, rounds, multi-kills) and screen-capture clipping.
+ * Connects to the HLTV scorebot CLIENT-SIDE (socket.io v2, withCredentials —
+ * see hltv-live.ts) for live kills/rounds/scoreboard, and captures the match's
+ * Twitch stream via the same zero-auth HLS pipeline the main app uses. When a
+ * notable play fires (ace / 4K / 3K / defuse) it auto-clips the recent buffer.
  *
- * Live HLTV needs a Socket.IO proxy (see hltv-live.ts) so the in-browser
- * scorebot connection is best-effort; the reliable path is loading an HLTV
- * JSON match log, which is parsed entirely client-side.
+ * The scoreboard needs the user's browser to hold HLTV's cf_clearance cookie,
+ * so the flow starts by sending them to the HLTV match page once.
  */
+const CLIP_WINDOW_MS = 22_000;
+
 export default function CsApp() {
-  const [channel, setChannel] = useState('');
+  const [hltvUrl, setHltvUrl] = useState('');
   const [channelInput, setChannelInput] = useState('');
   const [connected, setConnected] = useState(false);
-  const [highlights, setHighlights] = useState<DetectedHighlight[]>([]);
+  const [error, setError] = useState<string | null>(null);
 
-  const [match, setMatch] = useState<HLTVMatch | null>(null);
+  const [status, setStatus] = useState<string>('idle');
   const [events, setEvents] = useState<HLTVEvent[]>([]);
-  const [notable, setNotable] = useState<{ type: string; description: string }[]>([]);
-  const [liveNote, setLiveNote] = useState<string | null>(null);
-
-  const [recording, setRecording] = useState(false);
+  const [board, setBoard] = useState<Scoreboard | null>(null);
+  const [notables, setNotables] = useState<NotablePlay[]>([]);
   const [clips, setClips] = useState<Blob[]>([]);
+  const [buffered, setBuffered] = useState(0);
+  const [clipping, setClipping] = useState(false);
 
-  const chatRef = useRef<ChatReader | null>(null);
-  const detectorRef = useRef<HighlightDetector | null>(null);
-  const captureRef = useRef<VideoCapture | null>(null);
   const hltvRef = useRef<HLTVLive | null>(null);
-  const recordingRef = useRef(false);
+  const captureRef = useRef<HlsCapture | null>(null);
 
-  useEffect(() => { recordingRef.current = recording; }, [recording]);
+  useEffect(() => { preloadFFmpeg().catch(() => {}); }, []);
+  useEffect(() => () => { hltvRef.current?.disconnect(); captureRef.current?.stop(); }, []);
 
-  // ─────────────────────────── Twitch chat ───────────────────────────
-  const connectChat = useCallback(async () => {
-    const ch = parseChannel(channelInput);
-    if (!ch) return;
-    chatRef.current?.disconnect();
-    const reader = new ChatReader(ch);
-    const detector = new HighlightDetector(0.6);
-    chatRef.current = reader;
-    detectorRef.current = detector;
-    reader.onMessage((msg) => {
-      const { highlight } = detector.addMessage(msg);
-      if (!highlight) return;
-      setHighlights((prev) => [...prev, highlight]);
-      // Auto-clip on a chat spike when we're recording.
-      if (recordingRef.current && captureRef.current) {
-        const buf = captureRef.current.getBuffer();
-        if (buf) setClips((prev) => [...prev, ClipAssembler.assembleClip(buf)]);
-      }
-    });
-    await reader.connect();
-    setChannel(ch);
-    setConnected(true);
-  }, [channelInput]);
-
-  const disconnectChat = useCallback(() => {
-    chatRef.current?.disconnect();
-    chatRef.current = null;
-    detectorRef.current = null;
-    setConnected(false);
-    setChannel('');
+  /** Slice the rolling buffer around `endTs` and remux to a playable mp4. */
+  const makeClip = useCallback(async (endTs: number) => {
+    const cap = captureRef.current;
+    if (!cap?.isActive()) return;
+    const slice = cap.getBufferRange(endTs - CLIP_WINDOW_MS, endTs);
+    if (!slice) return;
+    setClipping(true);
+    try {
+      const mp4 = await tsToMp4(slice.blob);
+      setClips((prev) => [...prev, mp4]);
+    } catch (e) {
+      console.error('[cs] clip remux failed', e);
+    } finally {
+      setClipping(false);
+    }
   }, []);
 
-  // ─────────────────────────── HLTV match ───────────────────────────
-  const selectMatch = useCallback(async (matchId: string) => {
-    hltvRef.current?.disconnect();
-    setEvents([]);
-    setNotable([]);
-    setMatch({ id: matchId, team1: 'team 1', team2: 'team 2', event: 'live', format: '', score: { team1: 0, team2: 0 } });
+  const connect = useCallback(async () => {
+    setError(null);
+    const matchId = parseMatchId(hltvUrl);
+    const channel = parseChannel(channelInput);
+    if (!matchId) { setError('paste a valid HLTV match URL (…/matches/<id>/…)'); return; }
+    if (!channel) { setError('enter the match’s twitch channel'); return; }
+
+    // Scorebot
     const live = new HLTVLive();
     hltvRef.current = live;
-    live.onEvent((ev) => setEvents((prev) => [...prev, ev]));
-    try {
-      await live.connect(matchId);
-      setLiveNote('connected to scorebot — waiting for events…');
-    } catch (err) {
-      setLiveNote(`live connect unavailable (${(err as Error).message}). load a match log below.`);
-    }
-  }, []);
+    live.onStatus((s, detail) => setStatus(detail ? `${s}: ${detail}` : s));
+    live.onEvent((e) => setEvents((prev) => [...prev.slice(-200), e]));
+    live.onScoreboard((b) => setBoard(b));
+    live.onNotable((n) => {
+      setNotables((prev) => [...prev.slice(-30), n]);
+      void makeClip(n.timestamp + 3_000); // let the post-kill beat land in the window
+    });
+    live.connect(matchId);
+    // Show the live view immediately — the scoreboard is useful on its own,
+    // so a non-capturable stream (channel offline) only disables clipping.
+    setConnected(true);
 
-  // Recompute notable plays (aces / multi-kills) whenever events change.
-  useEffect(() => {
-    if (events.length === 0) { setNotable([]); return; }
-    setNotable(HLTVLive.detectNotableEvents(events).map((n) => ({ type: n.type, description: n.description })));
-  }, [events]);
+    const cap = new HlsCapture(channel, 60, {
+      onSegment: (_n, durationSec) => setBuffered(durationSec),
+      onError: (err) => setError(`capture: ${err.message}`),
+    });
+    captureRef.current = cap;
+    cap.start().catch((err) =>
+      setError(`stream "${channel}" not capturable (clips disabled): ${(err as Error).message}`),
+    );
+  }, [hltvUrl, channelInput, makeClip]);
 
-  const loadLog = useCallback((file: File) => {
-    const fr = new FileReader();
-    fr.onload = () => {
-      try {
-        const json = JSON.parse(String(fr.result));
-        const arr = Array.isArray(json) ? json : [];
-        setEvents(HLTVLive.parseLogFile(arr));
-        setLiveNote(`loaded ${arr.length} log entries.`);
-      } catch (e) {
-        setLiveNote(`couldn't parse log: ${(e as Error).message}`);
-      }
-    };
-    fr.readAsText(file);
-  }, []);
-
-  // ─────────────────────────── Recording ───────────────────────────
-  const startRecording = useCallback(async () => {
-    const cap = new VideoCapture(30);
-    try {
-      await cap.start();
-      captureRef.current = cap;
-      setRecording(true);
-    } catch (err) {
-      console.error('screen capture failed', err);
-    }
-  }, []);
-  const stopRecording = useCallback(() => {
-    captureRef.current?.stop();
-    captureRef.current = null;
-    setRecording(false);
-  }, []);
-  const manualClip = useCallback(() => {
-    const buf = captureRef.current?.getBuffer();
-    if (buf) setClips((prev) => [...prev, ClipAssembler.assembleClip(buf)]);
-  }, []);
-
-  useEffect(() => () => {
-    chatRef.current?.disconnect();
-    hltvRef.current?.disconnect();
-    captureRef.current?.stop();
+  const disconnect = useCallback(() => {
+    hltvRef.current?.disconnect(); hltvRef.current = null;
+    captureRef.current?.stop(); captureRef.current = null;
+    setConnected(false); setEvents([]); setBoard(null); setNotables([]); setBuffered(0);
   }, []);
 
   return (
     <div style={{ minHeight: '100vh', background: tokens.bg.base, color: tokens.text.primary }}>
       <header style={{
-        display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-        gap: '12px', flexWrap: 'wrap',
-        padding: '12px 22px',
-        borderBottom: `1px solid ${tokens.border.subtle}`, background: tokens.bg.surface,
+        display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '12px',
+        padding: '12px 22px', borderBottom: `1px solid ${tokens.border.subtle}`, background: tokens.bg.surface,
       }}>
-        <h1 style={{
-          margin: 0, fontFamily: 'var(--font-display)',
-          fontSize: 'clamp(18px, 2.4vw, 24px)', fontWeight: 700, letterSpacing: '-0.028em',
-        }}>
+        <h1 style={{ margin: 0, fontFamily: 'var(--font-display)', fontSize: 'clamp(18px, 2.4vw, 24px)', fontWeight: 700, letterSpacing: '-0.028em' }}>
           twitchsnipbot
         </h1>
         <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-          <RecordingControls
-            isRecording={recording}
-            isConnected={connected}
-            onStartRecording={startRecording}
-            onStopRecording={stopRecording}
-            onManualClip={manualClip}
-          />
-          <a href="/" style={{
-            fontSize: '12px', color: tokens.text.secondary, textDecoration: 'none',
-            border: `1px solid ${tokens.border.default}`, borderRadius: radius.sm, padding: '6px 12px',
-          }}>
+          {connected && <Button variant="ghost" size="sm" onClick={() => void makeClip(Date.now())}>clip now</Button>}
+          {connected && <Button variant="ghost" size="sm" onClick={disconnect}>disconnect</Button>}
+          <a href="/" style={{ fontSize: '12px', color: tokens.text.secondary, textDecoration: 'none', border: `1px solid ${tokens.border.default}`, borderRadius: radius.sm, padding: '6px 12px' }}>
             ← chat mode
           </a>
         </div>
       </header>
 
-      <main style={{
-        maxWidth: '1500px', margin: '0 auto', padding: '16px 22px 32px',
-        display: 'grid', gap: '14px',
-      }}>
-        {/* Connect row */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'minmax(0, 1fr) minmax(0, 1fr)', gap: '14px' }}>
-          <div style={panel()}>
-            <SectionLabel>twitch chat</SectionLabel>
-            {!connected ? (
-              <form
-                onSubmit={(e) => { e.preventDefault(); void connectChat(); }}
-                style={{ display: 'flex', gap: '8px' }}
-              >
-                <input
-                  value={channelInput}
-                  onChange={(e) => setChannelInput(e.target.value)}
-                  placeholder="twitch url or channel"
-                  spellCheck={false}
-                  style={inputStyle()}
-                />
-                <Button type="submit" variant="primary" size="md" uppercase={false} disabled={!channelInput.trim()}>
-                  connect
-                </Button>
-              </form>
-            ) : (
-              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                <span style={{ fontSize: '13px' }}>
-                  tracking <span style={{ color: tokens.brand, fontWeight: 600 }}>#{channel}</span> chat
-                </span>
-                <Button variant="ghost" size="sm" onClick={disconnectChat}>disconnect</Button>
+      <main style={{ maxWidth: '1500px', margin: '0 auto', padding: '16px 22px 32px', display: 'grid', gap: '14px' }}>
+        {!connected ? (
+          <Setup
+            hltvUrl={hltvUrl} setHltvUrl={setHltvUrl}
+            channelInput={channelInput} setChannelInput={setChannelInput}
+            error={error} onConnect={() => void connect()}
+          />
+        ) : (
+          <>
+            <StatusBar status={status} board={board} buffered={buffered} clipping={clipping} error={error} />
+            <div style={{ display: 'grid', gridTemplateColumns: 'minmax(0,1fr) minmax(0,360px)', gap: '14px' }}>
+              <GameEvents events={events} />
+              <div style={{ display: 'grid', gap: '14px', alignContent: 'start' }}>
+                <ScoreboardPanel board={board} />
+                <NotablePanel notables={notables} />
               </div>
-            )}
-          </div>
-
-          <div style={panel()}>
-            <MatchSelector onSelectMatch={(id) => void selectMatch(id)} selectedMatch={match} />
-            <div style={{ marginTop: '10px', display: 'flex', alignItems: 'center', gap: '10px', flexWrap: 'wrap' }}>
-              <label style={{
-                fontSize: '12px', color: tokens.text.secondary, cursor: 'pointer',
-                border: `1px solid ${tokens.border.default}`, borderRadius: radius.sm, padding: '6px 10px',
-              }}>
-                load HLTV log (.json)
-                <input
-                  type="file" accept="application/json,.json"
-                  onChange={(e) => { const f = e.target.files?.[0]; e.target.value = ''; if (f) loadLog(f); }}
-                  style={{ display: 'none' }}
-                />
-              </label>
-              {liveNote && <span style={{ fontSize: '11px', color: tokens.text.muted }}>{liveNote}</span>}
             </div>
-          </div>
-        </div>
-
-        {notable.length > 0 && (
-          <div style={panel()}>
-            <SectionLabel>notable plays</SectionLabel>
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
-              {notable.map((n, i) => (
-                <span key={i} style={{
-                  fontSize: '11px', fontWeight: 600, color: tokens.brand,
-                  background: `${tokens.brand}14`, border: `1px solid ${tokens.brand}40`,
-                  borderRadius: '3px', padding: '2px 8px',
-                }}>
-                  {n.description}
-                </span>
-              ))}
-            </div>
-          </div>
+            <ClipPreview clips={clips} />
+          </>
         )}
-
-        {/* Feeds */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'minmax(0, 1fr) minmax(0, 1fr)', gap: '14px' }}>
-          <GameEvents events={events} />
-          <HighlightFeed highlights={highlights} />
-        </div>
-
-        <ClipPreview clips={clips} />
       </main>
     </div>
   );
 }
 
-function panel(): React.CSSProperties {
-  return {
-    background: tokens.bg.surface,
-    border: `1px solid ${tokens.border.subtle}`,
-    borderRadius: radius.md,
-    padding: '14px',
-  };
+interface SetupProps {
+  hltvUrl: string; setHltvUrl: (s: string) => void;
+  channelInput: string; setChannelInput: (s: string) => void;
+  error: string | null; onConnect: () => void;
 }
-function inputStyle(): React.CSSProperties {
-  return {
-    flex: 1, minWidth: 0, padding: '9px 12px',
-    background: tokens.bg.raised, border: `1px solid ${tokens.border.default}`,
-    borderRadius: radius.sm, color: tokens.text.primary, fontSize: '13px',
-    outline: 'none', fontFamily: 'inherit',
-  };
-}
-function SectionLabel({ children }: { children: React.ReactNode }) {
+function Setup({ hltvUrl, setHltvUrl, channelInput, setChannelInput, error, onConnect }: SetupProps) {
   return (
-    <div style={{
-      fontSize: '10.5px', color: tokens.text.muted, textTransform: 'uppercase',
-      letterSpacing: '0.16em', marginBottom: '10px',
-    }}>
-      {children}
+    <div style={{ ...panel(), maxWidth: '620px' }}>
+      <div style={{ fontSize: '10.5px', color: tokens.text.muted, textTransform: 'uppercase', letterSpacing: '0.16em', marginBottom: '10px' }}>
+        track a cs match
+      </div>
+      <ol style={{ margin: '0 0 14px', paddingLeft: '18px', color: tokens.text.secondary, fontSize: '12.5px', lineHeight: 1.7 }}>
+        <li>open the match on <strong>HLTV</strong> once (so your browser can read its live scoreboard)</li>
+        <li>copy the match URL and the <strong>Twitch channel</strong> it links to</li>
+        <li>paste both below</li>
+      </ol>
+      <form onSubmit={(e) => { e.preventDefault(); onConnect(); }} style={{ display: 'grid', gap: '8px' }}>
+        <input value={hltvUrl} onChange={(e) => setHltvUrl(e.target.value)} spellCheck={false}
+          placeholder="https://www.hltv.org/matches/2395147/…" style={inputStyle()} />
+        <input value={channelInput} onChange={(e) => setChannelInput(e.target.value)} spellCheck={false}
+          placeholder="twitch channel (e.g. titaanitv)" style={inputStyle()} />
+        <Button type="submit" variant="primary" size="lg" uppercase={false}
+          disabled={!hltvUrl.trim() || !channelInput.trim()}>
+          connect
+        </Button>
+      </form>
+      {error && <div style={{ marginTop: '10px', color: tokens.status.bad, fontSize: '12px' }}>{error}</div>}
     </div>
   );
+}
+
+function StatusBar({ status, board, buffered, clipping, error }: {
+  status: string; board: Scoreboard | null; buffered: number; clipping: boolean; error: string | null;
+}) {
+  const ok = status === 'connected';
+  return (
+    <div style={{ ...panel(), display: 'flex', alignItems: 'center', gap: '20px', flexWrap: 'wrap', padding: '10px 16px' }}>
+      <Stat label="scorebot" value={status} accent={ok ? tokens.status.good : tokens.status.warn} />
+      {board?.map && <Stat label="map" value={board.map} />}
+      {board && <Stat label="score" value={`${board.ctScore} : ${board.tScore}`} accent={tokens.brand} />}
+      <Stat label="buffered" value={`${buffered.toFixed(0)}s`} />
+      {clipping && <Stat label="clip" value="remuxing…" accent={tokens.status.warn} />}
+      {error && <span style={{ color: tokens.status.bad, fontSize: '12px' }}>{error}</span>}
+    </div>
+  );
+}
+
+function Stat({ label, value, accent }: { label: string; value: string; accent?: string }) {
+  return (
+    <div style={{ display: 'flex', flexDirection: 'column', lineHeight: 1.2 }}>
+      <span style={{ fontSize: '9.5px', color: tokens.text.muted, textTransform: 'uppercase', letterSpacing: '0.14em' }}>{label}</span>
+      <span style={{ fontSize: '13px', fontWeight: 600, color: accent || tokens.text.primary }}>{value}</span>
+    </div>
+  );
+}
+
+function ScoreboardPanel({ board }: { board: Scoreboard | null }) {
+  return (
+    <div style={panel()}>
+      <PanelTitle>scoreboard</PanelTitle>
+      {!board ? (
+        <p style={{ color: tokens.text.muted, fontSize: '12px', margin: 0 }}>waiting for live data…</p>
+      ) : (
+        ['TERRORIST', 'CT'].map((side) => (
+          <div key={side} style={{ marginBottom: '8px' }}>
+            <div style={{ fontSize: '10px', color: side === 'CT' ? '#6ca6ff' : '#f5b94d', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '3px' }}>{side}</div>
+            {board.players.filter((p) => p.side === side).map((p) => (
+              <div key={p.name} style={{ display: 'flex', justifyContent: 'space-between', fontSize: '11.5px', padding: '2px 0', opacity: p.alive ? 1 : 0.45, fontVariantNumeric: 'tabular-nums' }}>
+                <span>{p.name}</span>
+                <span style={{ color: tokens.text.muted }}>{p.kills}-{p.deaths} · ${p.money}</span>
+              </div>
+            ))}
+          </div>
+        ))
+      )}
+    </div>
+  );
+}
+
+function NotablePanel({ notables }: { notables: NotablePlay[] }) {
+  return (
+    <div style={panel()}>
+      <PanelTitle>notable plays · auto-clipped</PanelTitle>
+      {notables.length === 0 ? (
+        <p style={{ color: tokens.text.muted, fontSize: '12px', margin: 0 }}>aces, 4Ks, 3Ks and defuses get clipped here.</p>
+      ) : (
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
+          {[...notables].reverse().map((n, i) => (
+            <span key={i} style={{ fontSize: '12px', color: tokens.brand, fontWeight: 600 }}>{n.description}</span>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
+function PanelTitle({ children }: { children: React.ReactNode }) {
+  return <div style={{ fontSize: '10.5px', color: tokens.text.muted, textTransform: 'uppercase', letterSpacing: '0.16em', marginBottom: '10px' }}>{children}</div>;
+}
+function panel(): React.CSSProperties {
+  return { background: tokens.bg.surface, border: `1px solid ${tokens.border.subtle}`, borderRadius: radius.md, padding: '14px' };
+}
+function inputStyle(): React.CSSProperties {
+  return { padding: '11px 14px', background: tokens.bg.raised, border: `1px solid ${tokens.border.default}`, borderRadius: radius.md, color: tokens.text.primary, fontSize: '13px', outline: 'none', fontFamily: 'inherit' };
 }
