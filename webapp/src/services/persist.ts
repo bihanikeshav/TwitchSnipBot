@@ -95,3 +95,67 @@ export async function clearAll(): Promise<void> {
       .map((k) => del(k)),
   );
 }
+
+// ── CS mode (/cs): clips + auto-reconnect session ──
+//
+// CS clips are simpler than moments (just a tagged MP4 blob), and the live
+// scoreboard/feed rebuilds itself from the scorebot on reconnect — so all we
+// persist is the tagged clip blobs (IndexedDB) and the connection inputs
+// (localStorage) so a refresh restores the session.
+
+const CS_PREFIX = 'snip:cs-clips:';
+const CS_SESSION_KEY = 'snip:cs-session';
+
+export interface StoredCsClip {
+  id: string;
+  label: string;
+  color: string;
+  type: 'chat' | 'game' | 'manual';
+  round: number | null;
+  ts: number;
+  mp4: Blob;
+}
+
+export async function saveCsClips(channel: string, clips: StoredCsClip[]): Promise<void> {
+  if (clips.length === 0) { await del(CS_PREFIX + channel); return; }
+  await set(CS_PREFIX + channel, clips);
+}
+
+export async function loadCsClips(channel: string): Promise<StoredCsClip[] | null> {
+  const stored = (await get(CS_PREFIX + channel)) as StoredCsClip[] | undefined;
+  return stored && stored.length ? stored : null;
+}
+
+export interface CsSession { hltvUrl: string; channel: string; }
+
+export function saveCsSession(s: CsSession): void {
+  try { localStorage.setItem(CS_SESSION_KEY, JSON.stringify(s)); } catch { /* private mode */ }
+}
+
+export function loadCsSession(): CsSession | null {
+  try {
+    const v = localStorage.getItem(CS_SESSION_KEY);
+    if (!v) return null;
+    const s = JSON.parse(v) as CsSession;
+    return s.hltvUrl && s.channel ? s : null;
+  } catch { return null; }
+}
+
+export function clearCsSession(): void {
+  try { localStorage.removeItem(CS_SESSION_KEY); } catch { /* ignore */ }
+}
+
+// ── Main app (/): channel for shareable URL + refresh auto-reconnect ──
+const SESSION_KEY = 'snip:session';
+
+export function saveSession(channel: string): void {
+  try { localStorage.setItem(SESSION_KEY, channel); } catch { /* private mode */ }
+}
+
+export function loadSession(): string | null {
+  try { return localStorage.getItem(SESSION_KEY) || null; } catch { return null; }
+}
+
+export function clearSession(): void {
+  try { localStorage.removeItem(SESSION_KEY); } catch { /* ignore */ }
+}

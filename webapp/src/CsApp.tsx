@@ -3,6 +3,10 @@ import { ChatReader, type ChatMessage } from './services/chat-reader';
 import { HighlightDetector } from './services/highlight-detector';
 import { HlsCapture } from './services/hls-capture';
 import { tsToMp4, preloadFFmpeg } from './services/remuxer';
+import {
+  saveCsClips, loadCsClips, saveCsSession, loadCsSession, clearCsSession,
+  type StoredCsClip,
+} from './services/persist';
 import { parseChannel } from './utils/parse-channel';
 import {
   HLTVLive, parseMatchId, NOTABLE_TAG,
@@ -107,12 +111,17 @@ export default function CsApp() {
     return () => clearInterval(id);
   }, [connected]);
 
-  const connect = useCallback(async () => {
+  const connect = useCallback(async (url: string, chInput: string) => {
     setError(null);
-    const matchId = parseMatchId(hltvUrl);
-    const ch = parseChannel(channelInput);
+    const matchId = parseMatchId(url);
+    const ch = parseChannel(chInput);
     if (!matchId) { setError('paste a valid HLTV match URL (…/matches/<id>/…)'); return; }
     if (!ch) { setError('enter the match’s twitch channel'); return; }
+
+    // Persist inputs for refresh auto-reconnect, and restore this channel's clips.
+    saveCsSession({ hltvUrl: url, channel: ch });
+    const saved = await loadCsClips(ch).catch(() => null);
+    setClips(saved ? saved.map((s) => ({ ...s, url: URL.createObjectURL(s.mp4) })) : []);
 
     // ── Twitch chat detection ──
     const detector = new HighlightDetector(0.5);
@@ -157,18 +166,47 @@ export default function CsApp() {
 
     setChannel(ch);
     setConnected(true);
+    // Shareable + refresh-restorable: /cs?m=<matchId>&c=<channel>
+    try { window.history.replaceState(null, '', `/cs?m=${matchId}&c=${encodeURIComponent(ch)}`); } catch { /* ignore */ }
     try { await reader.connect(); } catch (e) { setError(`chat: ${(e as Error).message}`); }
     cap.start().catch((err) => setError(`stream "${ch}" not capturable (clips disabled): ${(err as Error).message}`));
-  }, [hltvUrl, channelInput, makeClip]);
+  }, [makeClip]);
 
   const disconnect = useCallback(() => {
     chatRef.current?.disconnect(); chatRef.current = null; detectorRef.current = null;
     hltvRef.current?.disconnect(); hltvRef.current = null;
     captureRef.current?.stop(); captureRef.current = null;
     currentRateRef.current = 0; pendingMsgsRef.current = [];
+    clearCsSession();
+    try { window.history.replaceState(null, '', '/cs'); } catch { /* ignore */ }
     setConnected(false); setEvents([]); setBoard(null); setBuffered(0);
     setMessages([]); setTotalMessages(0); setChatRate([]); setChatRateTs([]);
   }, []);
+
+  // Persist this channel's ready clips (debounced) so a refresh keeps them.
+  useEffect(() => {
+    if (!connected || !channel) return;
+    const t = window.setTimeout(() => {
+      const ready: StoredCsClip[] = clips
+        .filter((c) => c.mp4)
+        .map((c) => ({ id: c.id, label: c.label, color: c.color, type: c.type, round: c.round, ts: c.ts, mp4: c.mp4! }));
+      void saveCsClips(channel, ready).catch(() => {});
+    }, 800);
+    return () => clearTimeout(t);
+  }, [clips, connected, channel]);
+
+  // On load, auto-reconnect from the URL (?m=&c=) or the saved session.
+  const autoConnectedRef = useRef(false);
+  useEffect(() => {
+    if (autoConnectedRef.current) return;
+    autoConnectedRef.current = true;
+    const p = new URLSearchParams(window.location.search);
+    const m = p.get('m'); const c = p.get('c');
+    let url = '', ch = '';
+    if (m && c) { url = `https://www.hltv.org/matches/${m}/`; ch = c; }
+    else { const s = loadCsSession(); if (s) { url = s.hltvUrl; ch = s.channel; } }
+    if (url && ch) { setHltvUrl(url); setChannelInput(ch); void connect(url, ch); }
+  }, [connect]);
 
   const manualClip = useCallback(() => makeClip(Date.now(), 'CLIP', tokens.text.secondary, 'manual'), [makeClip]);
 
@@ -201,7 +239,7 @@ export default function CsApp() {
           <Setup
             hltvUrl={hltvUrl} setHltvUrl={setHltvUrl}
             channelInput={channelInput} setChannelInput={setChannelInput}
-            error={error} onConnect={() => void connect()}
+            error={error} onConnect={() => void connect(hltvUrl, channelInput)}
           />
         ) : (
           <>

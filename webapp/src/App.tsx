@@ -3,7 +3,7 @@ import { ChatReader, ChatMessage } from './services/chat-reader';
 import { HighlightDetector, DetectedHighlight } from './services/highlight-detector';
 import { HlsCapture } from './services/hls-capture';
 import { preloadFFmpeg, tsToMp4, onFFmpegStage, type FFmpegStage } from './services/remuxer';
-import { saveMoments, loadMoments } from './services/persist';
+import { saveMoments, loadMoments, saveSession, loadSession, clearSession } from './services/persist';
 import { findTensionWindow, type RateSample } from './utils/tension';
 import { parseChannel } from './utils/parse-channel';
 import Dashboard from './components/Dashboard';
@@ -486,6 +486,9 @@ export default function App() {
         connectError: null,
         moments: restored ?? [],
       }));
+      // Shareable + refresh-restorable: /?c=<channel>
+      saveSession(channel);
+      try { window.history.replaceState(null, '', `/?c=${encodeURIComponent(channel)}`); } catch { /* ignore */ }
       // Kick off background HLS capture automatically — no prompt, no screen share.
       void startCapture(channel);
     } catch (err) {
@@ -504,6 +507,8 @@ export default function App() {
     captureRef.current?.stop();
     captureRef.current = null;
     currentRateRef.current = 0;
+    clearSession();
+    try { window.history.replaceState(null, '', '/'); } catch { /* ignore */ }
     setState((prev) => ({
       ...prev,
       isConnected: false,
@@ -516,6 +521,15 @@ export default function App() {
       captureStatus: { ready: false, bufferedSec: 0, error: null },
     }));
   }, []);
+
+  // On load, auto-reconnect from the URL (?c=<channel>) or the saved session.
+  const autoConnectedRef = useRef(false);
+  useEffect(() => {
+    if (autoConnectedRef.current) return;
+    autoConnectedRef.current = true;
+    const c = new URLSearchParams(window.location.search).get('c') || loadSession();
+    if (c) void connect(c);
+  }, [connect]);
 
   const manualClip = useCallback(() => {
     const capture = captureRef.current;
