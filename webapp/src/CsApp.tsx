@@ -1,104 +1,186 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react';
-import { HLTVLive, parseMatchId, type HLTVEvent, type Scoreboard, type NotablePlay } from './services/hltv-live';
+import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { ChatReader, type ChatMessage } from './services/chat-reader';
+import { HighlightDetector } from './services/highlight-detector';
 import { HlsCapture } from './services/hls-capture';
 import { tsToMp4, preloadFFmpeg } from './services/remuxer';
 import { parseChannel } from './utils/parse-channel';
+import {
+  HLTVLive, parseMatchId, NOTABLE_TAG,
+  type HLTVEvent, type Scoreboard,
+} from './services/hltv-live';
 import GameEvents from './components/cs/GameEvents';
-import ClipPreview from './components/cs/ClipPreview';
+import ChatTimeline, { type TimelineRange } from './components/ChatTimeline';
+import ChatStream from './components/ChatStream';
 import Button from './components/ui/Button';
 import { tokens, radius } from './components/ui/theme';
 
 /**
- * CS-match companion (route: /cs).
+ * CS-match companion (route: /cs) — an addon to the main highlighter.
  *
- * Connects to the HLTV scorebot CLIENT-SIDE (socket.io v2, withCredentials —
- * see hltv-live.ts) for live kills/rounds/scoreboard, and captures the match's
- * Twitch stream via the same zero-auth HLS pipeline the main app uses. When a
- * notable play fires (ace / 4K / 3K / defuse) it auto-clips the recent buffer.
+ * Same chat-spike detection + zero-auth Twitch HLS capture as the main app,
+ * PLUS a live HLTV layer (scorebot kills/rounds/scoreboard, client-side — see
+ * hltv-live.ts). Clips fire on BOTH a chat spike (tag: HYPE) and a notable CS
+ * play (ACE / 4K / 3K / CLUTCH / DEFUSE), and are tagged accordingly.
  *
- * The scoreboard needs the user's browser to hold HLTV's cf_clearance cookie,
- * so the flow starts by sending them to the HLTV match page once.
+ * Only NEW notable plays clip — the scorebot's initial historical dump is
+ * replayed silently (it can't be clipped retroactively).
  */
 const CLIP_WINDOW_MS = 22_000;
+const MIN_BUFFERED_SEC = 22;
+const CHAT_CLIP_COOLDOWN_MS = 9_000;
+
+interface CsClip {
+  id: string;
+  label: string;
+  color: string;
+  type: 'chat' | 'game' | 'manual';
+  round: number | null;
+  ts: number;
+  mp4: Blob | null;
+  url: string | null;
+}
 
 export default function CsApp() {
   const [hltvUrl, setHltvUrl] = useState('');
   const [channelInput, setChannelInput] = useState('');
   const [connected, setConnected] = useState(false);
+  const [channel, setChannel] = useState('');
   const [error, setError] = useState<string | null>(null);
 
-  const [status, setStatus] = useState<string>('idle');
+  const [status, setStatus] = useState('idle');
   const [events, setEvents] = useState<HLTVEvent[]>([]);
   const [board, setBoard] = useState<Scoreboard | null>(null);
-  const [notables, setNotables] = useState<NotablePlay[]>([]);
-  const [clips, setClips] = useState<Blob[]>([]);
+  const [clips, setClips] = useState<CsClip[]>([]);
   const [buffered, setBuffered] = useState(0);
-  const [clipping, setClipping] = useState(false);
 
-  const hltvRef = useRef<HLTVLive | null>(null);
+  const [messages, setMessages] = useState<ChatMessage[]>([]);
+  const [totalMessages, setTotalMessages] = useState(0);
+  const [chatRate, setChatRate] = useState<number[]>([]);
+  const [chatRateTs, setChatRateTs] = useState<number[]>([]);
+
+  const chatRef = useRef<ChatReader | null>(null);
+  const detectorRef = useRef<HighlightDetector | null>(null);
   const captureRef = useRef<HlsCapture | null>(null);
+  const hltvRef = useRef<HLTVLive | null>(null);
+  const currentRateRef = useRef(0);
+  const pendingMsgsRef = useRef<ChatMessage[]>([]);
+  const lastChatClipRef = useRef(0);
 
   useEffect(() => { preloadFFmpeg().catch(() => {}); }, []);
-  useEffect(() => () => { hltvRef.current?.disconnect(); captureRef.current?.stop(); }, []);
+  useEffect(() => () => {
+    chatRef.current?.disconnect();
+    hltvRef.current?.disconnect();
+    captureRef.current?.stop();
+  }, []);
 
-  /** Slice the rolling buffer around `endTs` and remux to a playable mp4. */
-  const makeClip = useCallback(async (endTs: number) => {
+  /** Slice the rolling buffer ending at `endTs`, remux to mp4, add a tagged clip. */
+  const makeClip = useCallback((endTs: number, label: string, color: string, type: CsClip['type'], round: number | null = null) => {
     const cap = captureRef.current;
     if (!cap?.isActive()) return;
     const slice = cap.getBufferRange(endTs - CLIP_WINDOW_MS, endTs);
     if (!slice) return;
-    setClipping(true);
-    try {
-      const mp4 = await tsToMp4(slice.blob);
-      setClips((prev) => [...prev, mp4]);
-    } catch (e) {
-      console.error('[cs] clip remux failed', e);
-    } finally {
-      setClipping(false);
-    }
+    const id = `c_${endTs}_${Math.floor(Math.random() * 1e6)}`;
+    setClips((prev) => [{ id, label, color, type, round, ts: endTs, mp4: null, url: null }, ...prev]);
+    tsToMp4(slice.blob)
+      .then((mp4) => setClips((prev) => prev.map((c) => c.id === id ? { ...c, mp4, url: URL.createObjectURL(mp4) } : c)))
+      .catch((e) => {
+        console.error('[cs] remux failed', e);
+        setClips((prev) => prev.filter((c) => c.id !== id));
+      });
   }, []);
+
+  // 500ms cadence: sample chat rate for the timeline + flush batched messages.
+  useEffect(() => {
+    if (!connected) return;
+    const MAX = 480;
+    const id = window.setInterval(() => {
+      const now = Date.now();
+      setChatRate((p) => [...p, currentRateRef.current].slice(-MAX));
+      setChatRateTs((p) => [...p, now].slice(-MAX));
+      const pend = pendingMsgsRef.current;
+      if (pend.length) {
+        pendingMsgsRef.current = [];
+        setMessages((p) => [...p, ...pend].slice(-400));
+        setTotalMessages((n) => n + pend.length);
+      }
+    }, 500);
+    return () => clearInterval(id);
+  }, [connected]);
 
   const connect = useCallback(async () => {
     setError(null);
     const matchId = parseMatchId(hltvUrl);
-    const channel = parseChannel(channelInput);
+    const ch = parseChannel(channelInput);
     if (!matchId) { setError('paste a valid HLTV match URL (…/matches/<id>/…)'); return; }
-    if (!channel) { setError('enter the match’s twitch channel'); return; }
+    if (!ch) { setError('enter the match’s twitch channel'); return; }
 
-    // Scorebot
+    // ── Twitch chat detection ──
+    const detector = new HighlightDetector(0.5);
+    const reader = new ChatReader(ch);
+    detectorRef.current = detector;
+    chatRef.current = reader;
+    reader.onMessage((msg) => {
+      const { currentRate, highlight } = detector.addMessage(msg);
+      currentRateRef.current = currentRate;
+      pendingMsgsRef.current.push(msg);
+      const bufSec = captureRef.current?.getBufferedSec() ?? 0;
+      const now = Date.now();
+      if (
+        highlight && highlight.score >= 0.2 &&
+        bufSec >= MIN_BUFFERED_SEC &&
+        now - lastChatClipRef.current > CHAT_CLIP_COOLDOWN_MS
+      ) {
+        lastChatClipRef.current = now;
+        makeClip(now, 'HYPE', tokens.brand, 'chat');
+      }
+    });
+
+    // ── HLTV scorebot ──
     const live = new HLTVLive();
     hltvRef.current = live;
-    live.onStatus((s, detail) => setStatus(detail ? `${s}: ${detail}` : s));
-    live.onEvent((e) => setEvents((prev) => [...prev.slice(-200), e]));
+    live.onStatus((s, detail) => setStatus(detail ? `${s}: ${detail.slice(0, 40)}` : s));
+    live.onEvent((e) => setEvents((prev) => [...prev.slice(-600), e]));
     live.onScoreboard((b) => setBoard(b));
     live.onNotable((n) => {
-      setNotables((prev) => [...prev.slice(-30), n]);
-      void makeClip(n.timestamp + 3_000); // let the post-kill beat land in the window
+      const tag = NOTABLE_TAG[n.type];
+      // round_end just fired live → the play is in the last ~20s of buffer.
+      makeClip(Date.now(), tag.label, tag.color, 'game', n.round);
     });
     live.connect(matchId);
-    // Show the live view immediately — the scoreboard is useful on its own,
-    // so a non-capturable stream (channel offline) only disables clipping.
-    setConnected(true);
 
-    const cap = new HlsCapture(channel, 60, {
+    // ── Twitch stream capture ──
+    const cap = new HlsCapture(ch, 60, {
       onSegment: (_n, durationSec) => setBuffered(durationSec),
       onError: (err) => setError(`capture: ${err.message}`),
     });
     captureRef.current = cap;
-    cap.start().catch((err) =>
-      setError(`stream "${channel}" not capturable (clips disabled): ${(err as Error).message}`),
-    );
+
+    setChannel(ch);
+    setConnected(true);
+    try { await reader.connect(); } catch (e) { setError(`chat: ${(e as Error).message}`); }
+    cap.start().catch((err) => setError(`stream "${ch}" not capturable (clips disabled): ${(err as Error).message}`));
   }, [hltvUrl, channelInput, makeClip]);
 
   const disconnect = useCallback(() => {
+    chatRef.current?.disconnect(); chatRef.current = null; detectorRef.current = null;
     hltvRef.current?.disconnect(); hltvRef.current = null;
     captureRef.current?.stop(); captureRef.current = null;
-    setConnected(false); setEvents([]); setBoard(null); setNotables([]); setBuffered(0);
+    currentRateRef.current = 0; pendingMsgsRef.current = [];
+    setConnected(false); setEvents([]); setBoard(null); setBuffered(0);
+    setMessages([]); setTotalMessages(0); setChatRate([]); setChatRateTs([]);
   }, []);
 
+  const manualClip = useCallback(() => makeClip(Date.now(), 'CLIP', tokens.text.secondary, 'manual'), [makeClip]);
+
+  const ranges = useMemo<TimelineRange[]>(
+    () => clips.map((c) => ({ detTs: c.ts, startTs: c.ts - CLIP_WINDOW_MS, endTs: c.ts, color: c.color })),
+    [clips],
+  );
+
   return (
-    <div style={{ minHeight: '100vh', background: tokens.bg.base, color: tokens.text.primary }}>
+    <div style={{ height: '100vh', overflowY: 'auto', background: tokens.bg.base, color: tokens.text.primary }}>
       <header style={{
+        position: 'sticky', top: 0, zIndex: 10,
         display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '12px',
         padding: '12px 22px', borderBottom: `1px solid ${tokens.border.subtle}`, background: tokens.bg.surface,
       }}>
@@ -106,7 +188,7 @@ export default function CsApp() {
           twitchsnipbot
         </h1>
         <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-          {connected && <Button variant="ghost" size="sm" onClick={() => void makeClip(Date.now())}>clip now</Button>}
+          {connected && <Button variant="ghost" size="sm" onClick={manualClip}>clip now</Button>}
           {connected && <Button variant="ghost" size="sm" onClick={disconnect}>disconnect</Button>}
           <a href="/" style={{ fontSize: '12px', color: tokens.text.secondary, textDecoration: 'none', border: `1px solid ${tokens.border.default}`, borderRadius: radius.sm, padding: '6px 12px' }}>
             ← chat mode
@@ -114,7 +196,7 @@ export default function CsApp() {
         </div>
       </header>
 
-      <main style={{ maxWidth: '1500px', margin: '0 auto', padding: '16px 22px 32px', display: 'grid', gap: '14px' }}>
+      <main style={{ maxWidth: '1600px', margin: '0 auto', padding: '16px 22px 40px', display: 'flex', flexDirection: 'column', gap: '14px' }}>
         {!connected ? (
           <Setup
             hltvUrl={hltvUrl} setHltvUrl={setHltvUrl}
@@ -123,15 +205,25 @@ export default function CsApp() {
           />
         ) : (
           <>
-            <StatusBar status={status} board={board} buffered={buffered} clipping={clipping} error={error} />
-            <div style={{ display: 'grid', gridTemplateColumns: 'minmax(0,1fr) minmax(0,360px)', gap: '14px' }}>
-              <GameEvents events={events} />
-              <div style={{ display: 'grid', gap: '14px', alignContent: 'start' }}>
-                <ScoreboardPanel board={board} />
-                <NotablePanel notables={notables} />
-              </div>
+            <StatusStrip channel={channel} status={status} board={board} buffered={buffered} clipCount={clips.length} error={error} />
+
+            <div style={{ height: '230px' }}>
+              <ChatTimeline data={chatRate} timestamps={chatRateTs} ranges={ranges} />
             </div>
-            <ClipPreview clips={clips} />
+
+            <div style={{ display: 'grid', gridTemplateColumns: 'minmax(0, 1fr) minmax(0, 1fr)', gap: '14px' }}>
+              <div style={{ height: '360px', display: 'flex' }}>
+                <ChatStream messages={messages} totalCount={totalMessages} />
+              </div>
+              <ClipsPanel clips={clips} />
+            </div>
+
+            <div style={{ display: 'grid', gridTemplateColumns: 'minmax(0, 1fr) minmax(0, 380px)', gap: '14px', alignItems: 'start' }}>
+              <div style={{ height: '480px' }}>
+                <GameEvents events={events} />
+              </div>
+              <ScoreboardPanel board={board} />
+            </div>
           </>
         )}
       </main>
@@ -146,22 +238,21 @@ interface SetupProps {
 }
 function Setup({ hltvUrl, setHltvUrl, channelInput, setChannelInput, error, onConnect }: SetupProps) {
   return (
-    <div style={{ ...panel(), maxWidth: '620px' }}>
-      <div style={{ fontSize: '10.5px', color: tokens.text.muted, textTransform: 'uppercase', letterSpacing: '0.16em', marginBottom: '10px' }}>
+    <div style={{ ...panel(), maxWidth: '640px', marginTop: '6vh', alignSelf: 'center', width: '100%' }}>
+      <div style={{ fontSize: '10.5px', color: tokens.text.muted, textTransform: 'uppercase', letterSpacing: '0.16em', marginBottom: '12px' }}>
         track a cs match
       </div>
-      <ol style={{ margin: '0 0 14px', paddingLeft: '18px', color: tokens.text.secondary, fontSize: '12.5px', lineHeight: 1.7 }}>
-        <li>open the match on <strong>HLTV</strong> once (so your browser can read its live scoreboard)</li>
-        <li>copy the match URL and the <strong>Twitch channel</strong> it links to</li>
-        <li>paste both below</li>
+      <ol style={{ margin: '0 0 16px', paddingLeft: '18px', color: tokens.text.secondary, fontSize: '12.5px', lineHeight: 1.8 }}>
+        <li>open the match on <strong>HLTV</strong> once — this lets your browser read the live scoreboard</li>
+        <li>copy the match URL and the <strong>Twitch channel</strong> it streams on</li>
+        <li>paste both below — chat spikes <em>and</em> big plays get auto-clipped</li>
       </ol>
       <form onSubmit={(e) => { e.preventDefault(); onConnect(); }} style={{ display: 'grid', gap: '8px' }}>
-        <input value={hltvUrl} onChange={(e) => setHltvUrl(e.target.value)} spellCheck={false}
+        <input value={hltvUrl} onChange={(e) => setHltvUrl(e.target.value)} spellCheck={false} autoFocus
           placeholder="https://www.hltv.org/matches/2395147/…" style={inputStyle()} />
         <input value={channelInput} onChange={(e) => setChannelInput(e.target.value)} spellCheck={false}
           placeholder="twitch channel (e.g. titaanitv)" style={inputStyle()} />
-        <Button type="submit" variant="primary" size="lg" uppercase={false}
-          disabled={!hltvUrl.trim() || !channelInput.trim()}>
+        <Button type="submit" variant="primary" size="lg" uppercase={false} disabled={!hltvUrl.trim() || !channelInput.trim()}>
           connect
         </Button>
       </form>
@@ -170,27 +261,76 @@ function Setup({ hltvUrl, setHltvUrl, channelInput, setChannelInput, error, onCo
   );
 }
 
-function StatusBar({ status, board, buffered, clipping, error }: {
-  status: string; board: Scoreboard | null; buffered: number; clipping: boolean; error: string | null;
+function StatusStrip({ channel, status, board, buffered, clipCount, error }: {
+  channel: string; status: string; board: Scoreboard | null; buffered: number; clipCount: number; error: string | null;
 }) {
   const ok = status === 'connected';
   return (
-    <div style={{ ...panel(), display: 'flex', alignItems: 'center', gap: '20px', flexWrap: 'wrap', padding: '10px 16px' }}>
+    <div style={{ ...panel(), display: 'flex', alignItems: 'center', gap: '22px', flexWrap: 'wrap', padding: '10px 16px' }}>
+      <Stat label="channel" value={`#${channel}`} accent={tokens.brand} />
       <Stat label="scorebot" value={status} accent={ok ? tokens.status.good : tokens.status.warn} />
+      {board && <Stat label="score" value={`${board.ctScore} : ${board.tScore}`} accent={tokens.text.primary} />}
       {board?.map && <Stat label="map" value={board.map} />}
-      {board && <Stat label="score" value={`${board.ctScore} : ${board.tScore}`} accent={tokens.brand} />}
-      <Stat label="buffered" value={`${buffered.toFixed(0)}s`} />
-      {clipping && <Stat label="clip" value="remuxing…" accent={tokens.status.warn} />}
-      {error && <span style={{ color: tokens.status.bad, fontSize: '12px' }}>{error}</span>}
+      <Stat label="buffered" value={`${buffered.toFixed(0)}s`} accent={buffered >= MIN_BUFFERED_SEC ? tokens.status.good : tokens.status.warn} />
+      <Stat label="clips" value={String(clipCount)} accent={tokens.status.good} />
+      {error && <span style={{ color: tokens.status.bad, fontSize: '11.5px', marginLeft: 'auto', maxWidth: '40%' }}>{error}</span>}
     </div>
   );
 }
 
 function Stat({ label, value, accent }: { label: string; value: string; accent?: string }) {
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', lineHeight: 1.2 }}>
+    <div style={{ display: 'flex', flexDirection: 'column', lineHeight: 1.2, minWidth: '54px' }}>
       <span style={{ fontSize: '9.5px', color: tokens.text.muted, textTransform: 'uppercase', letterSpacing: '0.14em' }}>{label}</span>
-      <span style={{ fontSize: '13px', fontWeight: 600, color: accent || tokens.text.primary }}>{value}</span>
+      <span style={{ fontSize: '13.5px', fontWeight: 600, color: accent || tokens.text.primary, fontVariantNumeric: 'tabular-nums' }}>{value}</span>
+    </div>
+  );
+}
+
+function ClipsPanel({ clips }: { clips: CsClip[] }) {
+  return (
+    <div style={{ ...panel(), height: '360px', display: 'flex', flexDirection: 'column', padding: 0 }}>
+      <div style={{ padding: '12px 16px', borderBottom: `1px solid ${tokens.border.subtle}`, fontSize: '10.5px', color: tokens.text.muted, textTransform: 'uppercase', letterSpacing: '0.16em', display: 'flex', justifyContent: 'space-between' }}>
+        <span>clips</span><span>{clips.length}</span>
+      </div>
+      {clips.length === 0 ? (
+        <p style={{ color: tokens.text.muted, fontSize: '12px', margin: 'auto', textAlign: 'center', padding: '20px' }}>
+          aces, 4Ks, clutches, defuses and chat spikes get clipped here, each tagged by type.
+        </p>
+      ) : (
+        <div style={{ overflowY: 'auto', padding: '10px', display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(150px, 1fr))', gap: '10px', alignContent: 'start' }}>
+          {clips.map((c) => <ClipCard key={c.id} c={c} />)}
+        </div>
+      )}
+    </div>
+  );
+}
+
+function ClipCard({ c }: { c: CsClip }) {
+  return (
+    <div style={{ background: tokens.bg.raised, border: `1px solid ${tokens.border.subtle}`, borderRadius: radius.sm, overflow: 'hidden' }}>
+      <div style={{ position: 'relative', aspectRatio: '16 / 9', background: '#000', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+        {c.url ? (
+          <video src={c.url} controls preload="metadata" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
+        ) : (
+          <span style={{ fontSize: '10.5px', color: tokens.text.muted }}>remuxing…</span>
+        )}
+        <span style={{
+          position: 'absolute', top: '5px', left: '5px',
+          fontSize: '9.5px', fontWeight: 800, letterSpacing: '0.05em',
+          color: '#fff', background: c.color, padding: '2px 6px', borderRadius: '3px',
+        }}>
+          {c.label}{c.round ? ` · R${c.round}` : ''}
+        </span>
+      </div>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '5px 8px' }}>
+        <span style={{ fontSize: '10px', color: tokens.text.muted }}>{new Date(c.ts).toLocaleTimeString()}</span>
+        {c.url && (
+          <a href={c.url} download={`${c.label.toLowerCase()}_${c.ts}.mp4`} style={{ fontSize: '10.5px', color: tokens.brand, textDecoration: 'none', fontWeight: 600 }}>
+            download
+          </a>
+        )}
+      </div>
     </div>
   );
 }
@@ -198,17 +338,20 @@ function Stat({ label, value, accent }: { label: string; value: string; accent?:
 function ScoreboardPanel({ board }: { board: Scoreboard | null }) {
   return (
     <div style={panel()}>
-      <PanelTitle>scoreboard</PanelTitle>
+      <div style={{ fontSize: '10.5px', color: tokens.text.muted, textTransform: 'uppercase', letterSpacing: '0.16em', marginBottom: '12px' }}>scoreboard</div>
       {!board ? (
         <p style={{ color: tokens.text.muted, fontSize: '12px', margin: 0 }}>waiting for live data…</p>
       ) : (
-        ['TERRORIST', 'CT'].map((side) => (
-          <div key={side} style={{ marginBottom: '8px' }}>
-            <div style={{ fontSize: '10px', color: side === 'CT' ? '#6ca6ff' : '#f5b94d', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '3px' }}>{side}</div>
+        (['TERRORIST', 'CT'] as const).map((side) => (
+          <div key={side} style={{ marginBottom: '10px' }}>
+            <div style={{ fontSize: '10px', color: side === 'CT' ? '#6ca6ff' : '#f5b94d', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '4px', fontWeight: 700 }}>{side}</div>
             {board.players.filter((p) => p.side === side).map((p) => (
-              <div key={p.name} style={{ display: 'flex', justifyContent: 'space-between', fontSize: '11.5px', padding: '2px 0', opacity: p.alive ? 1 : 0.45, fontVariantNumeric: 'tabular-nums' }}>
-                <span>{p.name}</span>
-                <span style={{ color: tokens.text.muted }}>{p.kills}-{p.deaths} · ${p.money}</span>
+              <div key={p.name} style={{ display: 'flex', justifyContent: 'space-between', fontSize: '11.5px', padding: '2.5px 0', opacity: p.alive ? 1 : 0.4, fontVariantNumeric: 'tabular-nums' }}>
+                <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                  <span style={{ width: '5px', height: '5px', borderRadius: '50%', background: p.alive ? tokens.status.good : tokens.text.muted, flexShrink: 0 }} />
+                  {p.name}
+                </span>
+                <span style={{ color: tokens.text.muted }}>{p.kills}-{p.deaths}-{p.assists} · ${p.money}</span>
               </div>
             ))}
           </div>
@@ -218,26 +361,6 @@ function ScoreboardPanel({ board }: { board: Scoreboard | null }) {
   );
 }
 
-function NotablePanel({ notables }: { notables: NotablePlay[] }) {
-  return (
-    <div style={panel()}>
-      <PanelTitle>notable plays · auto-clipped</PanelTitle>
-      {notables.length === 0 ? (
-        <p style={{ color: tokens.text.muted, fontSize: '12px', margin: 0 }}>aces, 4Ks, 3Ks and defuses get clipped here.</p>
-      ) : (
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
-          {[...notables].reverse().map((n, i) => (
-            <span key={i} style={{ fontSize: '12px', color: tokens.brand, fontWeight: 600 }}>{n.description}</span>
-          ))}
-        </div>
-      )}
-    </div>
-  );
-}
-
-function PanelTitle({ children }: { children: React.ReactNode }) {
-  return <div style={{ fontSize: '10.5px', color: tokens.text.muted, textTransform: 'uppercase', letterSpacing: '0.16em', marginBottom: '10px' }}>{children}</div>;
-}
 function panel(): React.CSSProperties {
   return { background: tokens.bg.surface, border: `1px solid ${tokens.border.subtle}`, borderRadius: radius.md, padding: '14px' };
 }
