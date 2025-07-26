@@ -91,6 +91,12 @@ export class HLTVLive {
   /** False until the initial historical log dump has been replayed. */
   private primed = false;
   private roundNum = 0;
+  /**
+   * The scorebot resends the FULL cumulative log on every `log` event, so we
+   * track how many entries we've already processed and only handle the new
+   * tail — otherwise every resend re-fires all historical notables.
+   */
+  private seenLogLen = 0;
   /** Kills per killer in the current round, for multi-kill / clutch detection. */
   private roundKills = new Map<string, number>();
   private lastScoreboard: Scoreboard | null = null;
@@ -108,6 +114,7 @@ export class HLTVLive {
     this.emitStatus('connecting');
     this.primed = false;
     this.roundNum = 0;
+    this.seenLogLen = 0;
     // withCredentials sends the hltv.org cf_clearance cookie cross-site.
     // (Not in the v1 type defs, so widen ConnectOpts to include it.)
     const opts: SocketIOClient.ConnectOpts & { withCredentials?: boolean } = {
@@ -137,6 +144,7 @@ export class HLTVLive {
     this.roundKills.clear();
     this.primed = false;
     this.roundNum = 0;
+    this.seenLogLen = 0;
   }
 
   private parse(raw: unknown): Record<string, unknown> | Array<Record<string, unknown>> {
@@ -149,7 +157,18 @@ export class HLTVLive {
     const entries = (Array.isArray(parsed) ? parsed : parsed.log) as Array<Record<string, unknown>> | undefined;
     if (!Array.isArray(entries)) return;
 
-    for (const entry of entries) {
+    // Process only the new tail. If the log shrank (new map / fresh log),
+    // re-prime so the fresh history isn't clipped retroactively.
+    let fresh: Array<Record<string, unknown>>;
+    if (entries.length < this.seenLogLen) {
+      this.primed = false;
+      fresh = entries;
+    } else {
+      fresh = entries.slice(this.seenLogLen);
+    }
+    this.seenLogLen = entries.length;
+
+    for (const entry of fresh) {
       const now = Date.now();
       if ('RoundStart' in entry) {
         this.roundNum += 1;
