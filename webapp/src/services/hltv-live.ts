@@ -14,6 +14,11 @@
  *
  * The match id comes straight from the pasted HLTV URL — no page scraping
  * (the match page itself is NOT CORS-readable; only the scorebot is).
+ *
+ * IMPORTANT: the first `log` payload is the FULL match history. We replay it
+ * to build round/feed state but stay "unprimed" so it does NOT fire notable
+ * plays — those moments are already gone from the capture buffer and can't be
+ * clipped. Only live events after the initial dump trigger notables/clips.
  */
 import io from 'socket.io-client';
 
@@ -25,6 +30,7 @@ export type HLTVEventType =
 export interface HLTVEvent {
   type: HLTVEventType;
   timestamp: number;
+  round: number;
   data: Record<string, unknown>;
 }
 
@@ -46,12 +52,24 @@ export interface Scoreboard {
   players: ScoreboardPlayer[];
 }
 
+export type NotableType = 'ace' | '4k' | '3k' | 'clutch' | 'bomb_defuse';
+
 export interface NotablePlay {
-  type: 'ace' | '4k' | '3k' | 'bomb_defuse';
+  type: NotableType;
   player: string;
   description: string;
   timestamp: number;
+  round: number;
 }
+
+/** Short HLTV-style tag + color for a notable play, used on clip badges. */
+export const NOTABLE_TAG: Record<NotableType, { label: string; color: string }> = {
+  ace: { label: 'ACE', color: '#ff4d4d' },
+  '4k': { label: '4K', color: '#ff9d3d' },
+  '3k': { label: '3K', color: '#ffd23d' },
+  clutch: { label: 'CLUTCH', color: '#a855f7' },
+  bomb_defuse: { label: 'DEFUSE', color: '#3dd6c4' },
+};
 
 type EventCb = (e: HLTVEvent) => void;
 type ScoreboardCb = (s: Scoreboard) => void;
@@ -70,8 +88,12 @@ export class HLTVLive {
   private notableCbs: NotableCb[] = [];
   private statusCbs: StatusCb[] = [];
 
-  /** Kills per killer in the current round, for multi-kill detection. */
+  /** False until the initial historical log dump has been replayed. */
+  private primed = false;
+  private roundNum = 0;
+  /** Kills per killer in the current round, for multi-kill / clutch detection. */
   private roundKills = new Map<string, number>();
+  private lastScoreboard: Scoreboard | null = null;
 
   onEvent(cb: EventCb) { this.eventCbs.push(cb); }
   onScoreboard(cb: ScoreboardCb) { this.scoreboardCbs.push(cb); }
@@ -84,6 +106,8 @@ export class HLTVLive {
 
   connect(matchId: string): void {
     this.emitStatus('connecting');
+    this.primed = false;
+    this.roundNum = 0;
     // withCredentials sends the hltv.org cf_clearance cookie cross-site.
     // (Not in the v1 type defs, so widen ConnectOpts to include it.)
     const opts: SocketIOClient.ConnectOpts & { withCredentials?: boolean } = {
@@ -111,6 +135,8 @@ export class HLTVLive {
     this.socket?.close();
     this.socket = null;
     this.roundKills.clear();
+    this.primed = false;
+    this.roundNum = 0;
   }
 
   private parse(raw: unknown): Record<string, unknown> | Array<Record<string, unknown>> {
@@ -126,16 +152,17 @@ export class HLTVLive {
     for (const entry of entries) {
       const now = Date.now();
       if ('RoundStart' in entry) {
+        this.roundNum += 1;
         this.roundKills.clear();
-        this.fire({ type: 'round_start', timestamp: now, data: {} });
+        this.fire({ type: 'round_start', timestamp: now, round: this.roundNum, data: {} });
       } else if ('MatchStarted' in entry) {
         const d = entry.MatchStarted as Record<string, unknown>;
-        this.fire({ type: 'match_started', timestamp: now, data: { map: d?.map } });
+        this.fire({ type: 'match_started', timestamp: now, round: this.roundNum, data: { map: d?.map } });
       } else if ('Kill' in entry) {
         const k = entry.Kill as Record<string, unknown>;
         const killer = String(k.killerName ?? k.killerNick ?? '');
         this.fire({
-          type: 'kill', timestamp: now,
+          type: 'kill', timestamp: now, round: this.roundNum,
           data: {
             killer,
             victim: k.victimName ?? k.victimNick,
@@ -149,31 +176,58 @@ export class HLTVLive {
       } else if ('RoundEnd' in entry) {
         const r = entry.RoundEnd as Record<string, unknown>;
         this.fire({
-          type: 'round_end', timestamp: now,
+          type: 'round_end', timestamp: now, round: this.roundNum,
           data: {
             ctScore: r?.counterTerroristScore ?? r?.ctScore,
             tScore: r?.terroristScore ?? r?.tScore,
             winner: r?.winner, winType: r?.winType,
           },
         });
-        this.flushRoundNotables(now);
+        if (this.primed) this.flushRoundNotables(now);
+        else this.roundKills.clear();
       } else if ('BombPlanted' in entry) {
-        this.fire({ type: 'bomb_plant', timestamp: now, data: entry.BombPlanted as Record<string, unknown> });
+        this.fire({ type: 'bomb_plant', timestamp: now, round: this.roundNum, data: entry.BombPlanted as Record<string, unknown> });
       } else if ('BombDefused' in entry) {
         const d = entry.BombDefused as Record<string, unknown>;
-        this.fire({ type: 'bomb_defuse', timestamp: now, data: d });
+        this.fire({ type: 'bomb_defuse', timestamp: now, round: this.roundNum, data: d });
         const player = String(d?.playerName ?? d?.playerNick ?? '');
-        if (player) this.fireNotable({ type: 'bomb_defuse', player, description: `${player} defused the bomb`, timestamp: now });
+        if (this.primed && player) {
+          this.fireNotable({ type: 'bomb_defuse', player, description: `${player} defused the bomb`, timestamp: now, round: this.roundNum });
+        }
       }
     }
+
+    // Everything processed before this point was the historical dump.
+    this.primed = true;
   }
 
-  /** One notable per multi-kill player per round (avoids spamming 3k→4k→ace). */
+  /**
+   * Fire notables for the just-ended round. One per standout player:
+   * a lone survivor with 2+ kills is a CLUTCH, otherwise 3K/4K/ACE.
+   */
   private flushRoundNotables(ts: number): void {
+    const board = this.lastScoreboard;
     for (const [player, kills] of this.roundKills) {
-      if (kills >= 5) this.fireNotable({ type: 'ace', player, description: `${player} ACE (5K)`, timestamp: ts });
-      else if (kills === 4) this.fireNotable({ type: '4k', player, description: `${player} 4K`, timestamp: ts });
-      else if (kills === 3) this.fireNotable({ type: '3k', player, description: `${player} 3K`, timestamp: ts });
+      if (kills < 3) {
+        // 2-kill rounds are only notable as a clutch.
+        const sbp = board?.players.find((p) => p.name === player);
+        const aliveOnSide = sbp ? board!.players.filter((p) => p.side === sbp.side && p.alive).length : 99;
+        if (sbp?.alive && aliveOnSide === 1 && kills >= 2) {
+          this.fireNotable({ type: 'clutch', player, description: `${player} clutch (${kills}K)`, timestamp: ts, round: this.roundNum });
+        }
+        continue;
+      }
+      const sbp = board?.players.find((p) => p.name === player);
+      const aliveOnSide = sbp ? board!.players.filter((p) => p.side === sbp.side && p.alive).length : 99;
+      if (sbp?.alive && aliveOnSide === 1) {
+        this.fireNotable({ type: 'clutch', player, description: `${player} clutch (${kills}K)`, timestamp: ts, round: this.roundNum });
+      } else if (kills >= 5) {
+        this.fireNotable({ type: 'ace', player, description: `${player} ACE`, timestamp: ts, round: this.roundNum });
+      } else if (kills === 4) {
+        this.fireNotable({ type: '4k', player, description: `${player} 4K`, timestamp: ts, round: this.roundNum });
+      } else {
+        this.fireNotable({ type: '3k', player, description: `${player} 3K`, timestamp: ts, round: this.roundNum });
+      }
     }
     this.roundKills.clear();
   }
@@ -197,35 +251,16 @@ export class HLTVLive {
       ...toPlayers(obj.TERRORIST, 'TERRORIST'),
     ];
     if (players.length === 0) return;
-    for (const cb of this.scoreboardCbs) {
-      cb({
-        ctScore: Number((obj.ctScore as number) ?? (obj.counterTerroristScore as number) ?? 0),
-        tScore: Number((obj.tScore as number) ?? (obj.terroristScore as number) ?? 0),
-        map: String(obj.map ?? ''),
-        players,
-      });
-    }
+    const board: Scoreboard = {
+      ctScore: Number((obj.ctScore as number) ?? (obj.counterTerroristScore as number) ?? 0),
+      tScore: Number((obj.tScore as number) ?? (obj.terroristScore as number) ?? 0),
+      map: String(obj.map ?? ''),
+      players,
+    };
+    this.lastScoreboard = board;
+    for (const cb of this.scoreboardCbs) cb(board);
   }
 
   private fire(e: HLTVEvent) { for (const cb of this.eventCbs) cb(e); }
   private fireNotable(n: NotablePlay) { for (const cb of this.notableCbs) cb(n); }
-
-  // ── Offline log-file fallback (HLTV JSON export) ──
-  static parseLogFile(events: Array<Record<string, unknown>>): HLTVEvent[] {
-    const out: HLTVEvent[] = [];
-    let t = 0;
-    for (const entry of events) {
-      const timestamp = t++;
-      if ('Kill' in entry) {
-        const k = entry.Kill as Record<string, unknown>;
-        out.push({ type: 'kill', timestamp, data: { killer: k.killerName, victim: k.victimName, weapon: k.weapon, headshot: k.headShot } });
-      } else if ('RoundStart' in entry) {
-        out.push({ type: 'round_start', timestamp, data: {} });
-      } else if ('RoundEnd' in entry) {
-        const r = entry.RoundEnd as Record<string, unknown>;
-        out.push({ type: 'round_end', timestamp, data: { ctScore: r.counterTerroristScore, tScore: r.terroristScore, winner: r.winner } });
-      }
-    }
-    return out;
-  }
 }
