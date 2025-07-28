@@ -222,9 +222,18 @@ export default function CsApp() {
         display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '12px',
         padding: '12px 22px', borderBottom: `1px solid ${tokens.border.subtle}`, background: tokens.bg.surface,
       }}>
-        <h1 style={{ margin: 0, fontFamily: 'var(--font-display)', fontSize: 'clamp(18px, 2.4vw, 24px)', fontWeight: 700, letterSpacing: '-0.028em' }}>
-          twitchsnipbot
-        </h1>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+          <h1 style={{ margin: 0, fontFamily: 'var(--font-display)', fontSize: 'clamp(18px, 2.4vw, 24px)', fontWeight: 700, letterSpacing: '-0.028em' }}>
+            twitchsnipbot
+          </h1>
+          <span style={{
+            fontSize: '9.5px', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase',
+            color: tokens.status.warn, background: `${tokens.status.warn}1a`,
+            border: `1px solid ${tokens.status.warn}55`, borderRadius: '4px', padding: '2px 7px',
+          }}>
+            cs · under development
+          </span>
+        </div>
         <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
           {connected && <Button variant="ghost" size="sm" onClick={manualClip}>clip now</Button>}
           {connected && <Button variant="ghost" size="sm" onClick={disconnect}>disconnect</Button>}
