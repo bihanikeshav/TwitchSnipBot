@@ -8,26 +8,24 @@
 
 ## Modes
 
-Four ways to run it, all sharing one detection core.
+Two ways to run it, sharing one detection core.
 
 | | Runtime | Summary |
 |---|---|---|
 | **Web app** | Browser | Zero setup, zero auth. Paste a channel; clips collect themselves. |
-| **CS match** *(under development)* | Browser | `/cs` — live HLTV scoreboard + chat, auto-clipped and tagged by play. |
-| **CLI** *(alpha)* | Python | Live IRC or log replay, PyTorch scoring, ffmpeg clips. |
-| **CLI + Dashboard** *(alpha)* | Python + React | The CLI plus a FastAPI server and a live React dashboard. |
+| **CLI** *(alpha)* | Python | Live IRC or log replay, PyTorch scoring, ffmpeg clips, optional dashboard. |
 
 ### Web app
 
 Reads chat anonymously over Twitch IRC and captures the stream from its HLS playlist — no screen share, no auth. A statistical chat-spike detector flags moments; the matching slice is remuxed to MP4 in-browser with ffmpeg.wasm. Session state is shareable and refresh-safe via the URL (`/?c=<channel>`). Runs on Cloudflare Pages, with Pages Functions proxying the Twitch and ffmpeg-core requests.
 
-### CS match  *(under development)*
+#### CS mode  *(under development)*
 
-A companion view for CS2 / CS:GO. Paste an HLTV match URL plus the match's Twitch channel; it connects to HLTV's public scorebot **client-side** (socket.io, reusing the browser's `cf_clearance` cookie — visit the HLTV match page once first) for a live kill/round feed and scoreboard, alongside the same chat detection. Clips auto-fire on aces, 4Ks, 3Ks, clutches, defuses, and chat spikes, each tagged by type. Shareable via `/cs?m=<matchId>&c=<channel>`.
+A companion view at `/cs` for CS2 / CS:GO. Paste an HLTV match URL plus the match's Twitch channel; it connects to HLTV's public scorebot **client-side** (socket.io, reusing the browser's `cf_clearance` cookie — visit the HLTV match page once first) for a live kill/round feed and scoreboard, alongside the same chat detection. Clips auto-fire on aces, 4Ks, 3Ks, clutches, defuses, and chat spikes, each tagged by type. Shareable via `/cs?m=<matchId>&c=<channel>`.
 
-### CLI / Dashboard  *(alpha)*
+### CLI  *(alpha)*
 
-The Python pipeline reads IRC live or replays a log, runs the same feature extraction, scores with the trained PyTorch model, and emits timestamps (`--clip` pulls the VOD via yt-dlp and cuts with ffmpeg). `snipbot server` adds a FastAPI websocket + REST layer that the React app under `dashboard/` consumes.
+The Python pipeline reads IRC live or replays a log, runs the same feature extraction, scores with the trained PyTorch model, and emits timestamps (`--clip` pulls the VOD via yt-dlp and cuts with ffmpeg). `snipbot server` adds a FastAPI websocket + REST layer that the React dashboard under `dashboard/` consumes.
 
 ---
 
