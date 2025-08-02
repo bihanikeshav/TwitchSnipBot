@@ -17,11 +17,11 @@ Two ways to run it, sharing one detection core.
 
 ### Web app
 
-Reads chat anonymously over Twitch IRC and captures the stream from its HLS playlist — no screen share, no auth. A statistical chat-spike detector flags moments; the matching slice is remuxed to MP4 in-browser with ffmpeg.wasm. Session state is shareable and refresh-safe via the URL (`/?c=<channel>`). Runs on Cloudflare Pages, with Pages Functions proxying the Twitch and ffmpeg-core requests.
+Reads chat anonymously over Twitch IRC and captures the stream from its HLS playlist (no screen share, no auth). A statistical chat-spike detector flags moments; the matching slice is remuxed to MP4 in-browser with ffmpeg.wasm. Session state is shareable and refresh-safe via the URL (`/?c=<channel>`). Runs on Cloudflare Pages, with Pages Functions proxying the Twitch and ffmpeg-core requests.
 
 #### CS mode  *(under development)*
 
-A companion view at `/cs` for CS2 / CS:GO. Paste an HLTV match URL plus the match's Twitch channel; it connects to HLTV's public scorebot **client-side** (socket.io, reusing the browser's `cf_clearance` cookie — visit the HLTV match page once first) for a live kill/round feed and scoreboard, alongside the same chat detection. Clips auto-fire on aces, 4Ks, 3Ks, clutches, defuses, and chat spikes, each tagged by type. Shareable via `/cs?m=<matchId>&c=<channel>`.
+A companion view at `/cs` for CS2 / CS:GO. Paste an HLTV match URL plus the match's Twitch channel; it connects to HLTV's public scorebot **client-side** (socket.io, reusing the browser's `cf_clearance` cookie, so visit the HLTV match page once first) for a live kill/round feed and scoreboard, alongside the same chat detection. Clips auto-fire on aces, 4Ks, 3Ks, clutches, defuses, and chat spikes, each tagged by type. Shareable via `/cs?m=<matchId>&c=<channel>`.
 
 ### CLI  *(alpha)*
 
@@ -66,8 +66,8 @@ Every sliding window over chat (default 10s, 2s stride) becomes a 12-dimension f
 
 Two detectors consume these:
 
-- **Statistical** — z-score of `msg_rate` against a rolling baseline. Zero-shot; powers the web app and bootstraps labels.
-- **LSTM** — two heads: a binary highlight score and a 4-way category (funny / exciting / surprising / other). Trained with `BCEWithLogitsLoss` + cross-entropy; sigmoid/softmax are applied at inference, so the same weights serve PyTorch and ONNX without double activation.
+- **Statistical:** z-score of `msg_rate` against a rolling baseline. Zero-shot; powers the web app and bootstraps labels.
+- **LSTM:** two heads, a binary highlight score and a 4-way category (funny / exciting / surprising / other). Trained with `BCEWithLogitsLoss` + cross-entropy; sigmoid/softmax are applied at inference, so the same weights serve PyTorch and ONNX without double activation.
 
 ---
 
@@ -92,7 +92,7 @@ snipbot/            Python core
   plugins/          plugin base + csgo reference
 webapp/             vite + react app (HLS capture, ffmpeg.wasm clips)
   functions/        cloudflare pages functions (twitch + ffmpeg proxies)
-  src/CsApp.tsx     /cs — live HLTV scorebot + tagged clips
+  src/CsApp.tsx     /cs: live HLTV scorebot + tagged clips
 dashboard/          react dashboard for the python backend
 shared/             components shared by webapp + dashboard
 tests/              pytest suite
@@ -118,4 +118,4 @@ tests/              pytest suite
 
 ## Notes
 
-Started as a way to skip the boring parts of long CS:GO tournament VODs. The chat-frequency premise generalizes to most genres where chat reacts in real time — and works less well where chat is slow conversation (cooking, ASMR, quiet IRL).
+Started as my love for CS, then pivoted to a general-purpose highlights engine because the chat-frequency and LSTM detection generalizes to most genres where chat reacts in real time, but might not work as well where chat is slow conversation (cooking, ASMR, quiet IRL).
